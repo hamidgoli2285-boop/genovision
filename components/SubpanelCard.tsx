@@ -1,13 +1,31 @@
+"use client";
+
 import Link from "next/link";
 import Badge from "./Badge";
 import SubpanelIcon from "./SubpanelIcon";
 import type { Subpanel } from "@/lib/subpanels";
 
-type Props = {
-  subpanel: Subpanel;
+type TranslatedSubpanel = {
+  title?: string;
+  shortTitle?: string;
+  badge?: string;
+  description?: string;
+  indications?: string[];
+  ctaLabel?: string;
 };
 
-export default function SubpanelCard({ subpanel }: Props) {
+type Props = {
+  subpanel: Subpanel;
+  translated?: TranslatedSubpanel;
+};
+
+export default function SubpanelCard({ subpanel, translated }: Props) {
+  const title = translated?.title ?? subpanel.title;
+  const badge = translated?.badge ?? subpanel.badge;
+  const description = translated?.description ?? subpanel.description;
+  const indications = translated?.indications ?? subpanel.indications;
+  const ctaLabel = translated?.ctaLabel ?? subpanel.ctaLabel;
+
   return (
     <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl bg-white p-6 ring-1 ring-slate-200/80 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-cardHover hover:ring-cobalt-200 sm:p-7">
       <div className="flex items-start justify-between gap-3">
@@ -19,7 +37,7 @@ export default function SubpanelCard({ subpanel }: Props) {
         </div>
         <div className="flex flex-wrap items-center gap-1.5">
           <Badge tone="cobalt" size="sm">
-            {subpanel.badge}
+            {badge}
           </Badge>
           <Badge tone="teal" size="sm">
             {subpanel.geneCount} genes
@@ -28,14 +46,14 @@ export default function SubpanelCard({ subpanel }: Props) {
       </div>
 
       <h3 className="mt-5 font-display text-xl font-semibold tracking-tight text-navy">
-        {subpanel.title}
+        {title}
       </h3>
       <p className="mt-2 text-sm leading-relaxed text-ink-muted">
-        {subpanel.description}
+        {description}
       </p>
 
       <ul className="mt-5 space-y-2 text-sm text-navy/85">
-        {subpanel.indications.map((ind) => (
+        {indications.map((ind) => (
           <li key={ind} className="flex items-start gap-2">
             <span
               aria-hidden
@@ -64,7 +82,7 @@ export default function SubpanelCard({ subpanel }: Props) {
           href={subpanel.href}
           className="inline-flex items-center gap-1.5 text-sm font-semibold text-cobalt hover:text-cobalt-700"
         >
-          {subpanel.ctaLabel}
+          {ctaLabel}
           <svg
             width="16"
             height="16"

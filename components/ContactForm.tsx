@@ -3,13 +3,14 @@
 import { useState, type FormEvent } from "react";
 import CTAButton from "./CTAButton";
 import { whatsappLink } from "@/lib/site";
+import { useLanguage } from "@/lib/language-context";
 
 type FormState = {
   nombre: string;
   telefono: string;
   correo: string;
-  paraQuien: "para mí" | "para un familiar" | "";
-  antecedentes: "sí" | "no" | "no estoy seguro/a" | "";
+  paraQuien: string;
+  antecedentes: string;
   mensaje: string;
 };
 
@@ -26,6 +27,8 @@ export default function ContactForm() {
   const [data, setData] = useState<FormState>(initialState);
   const [submitted, setSubmitted] = useState(false);
   const [waLink, setWaLink] = useState<string | null>(null);
+  const { t } = useLanguage();
+  const cf = t.contactForm;
 
   const update = <K extends keyof FormState>(key: K, value: FormState[K]) =>
     setData((d) => ({ ...d, [key]: value }));
@@ -33,16 +36,16 @@ export default function ContactForm() {
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const lines = [
-      `Hola GenoVision, me gustaría recibir información.`,
+      cf.whatsappIntro,
       ``,
-      `Nombre: ${data.nombre}`,
-      `Teléfono: ${data.telefono}`,
-      `Correo: ${data.correo}`,
-      data.paraQuien ? `El estudio es: ${data.paraQuien}` : "",
+      `${cf.whatsappName}: ${data.nombre}`,
+      `${cf.whatsappPhone}: ${data.telefono}`,
+      `${cf.whatsappEmail}: ${data.correo}`,
+      data.paraQuien ? `${cf.whatsappForWhom}: ${data.paraQuien}` : "",
       data.antecedentes
-        ? `Antecedentes de cáncer en familia: ${data.antecedentes}`
+        ? `${cf.whatsappHistory}: ${data.antecedentes}`
         : "",
-      data.mensaje ? `Mensaje: ${data.mensaje}` : "",
+      data.mensaje ? `${cf.whatsappMessage}: ${data.mensaje}` : "",
     ].filter(Boolean);
 
     setWaLink(whatsappLink(lines.join("\n")));
@@ -67,15 +70,14 @@ export default function ContactForm() {
           </svg>
         </div>
         <h3 className="font-display text-xl font-semibold text-navy">
-          ¡Recibimos tu información!
+          {cf.successTitle}
         </h3>
         <p className="mt-2 text-sm leading-relaxed text-ink-muted">
-          Para responderte de inmediato, hemos preparado un mensaje en WhatsApp
-          con tus datos. Solo da clic en el botón para enviarlo.
+          {cf.successDescription}
         </p>
         <div className="mt-5 flex flex-wrap gap-3">
           <CTAButton href={waLink} external variant="whatsapp" size="lg">
-            Continuar en WhatsApp
+            {cf.continueWhatsApp}
           </CTAButton>
           <CTAButton
             variant="secondary"
@@ -86,7 +88,7 @@ export default function ContactForm() {
               setWaLink(null);
             }}
           >
-            Enviar otra solicitud
+            {cf.sendAnother}
           </CTAButton>
         </div>
       </div>
@@ -108,7 +110,7 @@ export default function ContactForm() {
             htmlFor="nombre"
             className="mb-1.5 block text-sm font-medium text-navy"
           >
-            Nombre <span className="text-cobalt">*</span>
+            {cf.nameLabel} <span className="text-cobalt">*</span>
           </label>
           <input
             id="nombre"
@@ -118,7 +120,7 @@ export default function ContactForm() {
             value={data.nombre}
             onChange={(e) => update("nombre", e.target.value)}
             className={inputCls}
-            placeholder="Tu nombre completo"
+            placeholder={cf.namePlaceholder}
           />
         </div>
         <div>
@@ -126,7 +128,7 @@ export default function ContactForm() {
             htmlFor="telefono"
             className="mb-1.5 block text-sm font-medium text-navy"
           >
-            Teléfono <span className="text-cobalt">*</span>
+            {cf.phoneLabel} <span className="text-cobalt">*</span>
           </label>
           <input
             id="telefono"
@@ -144,7 +146,7 @@ export default function ContactForm() {
             htmlFor="correo"
             className="mb-1.5 block text-sm font-medium text-navy"
           >
-            Correo
+            {cf.emailLabel}
           </label>
           <input
             id="correo"
@@ -161,20 +163,18 @@ export default function ContactForm() {
             htmlFor="paraQuien"
             className="mb-1.5 block text-sm font-medium text-navy"
           >
-            ¿El estudio es para ti o para un familiar?
+            {cf.forWhomLabel}
           </label>
           <select
             id="paraQuien"
             name="paraQuien"
             value={data.paraQuien}
-            onChange={(e) =>
-              update("paraQuien", e.target.value as FormState["paraQuien"])
-            }
+            onChange={(e) => update("paraQuien", e.target.value)}
             className={inputCls}
           >
-            <option value="">Selecciona una opción</option>
-            <option value="para mí">Para mí</option>
-            <option value="para un familiar">Para un familiar</option>
+            <option value="">{cf.forWhomPlaceholder}</option>
+            <option value={cf.whatsappForSelf}>{cf.forWhomSelf}</option>
+            <option value={cf.whatsappForFamily}>{cf.forWhomFamily}</option>
           </select>
         </div>
         <div>
@@ -182,24 +182,19 @@ export default function ContactForm() {
             htmlFor="antecedentes"
             className="mb-1.5 block text-sm font-medium text-navy"
           >
-            ¿Hay antecedentes de cáncer en tu familia?
+            {cf.historyLabel}
           </label>
           <select
             id="antecedentes"
             name="antecedentes"
             value={data.antecedentes}
-            onChange={(e) =>
-              update(
-                "antecedentes",
-                e.target.value as FormState["antecedentes"]
-              )
-            }
+            onChange={(e) => update("antecedentes", e.target.value)}
             className={inputCls}
           >
-            <option value="">Selecciona una opción</option>
-            <option value="sí">Sí</option>
-            <option value="no">No</option>
-            <option value="no estoy seguro/a">No estoy seguro/a</option>
+            <option value="">{cf.historyPlaceholder}</option>
+            <option value={cf.whatsappHistoryYes}>{cf.historyYes}</option>
+            <option value={cf.whatsappHistoryNo}>{cf.historyNo}</option>
+            <option value={cf.whatsappHistoryUnsure}>{cf.historyUnsure}</option>
           </select>
         </div>
         <div className="sm:col-span-2">
@@ -207,7 +202,7 @@ export default function ContactForm() {
             htmlFor="mensaje"
             className="mb-1.5 block text-sm font-medium text-navy"
           >
-            Mensaje
+            {cf.messageLabel}
           </label>
           <textarea
             id="mensaje"
@@ -216,19 +211,18 @@ export default function ContactForm() {
             value={data.mensaje}
             onChange={(e) => update("mensaje", e.target.value)}
             className={inputCls}
-            placeholder="Cuéntanos brevemente cómo podemos ayudarte"
+            placeholder={cf.messagePlaceholder}
           />
         </div>
       </div>
 
       <p className="mt-4 text-xs leading-relaxed text-ink-muted">
-        Al enviar este formulario aceptas que GenoVision te contacte para
-        brindarte información. Tus datos no se compartirán con terceros.
+        {cf.privacyNote}
       </p>
 
       <div className="mt-5 flex flex-wrap gap-3">
         <CTAButton type="submit" variant="primary" size="lg">
-          Enviar solicitud
+          {cf.submitLabel}
         </CTAButton>
       </div>
     </form>

@@ -6,6 +6,8 @@ export const SITE = {
   phoneIntl: "+529993660543",
   whatsappNumber: "529993660543",
   email: "contacto@genovision.mx",
+  instagramUrl: "https://instagram.com/genovision.mex",
+  instagramHandle: "@genovision.mex",
   address: {
     line1: "CÉNIT Medical Center",
     line2: "C. 15 501-C 919, Col. Altabrisa",

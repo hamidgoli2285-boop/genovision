@@ -1,11 +1,21 @@
+"use client";
+
 import Link from "next/link";
 import Badge from "./Badge";
 import type { Product } from "@/lib/products";
 import { whatsappLink } from "@/lib/site";
+import { useLanguage } from "@/lib/language-context";
 
 type Props = {
   product: Product;
   highlight?: boolean;
+  translatedProduct?: {
+    title?: string;
+    categoryLabel?: string;
+    description?: string;
+    ctaLabel?: string;
+    badges?: string[];
+  };
 };
 
 const statusTone = {
@@ -14,14 +24,22 @@ const statusTone = {
   proximamente: "neutral",
 } as const;
 
-const statusLabel = {
-  disponible: "Disponible",
-  "bajo-solicitud": "Disponible",
-  proximamente: "Próximamente",
-} as const;
-
-export default function ProductCard({ product, highlight }: Props) {
+export default function ProductCard({ product, highlight, translatedProduct }: Props) {
+  const { t } = useLanguage();
   const isFeatured = highlight ?? product.featured;
+
+  const title = translatedProduct?.title ?? product.title;
+  const categoryLabel = translatedProduct?.categoryLabel ?? product.categoryLabel;
+  const description = translatedProduct?.description ?? product.description;
+  const ctaLabel = translatedProduct?.ctaLabel ?? product.ctaLabel;
+  const badges = translatedProduct?.badges ?? product.badges;
+
+  const statusLabel: Record<string, string> = {
+    disponible: t.common.available,
+    "bajo-solicitud": t.common.available,
+    proximamente: t.common.comingSoon,
+  };
+
   const href =
     product.href ??
     whatsappLink(
@@ -41,7 +59,7 @@ export default function ProductCard({ product, highlight }: Props) {
       {isFeatured && (
         <div className="absolute right-4 top-4">
           <Badge tone="cobalt" size="sm">
-            Destacado
+            {t.common.featured}
           </Badge>
         </div>
       )}
@@ -51,12 +69,12 @@ export default function ProductCard({ product, highlight }: Props) {
           {statusLabel[product.status]}
         </Badge>
         <span className="text-[11px] uppercase tracking-wider text-ink-muted">
-          {product.categoryLabel}
+          {categoryLabel}
         </span>
       </div>
 
       <h3 className="mt-4 font-display text-xl font-semibold tracking-tight text-navy">
-        {product.title}
+        {title}
       </h3>
 
       {product.geneCount && (
@@ -67,17 +85,17 @@ export default function ProductCard({ product, highlight }: Props) {
           >
             G
           </span>
-          {product.geneCount} genes evaluados
+          {product.geneCount} {t.common.genesEvaluated}
         </div>
       )}
 
       <p className="mt-3 flex-1 text-sm leading-relaxed text-ink-muted">
-        {product.description}
+        {description}
       </p>
 
-      {product.badges.length > 0 && (
+      {badges.length > 0 && (
         <div className="mt-5 flex flex-wrap gap-1.5">
-          {product.badges.map((b) => (
+          {badges.map((b) => (
             <Badge key={b} tone="cobalt" size="sm">
               {b}
             </Badge>
@@ -93,7 +111,7 @@ export default function ProductCard({ product, highlight }: Props) {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 text-sm font-semibold text-cobalt hover:text-cobalt-700"
           >
-            {product.ctaLabel}
+            {ctaLabel}
             <svg
               width="16"
               height="16"
@@ -114,7 +132,7 @@ export default function ProductCard({ product, highlight }: Props) {
             href={href}
             className="inline-flex items-center gap-1.5 text-sm font-semibold text-cobalt hover:text-cobalt-700"
           >
-            {product.ctaLabel}
+            {ctaLabel}
             <svg
               width="16"
               height="16"

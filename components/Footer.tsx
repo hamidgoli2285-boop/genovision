@@ -1,8 +1,14 @@
+"use client";
+
 import Link from "next/link";
 import Logo from "./Logo";
-import { NAV, SITE, whatsappLink, DEFAULT_WHATSAPP_MESSAGE } from "@/lib/site";
+import InstagramIcon from "./InstagramIcon";
+import { SITE, whatsappLink, DEFAULT_WHATSAPP_MESSAGE } from "@/lib/site";
+import { useLanguage } from "@/lib/language-context";
 
 export default function Footer() {
+  const { t } = useLanguage();
+
   return (
     <footer className="mt-24 border-t border-slate-200 bg-navy text-white/80">
       <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
@@ -12,17 +18,16 @@ export default function Footer() {
               <Logo variant="light" size="xl" />
             </div>
             <p className="mt-4 text-sm leading-relaxed text-white/70">
-              Genómica clínica para identificar predisposición hereditaria al
-              cáncer y orientar decisiones preventivas.
+              {t.footer.tagline}
             </p>
           </div>
 
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-white">
-              Navegación
+              {t.footer.navHeading}
             </h3>
             <ul className="mt-4 space-y-2.5 text-sm">
-              {NAV.map((item) => (
+              {t.nav.items.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
@@ -37,7 +42,7 @@ export default function Footer() {
 
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-white">
-              Contacto
+              {t.footer.contactHeading}
             </h3>
             <ul className="mt-4 space-y-3 text-sm text-white/70">
               <li>
@@ -105,27 +110,35 @@ export default function Footer() {
                   {SITE.address.country}
                 </span>
               </li>
+              <li>
+                <a
+                  href={SITE.instagramUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 hover:text-white"
+                >
+                  <InstagramIcon size={16} />
+                  Instagram: {SITE.instagramHandle}
+                </a>
+              </li>
             </ul>
           </div>
 
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-white">
-              Legal
+              {t.footer.legalHeading}
             </h3>
             <p className="mt-4 text-sm leading-relaxed text-white/65">
-              La información de este sitio es educativa y no sustituye consulta
-              médica. Los resultados genéticos deben ser interpretados por
-              profesionales de salud calificados.
+              {t.footer.legalText}
             </p>
           </div>
         </div>
 
         <div className="mt-12 flex flex-col items-start justify-between gap-3 border-t border-white/10 pt-6 text-xs text-white/50 md:flex-row md:items-center">
           <p>
-            © {new Date().getFullYear()} {SITE.name}. Todos los derechos
-            reservados.
+            © {new Date().getFullYear()} {SITE.name}. {t.footer.rights}
           </p>
-          <p>Mérida, Yucatán, México</p>
+          <p>{t.footer.location}</p>
         </div>
       </div>
     </footer>

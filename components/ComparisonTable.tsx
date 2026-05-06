@@ -1,57 +1,45 @@
+"use client";
+
 import Link from "next/link";
 import Badge from "./Badge";
 import { SUBPANELS, MAIN_PANEL_HREF } from "@/lib/subpanels";
 import { whatsappLink } from "@/lib/site";
-
-type Row = {
-  option: string;
-  href: string;
-  geneCount: number;
-  enfoque: string;
-  mejorPara: string;
-  nivel: string;
-  nivelTone: "cobalt" | "teal" | "navy";
-  ctaLabel: string;
-  isPrimary?: boolean;
-  whatsappMessage?: string;
-};
+import { useLanguage } from "@/lib/language-context";
 
 const PRIMARY_WA =
   "Hola GenoVision, me interesa agendar el Panel Completo de Cáncer Hereditario (161 genes).";
 
-const rows: Row[] = [
-  {
-    option: "Panel Completo de Cáncer Hereditario",
-    href: MAIN_PANEL_HREF,
-    geneCount: 161,
-    enfoque: "161 genes relacionados con múltiples síndromes hereditarios",
-    mejorPara: "Evaluación amplia, antecedentes familiares complejos",
-    nivel: "Más completo",
-    nivelTone: "cobalt",
-    ctaLabel: "Agendar",
-    isPrimary: true,
-    whatsappMessage: PRIMARY_WA,
-  },
-  ...SUBPANELS.map<Row>((sp) => ({
-    option:
-      sp.id === "core"
-        ? "Panel Core"
-        : sp.id === "mama-hereditario"
-          ? "Panel Cáncer de Mama y Ovario Hereditario"
-          : sp.id === "colorrectal-poliposis"
-            ? "Panel Colorrectal y Poliposis"
-            : "Panel Cáncer de Próstata Hereditario",
-    href: sp.href,
-    geneCount: sp.geneCount,
-    enfoque: sp.enfoque,
-    mejorPara: sp.mejorPara,
-    nivel: sp.nivel,
-    nivelTone: "teal",
-    ctaLabel: "Ver",
-  })),
-];
-
 export default function ComparisonTable() {
+  const { t } = useLanguage();
+  const ct = t.comparisonTable;
+
+  const rows = [
+    {
+      option: ct.fullPanelName,
+      href: MAIN_PANEL_HREF,
+      geneCount: 161,
+      enfoque: ct.fullPanelFocus,
+      mejorPara: ct.fullPanelBestFor,
+      nivel: ct.fullPanelCoverage,
+      nivelTone: "cobalt" as const,
+      ctaLabel: ct.schedule,
+      isPrimary: true,
+      whatsappMessage: PRIMARY_WA,
+    },
+    ...SUBPANELS.map((sp) => ({
+      option: ct.subpanelNames[sp.id] ?? sp.shortTitle,
+      href: sp.href,
+      geneCount: sp.geneCount,
+      enfoque: ct.subpanelFocus[sp.id] ?? sp.enfoque,
+      mejorPara: ct.subpanelBestFor[sp.id] ?? sp.mejorPara,
+      nivel: ct.subpanelCoverage[sp.id] ?? sp.nivel,
+      nivelTone: "teal" as const,
+      ctaLabel: ct.view,
+      isPrimary: false,
+      whatsappMessage: undefined as string | undefined,
+    })),
+  ];
+
   return (
     <div className="overflow-hidden rounded-3xl bg-white ring-1 ring-slate-200 shadow-card">
       {/* Desktop table */}
@@ -60,22 +48,22 @@ export default function ComparisonTable() {
           <thead className="bg-slate-50/80 text-[11px] uppercase tracking-[0.16em] text-ink-muted">
             <tr>
               <th scope="col" className="px-6 py-4 font-semibold">
-                Opción
+                {ct.colOption}
               </th>
               <th scope="col" className="px-6 py-4 font-semibold">
-                Genes
+                {ct.colGenes}
               </th>
               <th scope="col" className="px-6 py-4 font-semibold">
-                Enfoque
+                {ct.colFocus}
               </th>
               <th scope="col" className="px-6 py-4 font-semibold">
-                Mejor para
+                {ct.colBestFor}
               </th>
               <th scope="col" className="px-6 py-4 font-semibold">
-                Nivel de cobertura
+                {ct.colCoverage}
               </th>
               <th scope="col" className="px-6 py-4 text-right font-semibold">
-                CTA
+                {ct.colCta}
               </th>
             </tr>
           </thead>
@@ -99,7 +87,7 @@ export default function ComparisonTable() {
                     <span>{row.option}</span>
                     {row.isPrimary && (
                       <Badge tone="cobalt" size="sm">
-                        Recomendado
+                        {ct.recommended}
                       </Badge>
                     )}
                   </div>
@@ -123,9 +111,7 @@ export default function ComparisonTable() {
                 <td className="px-6 py-5 align-top text-right">
                   {row.isPrimary ? (
                     <a
-                      href={whatsappLink(
-                        row.whatsappMessage ?? PRIMARY_WA
-                      )}
+                      href={whatsappLink(row.whatsappMessage ?? PRIMARY_WA)}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center justify-center rounded-xl bg-cobalt px-4 py-2 text-sm font-semibold text-white transition-all hover:-translate-y-px hover:bg-cobalt-600"
@@ -163,7 +149,7 @@ export default function ComparisonTable() {
               </Badge>
               {row.isPrimary && (
                 <Badge tone="cobalt" size="sm">
-                  Recomendado
+                  {ct.recommended}
                 </Badge>
               )}
             </div>
@@ -173,13 +159,13 @@ export default function ComparisonTable() {
             <dl className="mt-3 space-y-2 text-sm">
               <div>
                 <dt className="text-[11px] font-semibold uppercase tracking-wider text-ink-muted">
-                  Enfoque
+                  {ct.labelFocus}
                 </dt>
                 <dd className="text-navy/85">{row.enfoque}</dd>
               </div>
               <div>
                 <dt className="text-[11px] font-semibold uppercase tracking-wider text-ink-muted">
-                  Mejor para
+                  {ct.labelBestFor}
                 </dt>
                 <dd className="text-navy/85">{row.mejorPara}</dd>
               </div>

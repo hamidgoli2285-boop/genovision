@@ -1,12 +1,16 @@
+"use client";
+
+import { useLanguage } from "@/lib/language-context";
+
 type Props = {
   text?: string;
   className?: string;
 };
 
-const DEFAULT =
-  "Este análisis no diagnostica cáncer. Evalúa predisposición genética hereditaria y debe interpretarse junto con la historia personal, familiar y criterio médico.";
+export default function MedicalDisclaimer({ text, className = "" }: Props) {
+  const { t } = useLanguage();
+  const displayText = text ?? t.medicalDisclaimer.text;
 
-export default function MedicalDisclaimer({ text = DEFAULT, className = "" }: Props) {
   return (
     <div
       role="note"
@@ -31,7 +35,8 @@ export default function MedicalDisclaimer({ text = DEFAULT, className = "" }: Pr
         </svg>
       </span>
       <p>
-        <strong className="font-semibold">Importante:</strong> {text}
+        <strong className="font-semibold">{t.medicalDisclaimer.important}:</strong>{" "}
+        {displayText}
       </p>
     </div>
   );

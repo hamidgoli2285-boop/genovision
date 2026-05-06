@@ -1,17 +1,11 @@
-type Item = {
-  label: string;
-  sub?: string;
-};
+"use client";
 
-const items: Item[] = [
-  { label: "161 genes", sub: "evaluados" },
-  { label: "Tecnología NGS", sub: "secuenciación de nueva generación" },
-  { label: "Muestra bucal o saliva", sub: "no invasiva" },
-  { label: "Resultados aprox. 28 días", sub: "tiempo estimado" },
-  { label: "Interpretación profesional", sub: "incluida" },
-];
+import { useLanguage } from "@/lib/language-context";
 
 export default function TrustBar() {
+  const { t } = useLanguage();
+  const items = t.trustBar.items;
+
   return (
     <div className="rounded-2xl border border-slate-200 bg-white/80 p-4 shadow-sm backdrop-blur sm:p-5">
       <ul className="grid grid-cols-2 gap-x-4 gap-y-3 sm:grid-cols-3 lg:grid-cols-5">

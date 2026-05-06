@@ -1,7 +1,10 @@
+"use client";
+
 import CTAButton from "./CTAButton";
 import { whatsappLink } from "@/lib/site";
+import { useLanguage } from "@/lib/language-context";
 
-const DEFAULT_MSG =
+const DOCTOR_MSG =
   "Hola GenoVision, soy médico y me interesa información sobre referencia de pacientes para el Panel de Cáncer Hereditario.";
 
 type Props = {
@@ -9,6 +12,9 @@ type Props = {
 };
 
 export default function DoctorReferralCard({ variant = "full" }: Props) {
+  const { t } = useLanguage();
+  const d = t.doctorReferral;
+
   return (
     <div className="relative overflow-hidden rounded-3xl bg-white p-8 ring-1 ring-slate-200 shadow-card sm:p-12">
       <div
@@ -18,24 +24,17 @@ export default function DoctorReferralCard({ variant = "full" }: Props) {
       <div className="relative grid gap-8 lg:grid-cols-5">
         <div className="lg:col-span-3">
           <span className="inline-flex items-center gap-2 rounded-full bg-cobalt-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-cobalt-700">
-            Para profesionales de la salud
+            {d.badge}
           </span>
           <h3 className="mt-4 font-display text-2xl font-semibold tracking-tight text-navy sm:text-3xl">
-            ¿Eres médico?
+            {d.title}
           </h3>
           <p className="mt-3 text-base leading-relaxed text-ink-muted">
-            GenoVision puede apoyar a tus pacientes con análisis genético
-            avanzado para identificar predisposición hereditaria y orientar
-            estrategias de prevención y seguimiento.
+            {d.description}
           </p>
           {variant === "full" && (
             <ul className="mt-5 grid gap-2 text-sm text-navy-700 sm:grid-cols-2">
-              {[
-                "Soporte en interpretación clínica",
-                "Material educativo para pacientes",
-                "Coordinación de toma de muestra",
-                "Reportes claros y profesionales",
-              ].map((b) => (
+              {d.benefits.map((b) => (
                 <li key={b} className="flex items-center gap-2">
                   <span
                     aria-hidden
@@ -61,15 +60,15 @@ export default function DoctorReferralCard({ variant = "full" }: Props) {
           )}
           <div className="mt-7 flex flex-wrap gap-3">
             <CTAButton
-              href={whatsappLink(DEFAULT_MSG)}
+              href={whatsappLink(DOCTOR_MSG)}
               external
               variant="primary"
               size="lg"
             >
-              Solicitar información para médicos
+              {d.ctaPrimary}
             </CTAButton>
             <CTAButton href="/medicos" variant="secondary" size="lg">
-              Ver detalles
+              {d.ctaSecondary}
             </CTAButton>
           </div>
         </div>
@@ -81,10 +80,10 @@ export default function DoctorReferralCard({ variant = "full" }: Props) {
               className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-teal/20 blur-2xl"
             />
             <p className="text-xs uppercase tracking-[0.18em] text-white/65">
-              Línea exclusiva para médicos
+              {d.exclusiveLine}
             </p>
             <p className="mt-2 font-display text-2xl font-semibold leading-snug">
-              Refiere pacientes con un análisis genómico clínicamente útil
+              {d.referPatients}
             </p>
             <div className="mt-6 flex items-center gap-3 text-sm text-white/80">
               <span className="grid h-9 w-9 place-items-center rounded-full bg-white/10">
@@ -104,7 +103,7 @@ export default function DoctorReferralCard({ variant = "full" }: Props) {
               </span>
               <div>
                 <div className="text-[11px] uppercase tracking-wider text-white/60">
-                  WhatsApp / Teléfono
+                  {d.contactLabel}
                 </div>
                 <div className="font-semibold">999 366 0543</div>
               </div>
