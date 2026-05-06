@@ -57,6 +57,12 @@ export default function ContactCTA({
           </>
         )}
         <div className="relative max-w-3xl">
+          <div className="mb-4 inline-flex items-center gap-1.5 rounded-full bg-[#25D366]/15 px-3 py-1 text-xs font-semibold text-[#1a9e4f]">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+              <path d="M20.5 3.5A11 11 0 0 0 3.6 17.3L2 22l4.8-1.6A11 11 0 1 0 20.5 3.5Z" />
+            </svg>
+            {t.contacto.quickResponse}
+          </div>
           <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
             {displayTitle}
           </h2>

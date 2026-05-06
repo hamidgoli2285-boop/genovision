@@ -32,6 +32,7 @@ export default function ContactoContent() {
                 {c.contactDataTitle}
               </h3>
               <div className="mt-6 space-y-5 text-sm">
+                {/* WhatsApp — primary */}
                 <div className="flex items-start gap-3">
                   <span aria-hidden className="mt-0.5 grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-[#25D366]/10 text-[#25D366]">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -39,12 +40,22 @@ export default function ContactoContent() {
                     </svg>
                   </span>
                   <div>
-                    <div className="text-[11px] font-semibold uppercase tracking-wider text-ink-muted">{c.whatsappLabel}</div>
+                    <div className="flex items-center gap-2">
+                      <div className="text-[11px] font-semibold uppercase tracking-wider text-ink-muted">{c.whatsappLabel}</div>
+                      <span className="inline-flex items-center gap-1 rounded-full bg-[#25D366]/10 px-2 py-0.5 text-[10px] font-semibold text-[#1a9e4f]">
+                        <svg width="6" height="6" viewBox="0 0 8 8" fill="currentColor" aria-hidden>
+                          <circle cx="4" cy="4" r="4" />
+                        </svg>
+                        {c.quickResponse}
+                      </span>
+                    </div>
                     <a href={whatsappLink(DEFAULT_WHATSAPP_MESSAGE)} target="_blank" rel="noopener noreferrer" className="text-base font-semibold text-navy hover:text-cobalt-700">
                       {SITE.phoneDisplay}
                     </a>
                   </div>
                 </div>
+
+                {/* Phone */}
                 <div className="flex items-start gap-3">
                   <span aria-hidden className="mt-0.5 grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-cobalt-50 text-cobalt-700">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -58,6 +69,8 @@ export default function ContactoContent() {
                     </a>
                   </div>
                 </div>
+
+                {/* Address */}
                 <div className="flex items-start gap-3">
                   <span aria-hidden className="mt-0.5 grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-teal-50 text-teal-700">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -74,7 +87,24 @@ export default function ContactoContent() {
                     </p>
                   </div>
                 </div>
+
+                {/* Email — secondary, professional use */}
+                <div className="flex items-start gap-3">
+                  <span aria-hidden className="mt-0.5 grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-slate-100 text-slate-500">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <rect width="20" height="16" x="2" y="4" rx="2" />
+                      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                    </svg>
+                  </span>
+                  <div>
+                    <div className="text-[11px] font-semibold uppercase tracking-wider text-ink-muted">{c.emailLabel}</div>
+                    <a href={`mailto:${SITE.email}`} className="text-base font-semibold text-navy hover:text-cobalt-700">
+                      {SITE.email}
+                    </a>
+                  </div>
+                </div>
               </div>
+
               <div className="mt-6">
                 <CTAButton href={whatsappLink(DEFAULT_WHATSAPP_MESSAGE)} external variant="whatsapp" size="md" fullWidth>
                   {c.sendWhatsApp}
@@ -110,18 +140,7 @@ export default function ContactoContent() {
                     {SITE.instagramHandle}
                   </div>
                 </div>
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden
-                  className="shrink-0 text-ink-muted group-hover:text-cobalt-700"
-                >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden className="shrink-0 text-ink-muted group-hover:text-cobalt-700">
                   <path d="M7 17 17 7" />
                   <path d="M7 7h10v10" />
                 </svg>

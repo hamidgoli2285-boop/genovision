@@ -1,11 +1,11 @@
 export const SITE = {
   name: "GenoVision",
   tagline: "Análisis genético de riesgo de cáncer",
-  url: "https://genovision.mx",
+  url: "https://genovision.bio",
   phoneDisplay: "999 366 0543",
   phoneIntl: "+529993660543",
   whatsappNumber: "529993660543",
-  email: "contacto@genovision.mx",
+  email: "info@genovision.bio",
   instagramUrl: "https://instagram.com/genovision.mex",
   instagramHandle: "@genovision.mex",
   address: {
