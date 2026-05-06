@@ -33,8 +33,9 @@ export default function Logo({
       <img
         src="/genovision-logo.svg"
         alt="GenoVision"
-        className={`${sizes[size]} select-none`}
+        className={`${sizes[size]} select-none [image-rendering:auto] [transform:translateZ(0)]`}
         decoding="async"
+        draggable={false}
       />
     </Link>
   );
