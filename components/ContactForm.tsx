@@ -3,13 +3,14 @@
 import { useState, type FormEvent } from "react";
 import CTAButton from "./CTAButton";
 import { whatsappLink } from "@/lib/site";
+import { useT } from "@/lib/i18n/useT";
 
 type FormState = {
   nombre: string;
   telefono: string;
   correo: string;
-  paraQuien: "para mí" | "para un familiar" | "";
-  antecedentes: "sí" | "no" | "no estoy seguro/a" | "";
+  paraQuien: string;
+  antecedentes: string;
   mensaje: string;
 };
 
@@ -23,6 +24,7 @@ const initialState: FormState = {
 };
 
 export default function ContactForm() {
+  const { t } = useT();
   const [data, setData] = useState<FormState>(initialState);
   const [submitted, setSubmitted] = useState(false);
   const [waLink, setWaLink] = useState<string | null>(null);
@@ -33,16 +35,18 @@ export default function ContactForm() {
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const lines = [
-      `Hola GenoVision, me gustaría recibir información.`,
+      t.contactForm.waMessageHeader,
       ``,
-      `Nombre: ${data.nombre}`,
-      `Teléfono: ${data.telefono}`,
-      `Correo: ${data.correo}`,
-      data.paraQuien ? `El estudio es: ${data.paraQuien}` : "",
-      data.antecedentes
-        ? `Antecedentes de cáncer en familia: ${data.antecedentes}`
+      `${t.contactForm.waLineName}: ${data.nombre}`,
+      `${t.contactForm.phone}: ${data.telefono}`,
+      `${t.contactForm.email}: ${data.correo}`,
+      data.paraQuien
+        ? `${t.contactForm.waLineFor}: ${data.paraQuien}`
         : "",
-      data.mensaje ? `Mensaje: ${data.mensaje}` : "",
+      data.antecedentes
+        ? `${t.contactForm.waLineFamily}: ${data.antecedentes}`
+        : "",
+      data.mensaje ? `${t.contactForm.waLineMessage}: ${data.mensaje}` : "",
     ].filter(Boolean);
 
     setWaLink(whatsappLink(lines.join("\n")));
@@ -67,15 +71,14 @@ export default function ContactForm() {
           </svg>
         </div>
         <h3 className="font-display text-xl font-semibold text-navy">
-          ¡Recibimos tu información!
+          {t.contactForm.receivedTitle}
         </h3>
         <p className="mt-2 text-sm leading-relaxed text-ink-muted">
-          Para responderte de inmediato, hemos preparado un mensaje en WhatsApp
-          con tus datos. Solo da clic en el botón para enviarlo.
+          {t.contactForm.receivedBody}
         </p>
         <div className="mt-5 flex flex-wrap gap-3">
           <CTAButton href={waLink} external variant="whatsapp" size="lg">
-            Continuar en WhatsApp
+            {t.contactForm.continueWa}
           </CTAButton>
           <CTAButton
             variant="secondary"
@@ -86,7 +89,7 @@ export default function ContactForm() {
               setWaLink(null);
             }}
           >
-            Enviar otra solicitud
+            {t.contactForm.sendAnother}
           </CTAButton>
         </div>
       </div>
@@ -108,7 +111,7 @@ export default function ContactForm() {
             htmlFor="nombre"
             className="mb-1.5 block text-sm font-medium text-navy"
           >
-            Nombre <span className="text-cobalt">*</span>
+            {t.contactForm.name} <span className="text-cobalt">*</span>
           </label>
           <input
             id="nombre"
@@ -118,7 +121,7 @@ export default function ContactForm() {
             value={data.nombre}
             onChange={(e) => update("nombre", e.target.value)}
             className={inputCls}
-            placeholder="Tu nombre completo"
+            placeholder={t.contactForm.namePlaceholder}
           />
         </div>
         <div>
@@ -126,7 +129,7 @@ export default function ContactForm() {
             htmlFor="telefono"
             className="mb-1.5 block text-sm font-medium text-navy"
           >
-            Teléfono <span className="text-cobalt">*</span>
+            {t.contactForm.phone} <span className="text-cobalt">*</span>
           </label>
           <input
             id="telefono"
@@ -136,7 +139,7 @@ export default function ContactForm() {
             value={data.telefono}
             onChange={(e) => update("telefono", e.target.value)}
             className={inputCls}
-            placeholder="999 000 0000"
+            placeholder={t.contactForm.phonePlaceholder}
           />
         </div>
         <div className="sm:col-span-2">
@@ -144,7 +147,7 @@ export default function ContactForm() {
             htmlFor="correo"
             className="mb-1.5 block text-sm font-medium text-navy"
           >
-            Correo
+            {t.contactForm.email}
           </label>
           <input
             id="correo"
@@ -153,7 +156,7 @@ export default function ContactForm() {
             value={data.correo}
             onChange={(e) => update("correo", e.target.value)}
             className={inputCls}
-            placeholder="tu@correo.com"
+            placeholder={t.contactForm.emailPlaceholder}
           />
         </div>
         <div>
@@ -161,20 +164,20 @@ export default function ContactForm() {
             htmlFor="paraQuien"
             className="mb-1.5 block text-sm font-medium text-navy"
           >
-            ¿El estudio es para ti o para un familiar?
+            {t.contactForm.forWhom}
           </label>
           <select
             id="paraQuien"
             name="paraQuien"
             value={data.paraQuien}
-            onChange={(e) =>
-              update("paraQuien", e.target.value as FormState["paraQuien"])
-            }
+            onChange={(e) => update("paraQuien", e.target.value)}
             className={inputCls}
           >
-            <option value="">Selecciona una opción</option>
-            <option value="para mí">Para mí</option>
-            <option value="para un familiar">Para un familiar</option>
+            <option value="">{t.contactForm.forWhomPlaceholder}</option>
+            <option value={t.contactForm.forMe}>{t.contactForm.forMe}</option>
+            <option value={t.contactForm.forFamily}>
+              {t.contactForm.forFamily}
+            </option>
           </select>
         </div>
         <div>
@@ -182,24 +185,21 @@ export default function ContactForm() {
             htmlFor="antecedentes"
             className="mb-1.5 block text-sm font-medium text-navy"
           >
-            ¿Hay antecedentes de cáncer en tu familia?
+            {t.contactForm.family}
           </label>
           <select
             id="antecedentes"
             name="antecedentes"
             value={data.antecedentes}
-            onChange={(e) =>
-              update(
-                "antecedentes",
-                e.target.value as FormState["antecedentes"]
-              )
-            }
+            onChange={(e) => update("antecedentes", e.target.value)}
             className={inputCls}
           >
-            <option value="">Selecciona una opción</option>
-            <option value="sí">Sí</option>
-            <option value="no">No</option>
-            <option value="no estoy seguro/a">No estoy seguro/a</option>
+            <option value="">{t.contactForm.familyPlaceholder}</option>
+            <option value={t.contactForm.yes}>{t.contactForm.yes}</option>
+            <option value={t.contactForm.no}>{t.contactForm.no}</option>
+            <option value={t.contactForm.notSure}>
+              {t.contactForm.notSure}
+            </option>
           </select>
         </div>
         <div className="sm:col-span-2">
@@ -207,7 +207,7 @@ export default function ContactForm() {
             htmlFor="mensaje"
             className="mb-1.5 block text-sm font-medium text-navy"
           >
-            Mensaje
+            {t.contactForm.message}
           </label>
           <textarea
             id="mensaje"
@@ -216,19 +216,18 @@ export default function ContactForm() {
             value={data.mensaje}
             onChange={(e) => update("mensaje", e.target.value)}
             className={inputCls}
-            placeholder="Cuéntanos brevemente cómo podemos ayudarte"
+            placeholder={t.contactForm.messagePlaceholder}
           />
         </div>
       </div>
 
       <p className="mt-4 text-xs leading-relaxed text-ink-muted">
-        Al enviar este formulario aceptas que GenoVision te contacte para
-        brindarte información. Tus datos no se compartirán con terceros.
+        {t.contactForm.privacy}
       </p>
 
       <div className="mt-5 flex flex-wrap gap-3">
         <CTAButton type="submit" variant="primary" size="lg">
-          Enviar solicitud
+          {t.contactForm.submit}
         </CTAButton>
       </div>
     </form>

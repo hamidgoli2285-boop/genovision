@@ -1,6 +1,7 @@
 "use client";
 
 import { useId, useMemo, useState } from "react";
+import { useT } from "@/lib/i18n/useT";
 
 type Props = {
   genes: string[];
@@ -13,6 +14,7 @@ export default function SubpanelGeneList({
   countLabel,
   showSearch = false,
 }: Props) {
+  const { t } = useT();
   const [query, setQuery] = useState("");
   const inputId = useId();
 
@@ -28,7 +30,6 @@ export default function SubpanelGeneList({
 
   return (
     <div className="rounded-3xl bg-white p-6 ring-1 ring-slate-200 shadow-card sm:p-8">
-      {/* Header */}
       <div className="flex flex-wrap items-center justify-between gap-3">
         <span className="inline-flex items-center gap-2 rounded-full bg-cobalt-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-cobalt-700 ring-1 ring-cobalt-100">
           <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-teal" />
@@ -37,16 +38,17 @@ export default function SubpanelGeneList({
         {isSearching && (
           <span className="text-xs text-ink-muted">
             {filtered.length}{" "}
-            {filtered.length === 1 ? "resultado" : "resultados"}
+            {filtered.length === 1
+              ? t.subpanelGeneList.resultSingular
+              : t.subpanelGeneList.resultPlural}
           </span>
         )}
       </div>
 
-      {/* Optional search */}
       {showSearch && (
         <div className="mt-5">
           <label htmlFor={inputId} className="sr-only">
-            Buscar gen
+            {t.subpanelGeneList.searchLabel}
           </label>
           <div className="relative">
             <span
@@ -72,7 +74,7 @@ export default function SubpanelGeneList({
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Buscar gen…"
+              placeholder={t.subpanelGeneList.searchPlaceholder}
               autoComplete="off"
               spellCheck={false}
               className="w-full rounded-xl border border-slate-200 bg-white py-2.5 pl-10 pr-3 text-sm text-navy placeholder:text-ink-muted focus:border-cobalt-300 focus:outline-none focus:ring-2 focus:ring-cobalt-100"
@@ -81,7 +83,6 @@ export default function SubpanelGeneList({
         </div>
       )}
 
-      {/* Gene grid */}
       <div className="mt-6">
         {hasResults ? (
           <ul className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
@@ -96,16 +97,13 @@ export default function SubpanelGeneList({
           </ul>
         ) : (
           <p className="rounded-xl bg-slate-50 p-6 text-center text-sm text-ink-muted ring-1 ring-slate-100">
-            No se encontró ese gen en la lista.
+            {t.subpanelGeneList.noResults}
           </p>
         )}
       </div>
 
-      {/* Disclaimer */}
       <p className="mt-6 text-xs leading-relaxed text-ink-muted">
-        La inclusión de un gen en este subpanel no significa diagnóstico de
-        cáncer. Los resultados deben interpretarse junto con la historia
-        personal, familiar y criterio médico.
+        {t.subpanelGeneList.disclaimer}
       </p>
     </div>
   );

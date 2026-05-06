@@ -1,13 +1,22 @@
+"use client";
+
 import Link from "next/link";
 import Badge from "./Badge";
 import SubpanelIcon from "./SubpanelIcon";
 import type { Subpanel } from "@/lib/subpanels";
+import { useT } from "@/lib/i18n/useT";
 
 type Props = {
   subpanel: Subpanel;
 };
 
 export default function SubpanelCard({ subpanel }: Props) {
+  const { t } = useT();
+  const i18n = t.subpanels[subpanel.id];
+  const title = i18n?.title ?? subpanel.title;
+  const description = i18n?.description ?? subpanel.description;
+  const indications = i18n?.indications ?? subpanel.indications;
+
   return (
     <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl bg-white p-6 ring-1 ring-slate-200/80 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-cardHover hover:ring-cobalt-200 sm:p-7">
       <div className="flex items-start justify-between gap-3">
@@ -22,20 +31,20 @@ export default function SubpanelCard({ subpanel }: Props) {
             {subpanel.badge}
           </Badge>
           <Badge tone="teal" size="sm">
-            {subpanel.geneCount} genes
+            {subpanel.geneCount} {t.subpanelCard.geneCount}
           </Badge>
         </div>
       </div>
 
       <h3 className="mt-5 font-display text-xl font-semibold tracking-tight text-navy">
-        {subpanel.title}
+        {title}
       </h3>
       <p className="mt-2 text-sm leading-relaxed text-ink-muted">
-        {subpanel.description}
+        {description}
       </p>
 
       <ul className="mt-5 space-y-2 text-sm text-navy/85">
-        {subpanel.indications.map((ind) => (
+        {indications.map((ind) => (
           <li key={ind} className="flex items-start gap-2">
             <span
               aria-hidden
@@ -64,7 +73,7 @@ export default function SubpanelCard({ subpanel }: Props) {
           href={subpanel.href}
           className="inline-flex items-center gap-1.5 text-sm font-semibold text-cobalt hover:text-cobalt-700"
         >
-          {subpanel.ctaLabel}
+          {t.subpanelCard.cta}
           <svg
             width="16"
             height="16"

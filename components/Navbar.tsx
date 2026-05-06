@@ -5,12 +5,24 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Logo from "./Logo";
 import CTAButton from "./CTAButton";
-import { NAV, whatsappLink, DEFAULT_WHATSAPP_MESSAGE } from "@/lib/site";
+import LanguageSwitcher from "./LanguageSwitcher";
+import { whatsappLink, DEFAULT_WHATSAPP_MESSAGE } from "@/lib/site";
+import { useT } from "@/lib/i18n/useT";
 
 export default function Navbar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { t } = useT();
+
+  const navItems = [
+    { label: t.nav.home, href: "/" },
+    { label: t.nav.productos, href: "/productos" },
+    { label: t.nav.proceso, href: "/proceso" },
+    { label: t.nav.medicos, href: "/medicos" },
+    { label: t.nav.faq, href: "/preguntas-frecuentes" },
+    { label: t.nav.contacto, href: "/contacto" },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 6);
@@ -45,10 +57,10 @@ export default function Navbar() {
         <Logo size="xl" />
 
         <nav
-          aria-label="Principal"
+          aria-label={t.nav.mainNav}
           className="hidden items-center gap-1 lg:flex"
         >
-          {NAV.map((item) => (
+          {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
@@ -70,6 +82,7 @@ export default function Navbar() {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
+          <LanguageSwitcher />
           <CTAButton
             href={whatsappLink(DEFAULT_WHATSAPP_MESSAGE)}
             external
@@ -88,43 +101,46 @@ export default function Navbar() {
             }
             iconPosition="left"
           >
-            WhatsApp
+            {t.nav.whatsapp}
           </CTAButton>
         </div>
 
-        <button
-          type="button"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-navy hover:bg-navy-50 lg:hidden"
-          aria-label={open ? "Cerrar menú" : "Abrir menú"}
-          aria-expanded={open}
-          aria-controls="mobile-nav"
-          onClick={() => setOpen((v) => !v)}
-        >
-          <svg
-            width="22"
-            height="22"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            aria-hidden
+        <div className="flex items-center gap-2 lg:hidden">
+          <LanguageSwitcher />
+          <button
+            type="button"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-navy hover:bg-navy-50"
+            aria-label={open ? t.nav.closeMenu : t.nav.openMenu}
+            aria-expanded={open}
+            aria-controls="mobile-nav"
+            onClick={() => setOpen((v) => !v)}
           >
-            {open ? (
-              <>
-                <path d="M18 6 6 18" />
-                <path d="m6 6 12 12" />
-              </>
-            ) : (
-              <>
-                <path d="M4 7h16" />
-                <path d="M4 12h16" />
-                <path d="M4 17h16" />
-              </>
-            )}
-          </svg>
-        </button>
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden
+            >
+              {open ? (
+                <>
+                  <path d="M18 6 6 18" />
+                  <path d="m6 6 12 12" />
+                </>
+              ) : (
+                <>
+                  <path d="M4 7h16" />
+                  <path d="M4 12h16" />
+                  <path d="M4 17h16" />
+                </>
+              )}
+            </svg>
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
@@ -135,10 +151,10 @@ export default function Navbar() {
         } border-t border-slate-100 bg-white`}
       >
         <nav
-          aria-label="Móvil"
+          aria-label={t.nav.mobileNav}
           className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-4 sm:px-6"
         >
-          {NAV.map((item) => (
+          {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
@@ -159,7 +175,7 @@ export default function Navbar() {
               size="lg"
               fullWidth
             >
-              Escríbenos por WhatsApp
+              {t.nav.whatsapp}
             </CTAButton>
           </div>
         </nav>

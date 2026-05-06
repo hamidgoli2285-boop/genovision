@@ -1,14 +1,62 @@
-import CTAButton from "./CTAButton";
-import { whatsappLink } from "@/lib/site";
+"use client";
 
-const DEFAULT_MSG =
-  "Hola GenoVision, soy médico y me interesa información sobre referencia de pacientes para el Panel de Cáncer Hereditario.";
+import CTAButton from "./CTAButton";
+import { whatsappLink, SITE } from "@/lib/site";
+import { useT } from "@/lib/i18n/useT";
 
 type Props = {
   variant?: "compact" | "full";
 };
 
 export default function DoctorReferralCard({ variant = "full" }: Props) {
+  const { t, locale } = useT();
+
+  const msg =
+    locale === "en"
+      ? "Hello GenoVision, I'm a physician and I'd like information about referring patients for the Hereditary Cancer Panel."
+      : "Hola GenoVision, soy médico y me interesa información sobre referencia de pacientes para el Panel de Cáncer Hereditario.";
+
+  const heading = locale === "en" ? "Are you a physician?" : "¿Eres médico?";
+  const description =
+    locale === "en"
+      ? "GenoVision can support your patients with advanced genetic testing to identify hereditary predisposition and guide prevention and follow-up strategies."
+      : "GenoVision puede apoyar a tus pacientes con análisis genético avanzado para identificar predisposición hereditaria y orientar estrategias de prevención y seguimiento.";
+
+  const bullets =
+    locale === "en"
+      ? [
+          "Support with clinical interpretation",
+          "Educational material for patients",
+          "Sample collection coordination",
+          "Clear, professional reports",
+        ]
+      : [
+          "Soporte en interpretación clínica",
+          "Material educativo para pacientes",
+          "Coordinación de toma de muestra",
+          "Reportes claros y profesionales",
+        ];
+
+  const ctaPrimary =
+    locale === "en"
+      ? "Request information for physicians"
+      : "Solicitar información para médicos";
+  const ctaSecondary = locale === "en" ? "View details" : "Ver detalles";
+  const eyebrow =
+    locale === "en"
+      ? "For healthcare professionals"
+      : "Para profesionales de la salud";
+  const tagline =
+    locale === "en"
+      ? "Exclusive line for physicians"
+      : "Línea exclusiva para médicos";
+  const banner =
+    locale === "en"
+      ? "Refer patients with a clinically useful genomic test"
+      : "Refiere pacientes con un análisis genómico clínicamente útil";
+  const phoneLabel =
+    locale === "en" ? "WhatsApp / Phone" : "WhatsApp / Teléfono";
+
   return (
     <div className="relative overflow-hidden rounded-3xl bg-white p-8 ring-1 ring-slate-200 shadow-card sm:p-12">
       <div
@@ -18,24 +66,17 @@ export default function DoctorReferralCard({ variant = "full" }: Props) {
       <div className="relative grid gap-8 lg:grid-cols-5">
         <div className="lg:col-span-3">
           <span className="inline-flex items-center gap-2 rounded-full bg-cobalt-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-cobalt-700">
-            Para profesionales de la salud
+            {eyebrow}
           </span>
           <h3 className="mt-4 font-display text-2xl font-semibold tracking-tight text-navy sm:text-3xl">
-            ¿Eres médico?
+            {heading}
           </h3>
           <p className="mt-3 text-base leading-relaxed text-ink-muted">
-            GenoVision puede apoyar a tus pacientes con análisis genético
-            avanzado para identificar predisposición hereditaria y orientar
-            estrategias de prevención y seguimiento.
+            {description}
           </p>
           {variant === "full" && (
             <ul className="mt-5 grid gap-2 text-sm text-navy-700 sm:grid-cols-2">
-              {[
-                "Soporte en interpretación clínica",
-                "Material educativo para pacientes",
-                "Coordinación de toma de muestra",
-                "Reportes claros y profesionales",
-              ].map((b) => (
+              {bullets.map((b) => (
                 <li key={b} className="flex items-center gap-2">
                   <span
                     aria-hidden
@@ -61,15 +102,15 @@ export default function DoctorReferralCard({ variant = "full" }: Props) {
           )}
           <div className="mt-7 flex flex-wrap gap-3">
             <CTAButton
-              href={whatsappLink(DEFAULT_MSG)}
+              href={whatsappLink(msg)}
               external
               variant="primary"
               size="lg"
             >
-              Solicitar información para médicos
+              {ctaPrimary}
             </CTAButton>
             <CTAButton href="/medicos" variant="secondary" size="lg">
-              Ver detalles
+              {ctaSecondary}
             </CTAButton>
           </div>
         </div>
@@ -81,10 +122,10 @@ export default function DoctorReferralCard({ variant = "full" }: Props) {
               className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-teal/20 blur-2xl"
             />
             <p className="text-xs uppercase tracking-[0.18em] text-white/65">
-              Línea exclusiva para médicos
+              {tagline}
             </p>
             <p className="mt-2 font-display text-2xl font-semibold leading-snug">
-              Refiere pacientes con un análisis genómico clínicamente útil
+              {banner}
             </p>
             <div className="mt-6 flex items-center gap-3 text-sm text-white/80">
               <span className="grid h-9 w-9 place-items-center rounded-full bg-white/10">
@@ -104,9 +145,9 @@ export default function DoctorReferralCard({ variant = "full" }: Props) {
               </span>
               <div>
                 <div className="text-[11px] uppercase tracking-wider text-white/60">
-                  WhatsApp / Teléfono
+                  {phoneLabel}
                 </div>
-                <div className="font-semibold">999 366 0543</div>
+                <div className="font-semibold">{SITE.phoneDisplay}</div>
               </div>
             </div>
           </div>

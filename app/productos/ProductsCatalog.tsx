@@ -3,8 +3,10 @@
 import { useMemo, useState } from "react";
 import ProductCard from "@/components/ProductCard";
 import { CATEGORIES, PRODUCTS } from "@/lib/products";
+import { useT } from "@/lib/i18n/useT";
 
 export default function ProductsCatalog() {
+  const { t } = useT();
   const [active, setActive] = useState<string>("all");
 
   const filtered = useMemo(() => {
@@ -16,11 +18,12 @@ export default function ProductsCatalog() {
     <div>
       <div
         role="tablist"
-        aria-label="Filtros de catálogo"
+        aria-label={t.productosPage.filterLabel}
         className="-mx-4 mb-8 flex gap-2 overflow-x-auto px-4 pb-2 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0"
       >
         {CATEGORIES.map((cat) => {
           const isActive = cat.id === active;
+          const label = t.productCategories[cat.id] ?? cat.label;
           return (
             <button
               key={cat.id}
@@ -35,7 +38,7 @@ export default function ProductsCatalog() {
                   : "bg-white text-navy/80 ring-slate-200 hover:bg-slate-50 hover:text-navy",
               ].join(" ")}
             >
-              {cat.label}
+              {label}
             </button>
           );
         })}
@@ -44,7 +47,7 @@ export default function ProductsCatalog() {
       {filtered.length === 0 ? (
         <div className="rounded-2xl bg-white p-10 text-center ring-1 ring-slate-200">
           <p className="text-base text-ink-muted">
-            No hay paneles en esta categoría todavía. Pronto agregaremos más.
+            {t.productosPage.catalogEmpty}
           </p>
         </div>
       ) : (

@@ -1,11 +1,15 @@
+"use client";
+
 import Link from "next/link";
 import { MAIN_PANEL_HREF } from "@/lib/subpanels";
+import { useT } from "@/lib/i18n/useT";
 
 type Props = {
   className?: string;
 };
 
 export default function BackToMainPanel({ className = "" }: Props) {
+  const { t } = useT();
   return (
     <Link
       href={MAIN_PANEL_HREF}
@@ -24,7 +28,7 @@ export default function BackToMainPanel({ className = "" }: Props) {
       >
         <path d="M19 12H5M12 19l-7-7 7-7" />
       </svg>
-      Ver panel completo de 161 genes
+      {t.backToMain}
     </Link>
   );
 }

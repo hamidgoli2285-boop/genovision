@@ -1,8 +1,22 @@
+"use client";
+
 import Link from "next/link";
 import Logo from "./Logo";
-import { NAV, SITE, whatsappLink, DEFAULT_WHATSAPP_MESSAGE } from "@/lib/site";
+import { SITE, whatsappLink, DEFAULT_WHATSAPP_MESSAGE } from "@/lib/site";
+import { useT } from "@/lib/i18n/useT";
 
 export default function Footer() {
+  const { t } = useT();
+
+  const navItems = [
+    { label: t.nav.home, href: "/" },
+    { label: t.nav.productos, href: "/productos" },
+    { label: t.nav.proceso, href: "/proceso" },
+    { label: t.nav.medicos, href: "/medicos" },
+    { label: t.nav.faq, href: "/preguntas-frecuentes" },
+    { label: t.nav.contacto, href: "/contacto" },
+  ];
+
   return (
     <footer className="mt-24 border-t border-slate-200 bg-navy text-white/80">
       <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
@@ -12,17 +26,16 @@ export default function Footer() {
               <Logo variant="light" size="xl" />
             </div>
             <p className="mt-4 text-sm leading-relaxed text-white/70">
-              Genómica clínica para identificar predisposición hereditaria al
-              cáncer y orientar decisiones preventivas.
+              {t.footer.description}
             </p>
           </div>
 
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-white">
-              Navegación
+              {t.footer.navigation}
             </h3>
             <ul className="mt-4 space-y-2.5 text-sm">
-              {NAV.map((item) => (
+              {navItems.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
@@ -37,7 +50,7 @@ export default function Footer() {
 
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-white">
-              Contacto
+              {t.footer.contact}
             </h3>
             <ul className="mt-4 space-y-3 text-sm text-white/70">
               <li>
@@ -110,22 +123,19 @@ export default function Footer() {
 
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-white">
-              Legal
+              {t.footer.legal}
             </h3>
             <p className="mt-4 text-sm leading-relaxed text-white/65">
-              La información de este sitio es educativa y no sustituye consulta
-              médica. Los resultados genéticos deben ser interpretados por
-              profesionales de salud calificados.
+              {t.footer.legalText}
             </p>
           </div>
         </div>
 
         <div className="mt-12 flex flex-col items-start justify-between gap-3 border-t border-white/10 pt-6 text-xs text-white/50 md:flex-row md:items-center">
           <p>
-            © {new Date().getFullYear()} {SITE.name}. Todos los derechos
-            reservados.
+            © 2026 {SITE.name}. {t.footer.rights}
           </p>
-          <p>Mérida, Yucatán, México</p>
+          <p>{t.footer.location}</p>
         </div>
       </div>
     </footer>

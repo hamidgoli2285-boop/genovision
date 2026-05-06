@@ -1,12 +1,15 @@
+"use client";
+
+import { useT } from "@/lib/i18n/useT";
+
 type Props = {
   text?: string;
   className?: string;
 };
 
-const DEFAULT =
-  "Este análisis no diagnostica cáncer. Evalúa predisposición genética hereditaria y debe interpretarse junto con la historia personal, familiar y criterio médico.";
-
-export default function MedicalDisclaimer({ text = DEFAULT, className = "" }: Props) {
+export default function MedicalDisclaimer({ text, className = "" }: Props) {
+  const { t } = useT();
+  const resolved = text ?? t.medicalDisclaimer.text;
   return (
     <div
       role="note"
@@ -31,7 +34,8 @@ export default function MedicalDisclaimer({ text = DEFAULT, className = "" }: Pr
         </svg>
       </span>
       <p>
-        <strong className="font-semibold">Importante:</strong> {text}
+        <strong className="font-semibold">{t.medicalDisclaimer.label}</strong>{" "}
+        {resolved}
       </p>
     </div>
   );

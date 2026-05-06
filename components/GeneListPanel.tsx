@@ -1,6 +1,7 @@
 "use client";
 
 import { useId, useMemo, useState } from "react";
+import { useT } from "@/lib/i18n/useT";
 
 type Props = {
   genes: string[];
@@ -9,6 +10,7 @@ type Props = {
 const PREVIEW_COUNT = 28;
 
 export default function GeneListPanel({ genes }: Props) {
+  const { t } = useT();
   const [expanded, setExpanded] = useState(false);
   const [query, setQuery] = useState("");
   const inputId = useId();
@@ -25,25 +27,25 @@ export default function GeneListPanel({ genes }: Props) {
 
   return (
     <div className="rounded-3xl bg-white p-6 ring-1 ring-slate-200 shadow-card sm:p-8">
-      {/* Header: counter + result hint */}
       <div className="flex flex-wrap items-center justify-between gap-3">
         <span className="inline-flex items-center gap-2 rounded-full bg-cobalt-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-cobalt-700 ring-1 ring-cobalt-100">
           <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-teal" />
-          161 genes incluidos
+          {t.geneListPanel.counter}
         </span>
         {isSearching && (
           <span className="text-xs text-ink-muted">
             {filtered.length}{" "}
-            {filtered.length === 1 ? "resultado" : "resultados"}
+            {filtered.length === 1
+              ? t.geneListPanel.resultSingular
+              : t.geneListPanel.resultPlural}
           </span>
         )}
       </div>
 
-      {/* Search input — only when expanded */}
       {expanded && (
         <div className="mt-5">
           <label htmlFor={inputId} className="sr-only">
-            Buscar gen
+            {t.geneListPanel.searchLabel}
           </label>
           <div className="relative">
             <span
@@ -69,7 +71,7 @@ export default function GeneListPanel({ genes }: Props) {
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Buscar gen…"
+              placeholder={t.geneListPanel.searchPlaceholder}
               autoComplete="off"
               spellCheck={false}
               className="w-full rounded-xl border border-slate-200 bg-white py-2.5 pl-10 pr-3 text-sm text-navy placeholder:text-ink-muted focus:border-cobalt-300 focus:outline-none focus:ring-2 focus:ring-cobalt-100"
@@ -78,7 +80,6 @@ export default function GeneListPanel({ genes }: Props) {
         </div>
       )}
 
-      {/* Gene grid */}
       <div className="mt-6">
         {hasResults ? (
           <ul className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7">
@@ -93,12 +94,11 @@ export default function GeneListPanel({ genes }: Props) {
           </ul>
         ) : (
           <p className="rounded-xl bg-slate-50 p-6 text-center text-sm text-ink-muted ring-1 ring-slate-100">
-            No se encontró ese gen en la lista.
+            {t.geneListPanel.noResults}
           </p>
         )}
       </div>
 
-      {/* Toggle button */}
       <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
         {!expanded ? (
           <button
@@ -106,7 +106,7 @@ export default function GeneListPanel({ genes }: Props) {
             onClick={() => setExpanded(true)}
             className="inline-flex items-center gap-2 rounded-full bg-navy px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-navy-700"
           >
-            Ver los 161 genes
+            {t.geneListPanel.expand}
             <svg
               width="16"
               height="16"
@@ -143,16 +143,13 @@ export default function GeneListPanel({ genes }: Props) {
             >
               <path d="M18 15l-6-6-6 6" />
             </svg>
-            Ocultar lista
+            {t.geneListPanel.collapse}
           </button>
         )}
       </div>
 
-      {/* Disclaimer */}
       <p className="mt-6 text-xs leading-relaxed text-ink-muted">
-        La inclusión de un gen en el panel no significa diagnóstico de cáncer.
-        Los resultados deben interpretarse junto con la historia personal,
-        familiar y criterio médico.
+        {t.geneListPanel.disclaimer}
       </p>
     </div>
   );

@@ -1,7 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import Badge from "./Badge";
 import type { Product } from "@/lib/products";
 import { whatsappLink } from "@/lib/site";
+import { useT } from "@/lib/i18n/useT";
 
 type Props = {
   product: Product;
@@ -14,19 +17,28 @@ const statusTone = {
   proximamente: "neutral",
 } as const;
 
-const statusLabel = {
-  disponible: "Disponible",
-  "bajo-solicitud": "Disponible",
-  proximamente: "Próximamente",
-} as const;
-
 export default function ProductCard({ product, highlight }: Props) {
+  const { t, locale } = useT();
   const isFeatured = highlight ?? product.featured;
-  const href =
-    product.href ??
-    whatsappLink(
-      `Hola GenoVision, me interesa información sobre el ${product.title}.`
-    );
+
+  // Pull bilingual copy from the dictionary keyed by product id, with safe fallback to data
+  const i18n = t.products[product.id];
+  const title = i18n?.title ?? product.title;
+  const description = i18n?.description ?? product.description;
+  const categoryLabel = i18n?.categoryLabel ?? product.categoryLabel;
+  const ctaLabel = i18n?.ctaLabel ?? product.ctaLabel;
+
+  const statusLabel =
+    product.status === "proximamente"
+      ? t.productCard.statusProximamente
+      : t.productCard.statusDisponible;
+
+  const waText =
+    locale === "en"
+      ? `Hello GenoVision, I'd like information about the ${title}.`
+      : `Hola GenoVision, me interesa información sobre el ${title}.`;
+
+  const href = product.href ?? whatsappLink(waText);
   const isExternal = !product.href;
 
   return (
@@ -41,22 +53,22 @@ export default function ProductCard({ product, highlight }: Props) {
       {isFeatured && (
         <div className="absolute right-4 top-4">
           <Badge tone="cobalt" size="sm">
-            Destacado
+            {t.productCard.featured}
           </Badge>
         </div>
       )}
 
       <div className="flex items-center gap-2">
         <Badge tone={statusTone[product.status]} size="sm">
-          {statusLabel[product.status]}
+          {statusLabel}
         </Badge>
         <span className="text-[11px] uppercase tracking-wider text-ink-muted">
-          {product.categoryLabel}
+          {categoryLabel}
         </span>
       </div>
 
       <h3 className="mt-4 font-display text-xl font-semibold tracking-tight text-navy">
-        {product.title}
+        {title}
       </h3>
 
       {product.geneCount && (
@@ -67,12 +79,12 @@ export default function ProductCard({ product, highlight }: Props) {
           >
             G
           </span>
-          {product.geneCount} genes evaluados
+          {product.geneCount} {t.productCard.genesEvaluados}
         </div>
       )}
 
       <p className="mt-3 flex-1 text-sm leading-relaxed text-ink-muted">
-        {product.description}
+        {description}
       </p>
 
       {product.badges.length > 0 && (
@@ -93,7 +105,7 @@ export default function ProductCard({ product, highlight }: Props) {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 text-sm font-semibold text-cobalt hover:text-cobalt-700"
           >
-            {product.ctaLabel}
+            {ctaLabel}
             <svg
               width="16"
               height="16"
@@ -114,7 +126,7 @@ export default function ProductCard({ product, highlight }: Props) {
             href={href}
             className="inline-flex items-center gap-1.5 text-sm font-semibold text-cobalt hover:text-cobalt-700"
           >
-            {product.ctaLabel}
+            {ctaLabel}
             <svg
               width="16"
               height="16"

@@ -1,7 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import Badge from "./Badge";
 import { SUBPANELS, MAIN_PANEL_HREF } from "@/lib/subpanels";
 import { whatsappLink } from "@/lib/site";
+import { useT } from "@/lib/i18n/useT";
 
 type Row = {
   option: string;
@@ -16,42 +19,80 @@ type Row = {
   whatsappMessage?: string;
 };
 
-const PRIMARY_WA =
-  "Hola GenoVision, me interesa agendar el Panel Completo de Cáncer Hereditario (161 genes).";
-
-const rows: Row[] = [
-  {
-    option: "Panel Completo de Cáncer Hereditario",
-    href: MAIN_PANEL_HREF,
-    geneCount: 161,
-    enfoque: "161 genes relacionados con múltiples síndromes hereditarios",
-    mejorPara: "Evaluación amplia, antecedentes familiares complejos",
-    nivel: "Más completo",
-    nivelTone: "cobalt",
-    ctaLabel: "Agendar",
-    isPrimary: true,
-    whatsappMessage: PRIMARY_WA,
-  },
-  ...SUBPANELS.map<Row>((sp) => ({
-    option:
-      sp.id === "core"
-        ? "Panel Core"
-        : sp.id === "mama-hereditario"
-          ? "Panel Cáncer de Mama y Ovario Hereditario"
-          : sp.id === "colorrectal-poliposis"
-            ? "Panel Colorrectal y Poliposis"
-            : "Panel Cáncer de Próstata Hereditario",
-    href: sp.href,
-    geneCount: sp.geneCount,
-    enfoque: sp.enfoque,
-    mejorPara: sp.mejorPara,
-    nivel: sp.nivel,
-    nivelTone: "teal",
-    ctaLabel: "Ver",
-  })),
-];
-
 export default function ComparisonTable() {
+  const { t, locale } = useT();
+
+  const primaryWa = t.comparisonTable.primaryWa;
+  const fullPanelOption =
+    locale === "en"
+      ? "Full Hereditary Cancer Panel"
+      : "Panel Completo de Cáncer Hereditario";
+  const fullPanelEnfoque =
+    locale === "en"
+      ? "161 genes related to multiple hereditary syndromes"
+      : "161 genes relacionados con múltiples síndromes hereditarios";
+  const fullPanelBest =
+    locale === "en"
+      ? "Broad evaluation, complex family history"
+      : "Evaluación amplia, antecedentes familiares complejos";
+  const fullPanelLevel =
+    locale === "en" ? "Most complete" : "Más completo";
+  const ctaSchedule = locale === "en" ? "Schedule" : "Agendar";
+  const ctaView = locale === "en" ? "View" : "Ver";
+
+  const subpanelOption = (id: string): string => {
+    if (locale === "en") {
+      switch (id) {
+        case "core":
+          return "Core Panel";
+        case "mama-hereditario":
+          return "Hereditary Breast & Ovarian Cancer Panel";
+        case "colorrectal-poliposis":
+          return "Colorectal & Polyposis Panel";
+        default:
+          return "Hereditary Prostate Cancer Panel";
+      }
+    }
+    switch (id) {
+      case "core":
+        return "Panel Core";
+      case "mama-hereditario":
+        return "Panel Cáncer de Mama y Ovario Hereditario";
+      case "colorrectal-poliposis":
+        return "Panel Colorrectal y Poliposis";
+      default:
+        return "Panel Cáncer de Próstata Hereditario";
+    }
+  };
+
+  const rows: Row[] = [
+    {
+      option: fullPanelOption,
+      href: MAIN_PANEL_HREF,
+      geneCount: 161,
+      enfoque: fullPanelEnfoque,
+      mejorPara: fullPanelBest,
+      nivel: fullPanelLevel,
+      nivelTone: "cobalt",
+      ctaLabel: ctaSchedule,
+      isPrimary: true,
+      whatsappMessage: primaryWa,
+    },
+    ...SUBPANELS.map<Row>((sp) => {
+      const i18n = t.subpanels[sp.id];
+      return {
+        option: subpanelOption(sp.id),
+        href: sp.href,
+        geneCount: sp.geneCount,
+        enfoque: i18n?.enfoque ?? sp.enfoque,
+        mejorPara: i18n?.mejorPara ?? sp.mejorPara,
+        nivel: i18n?.nivel ?? sp.nivel,
+        nivelTone: "teal",
+        ctaLabel: ctaView,
+      };
+    }),
+  ];
+
   return (
     <div className="overflow-hidden rounded-3xl bg-white ring-1 ring-slate-200 shadow-card">
       {/* Desktop table */}
@@ -60,22 +101,22 @@ export default function ComparisonTable() {
           <thead className="bg-slate-50/80 text-[11px] uppercase tracking-[0.16em] text-ink-muted">
             <tr>
               <th scope="col" className="px-6 py-4 font-semibold">
-                Opción
+                {t.comparisonTable.option}
               </th>
               <th scope="col" className="px-6 py-4 font-semibold">
-                Genes
+                {t.comparisonTable.genes}
               </th>
               <th scope="col" className="px-6 py-4 font-semibold">
-                Enfoque
+                {t.comparisonTable.enfoque}
               </th>
               <th scope="col" className="px-6 py-4 font-semibold">
-                Mejor para
+                {t.comparisonTable.mejorPara}
               </th>
               <th scope="col" className="px-6 py-4 font-semibold">
-                Nivel de cobertura
+                {t.comparisonTable.nivel}
               </th>
               <th scope="col" className="px-6 py-4 text-right font-semibold">
-                CTA
+                {t.comparisonTable.cta}
               </th>
             </tr>
           </thead>
@@ -99,14 +140,14 @@ export default function ComparisonTable() {
                     <span>{row.option}</span>
                     {row.isPrimary && (
                       <Badge tone="cobalt" size="sm">
-                        Recomendado
+                        {t.comparisonTable.recommended}
                       </Badge>
                     )}
                   </div>
                 </th>
                 <td className="px-6 py-5 align-top">
                   <span className="inline-flex items-center rounded-full bg-cobalt-50 px-2.5 py-1 text-xs font-semibold text-cobalt-700 ring-1 ring-cobalt-100">
-                    {row.geneCount} genes
+                    {row.geneCount} {t.comparisonTable.geneSuffix}
                   </span>
                 </td>
                 <td className="px-6 py-5 align-top text-ink-muted">
@@ -124,7 +165,7 @@ export default function ComparisonTable() {
                   {row.isPrimary ? (
                     <a
                       href={whatsappLink(
-                        row.whatsappMessage ?? PRIMARY_WA
+                        row.whatsappMessage ?? primaryWa,
                       )}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -159,11 +200,11 @@ export default function ComparisonTable() {
                 {row.nivel}
               </Badge>
               <Badge tone="teal" size="sm">
-                {row.geneCount} genes
+                {row.geneCount} {t.comparisonTable.geneSuffix}
               </Badge>
               {row.isPrimary && (
                 <Badge tone="cobalt" size="sm">
-                  Recomendado
+                  {t.comparisonTable.recommended}
                 </Badge>
               )}
             </div>
@@ -173,13 +214,13 @@ export default function ComparisonTable() {
             <dl className="mt-3 space-y-2 text-sm">
               <div>
                 <dt className="text-[11px] font-semibold uppercase tracking-wider text-ink-muted">
-                  Enfoque
+                  {t.comparisonTable.enfoque}
                 </dt>
                 <dd className="text-navy/85">{row.enfoque}</dd>
               </div>
               <div>
                 <dt className="text-[11px] font-semibold uppercase tracking-wider text-ink-muted">
-                  Mejor para
+                  {t.comparisonTable.mejorPara}
                 </dt>
                 <dd className="text-navy/85">{row.mejorPara}</dd>
               </div>
@@ -187,7 +228,7 @@ export default function ComparisonTable() {
             <div className="mt-4">
               {row.isPrimary ? (
                 <a
-                  href={whatsappLink(row.whatsappMessage ?? PRIMARY_WA)}
+                  href={whatsappLink(row.whatsappMessage ?? primaryWa)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center rounded-xl bg-cobalt px-4 py-2 text-sm font-semibold text-white"
