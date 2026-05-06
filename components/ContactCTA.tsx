@@ -2,7 +2,7 @@
 
 import CTAButton from "./CTAButton";
 import { whatsappLink, DEFAULT_WHATSAPP_MESSAGE } from "@/lib/site";
-import { useT } from "@/lib/i18n/useT";
+import { useLanguage } from "@/lib/language-context";
 
 type Props = {
   title?: string;
@@ -23,10 +23,11 @@ export default function ContactCTA({
   secondaryHref,
   variant = "navy",
 }: Props) {
-  const { t } = useT();
-  const resolvedTitle = title ?? t.contactCTA.defaultTitle;
-  const resolvedSubtitle = subtitle ?? t.contactCTA.defaultSubtitle;
-  const resolvedPrimary = primaryLabel ?? t.contactCTA.defaultPrimary;
+  const { t } = useLanguage();
+
+  const displayTitle = title ?? t.contactCTA.defaultTitle;
+  const displaySubtitle = subtitle ?? t.contactCTA.defaultSubtitle;
+  const displayPrimaryLabel = primaryLabel ?? t.contactCTA.defaultPrimaryLabel;
 
   const bg =
     variant === "navy"
@@ -57,10 +58,10 @@ export default function ContactCTA({
         )}
         <div className="relative max-w-3xl">
           <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-            {resolvedTitle}
+            {displayTitle}
           </h2>
           <p className={`mt-4 text-base sm:text-lg ${subtitleClass}`}>
-            {resolvedSubtitle}
+            {displaySubtitle}
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
             <CTAButton
@@ -81,7 +82,7 @@ export default function ContactCTA({
               }
               iconPosition="left"
             >
-              {resolvedPrimary}
+              {displayPrimaryLabel}
             </CTAButton>
             {secondaryLabel && secondaryHref && (
               <CTAButton

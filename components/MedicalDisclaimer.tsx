@@ -1,6 +1,6 @@
 "use client";
 
-import { useT } from "@/lib/i18n/useT";
+import { useLanguage } from "@/lib/language-context";
 
 type Props = {
   text?: string;
@@ -8,8 +8,9 @@ type Props = {
 };
 
 export default function MedicalDisclaimer({ text, className = "" }: Props) {
-  const { t } = useT();
-  const resolved = text ?? t.medicalDisclaimer.text;
+  const { t } = useLanguage();
+  const displayText = text ?? t.medicalDisclaimer.text;
+
   return (
     <div
       role="note"
@@ -34,8 +35,8 @@ export default function MedicalDisclaimer({ text, className = "" }: Props) {
         </svg>
       </span>
       <p>
-        <strong className="font-semibold">{t.medicalDisclaimer.label}</strong>{" "}
-        {resolved}
+        <strong className="font-semibold">{t.medicalDisclaimer.important}:</strong>{" "}
+        {displayText}
       </p>
     </div>
   );

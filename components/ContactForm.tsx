@@ -3,7 +3,7 @@
 import { useState, type FormEvent } from "react";
 import CTAButton from "./CTAButton";
 import { whatsappLink } from "@/lib/site";
-import { useT } from "@/lib/i18n/useT";
+import { useLanguage } from "@/lib/language-context";
 
 type FormState = {
   nombre: string;
@@ -24,10 +24,11 @@ const initialState: FormState = {
 };
 
 export default function ContactForm() {
-  const { t } = useT();
   const [data, setData] = useState<FormState>(initialState);
   const [submitted, setSubmitted] = useState(false);
   const [waLink, setWaLink] = useState<string | null>(null);
+  const { t } = useLanguage();
+  const cf = t.contactForm;
 
   const update = <K extends keyof FormState>(key: K, value: FormState[K]) =>
     setData((d) => ({ ...d, [key]: value }));
@@ -35,18 +36,16 @@ export default function ContactForm() {
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const lines = [
-      t.contactForm.waMessageHeader,
+      cf.whatsappIntro,
       ``,
-      `${t.contactForm.waLineName}: ${data.nombre}`,
-      `${t.contactForm.phone}: ${data.telefono}`,
-      `${t.contactForm.email}: ${data.correo}`,
-      data.paraQuien
-        ? `${t.contactForm.waLineFor}: ${data.paraQuien}`
-        : "",
+      `${cf.whatsappName}: ${data.nombre}`,
+      `${cf.whatsappPhone}: ${data.telefono}`,
+      `${cf.whatsappEmail}: ${data.correo}`,
+      data.paraQuien ? `${cf.whatsappForWhom}: ${data.paraQuien}` : "",
       data.antecedentes
-        ? `${t.contactForm.waLineFamily}: ${data.antecedentes}`
+        ? `${cf.whatsappHistory}: ${data.antecedentes}`
         : "",
-      data.mensaje ? `${t.contactForm.waLineMessage}: ${data.mensaje}` : "",
+      data.mensaje ? `${cf.whatsappMessage}: ${data.mensaje}` : "",
     ].filter(Boolean);
 
     setWaLink(whatsappLink(lines.join("\n")));
@@ -71,14 +70,14 @@ export default function ContactForm() {
           </svg>
         </div>
         <h3 className="font-display text-xl font-semibold text-navy">
-          {t.contactForm.receivedTitle}
+          {cf.successTitle}
         </h3>
         <p className="mt-2 text-sm leading-relaxed text-ink-muted">
-          {t.contactForm.receivedBody}
+          {cf.successDescription}
         </p>
         <div className="mt-5 flex flex-wrap gap-3">
           <CTAButton href={waLink} external variant="whatsapp" size="lg">
-            {t.contactForm.continueWa}
+            {cf.continueWhatsApp}
           </CTAButton>
           <CTAButton
             variant="secondary"
@@ -89,7 +88,7 @@ export default function ContactForm() {
               setWaLink(null);
             }}
           >
-            {t.contactForm.sendAnother}
+            {cf.sendAnother}
           </CTAButton>
         </div>
       </div>
@@ -111,7 +110,7 @@ export default function ContactForm() {
             htmlFor="nombre"
             className="mb-1.5 block text-sm font-medium text-navy"
           >
-            {t.contactForm.name} <span className="text-cobalt">*</span>
+            {cf.nameLabel} <span className="text-cobalt">*</span>
           </label>
           <input
             id="nombre"
@@ -121,7 +120,7 @@ export default function ContactForm() {
             value={data.nombre}
             onChange={(e) => update("nombre", e.target.value)}
             className={inputCls}
-            placeholder={t.contactForm.namePlaceholder}
+            placeholder={cf.namePlaceholder}
           />
         </div>
         <div>
@@ -129,7 +128,7 @@ export default function ContactForm() {
             htmlFor="telefono"
             className="mb-1.5 block text-sm font-medium text-navy"
           >
-            {t.contactForm.phone} <span className="text-cobalt">*</span>
+            {cf.phoneLabel} <span className="text-cobalt">*</span>
           </label>
           <input
             id="telefono"
@@ -139,7 +138,7 @@ export default function ContactForm() {
             value={data.telefono}
             onChange={(e) => update("telefono", e.target.value)}
             className={inputCls}
-            placeholder={t.contactForm.phonePlaceholder}
+            placeholder="999 000 0000"
           />
         </div>
         <div className="sm:col-span-2">
@@ -147,7 +146,7 @@ export default function ContactForm() {
             htmlFor="correo"
             className="mb-1.5 block text-sm font-medium text-navy"
           >
-            {t.contactForm.email}
+            {cf.emailLabel}
           </label>
           <input
             id="correo"
@@ -156,7 +155,7 @@ export default function ContactForm() {
             value={data.correo}
             onChange={(e) => update("correo", e.target.value)}
             className={inputCls}
-            placeholder={t.contactForm.emailPlaceholder}
+            placeholder="tu@correo.com"
           />
         </div>
         <div>
@@ -164,7 +163,7 @@ export default function ContactForm() {
             htmlFor="paraQuien"
             className="mb-1.5 block text-sm font-medium text-navy"
           >
-            {t.contactForm.forWhom}
+            {cf.forWhomLabel}
           </label>
           <select
             id="paraQuien"
@@ -173,11 +172,9 @@ export default function ContactForm() {
             onChange={(e) => update("paraQuien", e.target.value)}
             className={inputCls}
           >
-            <option value="">{t.contactForm.forWhomPlaceholder}</option>
-            <option value={t.contactForm.forMe}>{t.contactForm.forMe}</option>
-            <option value={t.contactForm.forFamily}>
-              {t.contactForm.forFamily}
-            </option>
+            <option value="">{cf.forWhomPlaceholder}</option>
+            <option value={cf.whatsappForSelf}>{cf.forWhomSelf}</option>
+            <option value={cf.whatsappForFamily}>{cf.forWhomFamily}</option>
           </select>
         </div>
         <div>
@@ -185,7 +182,7 @@ export default function ContactForm() {
             htmlFor="antecedentes"
             className="mb-1.5 block text-sm font-medium text-navy"
           >
-            {t.contactForm.family}
+            {cf.historyLabel}
           </label>
           <select
             id="antecedentes"
@@ -194,12 +191,10 @@ export default function ContactForm() {
             onChange={(e) => update("antecedentes", e.target.value)}
             className={inputCls}
           >
-            <option value="">{t.contactForm.familyPlaceholder}</option>
-            <option value={t.contactForm.yes}>{t.contactForm.yes}</option>
-            <option value={t.contactForm.no}>{t.contactForm.no}</option>
-            <option value={t.contactForm.notSure}>
-              {t.contactForm.notSure}
-            </option>
+            <option value="">{cf.historyPlaceholder}</option>
+            <option value={cf.whatsappHistoryYes}>{cf.historyYes}</option>
+            <option value={cf.whatsappHistoryNo}>{cf.historyNo}</option>
+            <option value={cf.whatsappHistoryUnsure}>{cf.historyUnsure}</option>
           </select>
         </div>
         <div className="sm:col-span-2">
@@ -207,7 +202,7 @@ export default function ContactForm() {
             htmlFor="mensaje"
             className="mb-1.5 block text-sm font-medium text-navy"
           >
-            {t.contactForm.message}
+            {cf.messageLabel}
           </label>
           <textarea
             id="mensaje"
@@ -216,18 +211,18 @@ export default function ContactForm() {
             value={data.mensaje}
             onChange={(e) => update("mensaje", e.target.value)}
             className={inputCls}
-            placeholder={t.contactForm.messagePlaceholder}
+            placeholder={cf.messagePlaceholder}
           />
         </div>
       </div>
 
       <p className="mt-4 text-xs leading-relaxed text-ink-muted">
-        {t.contactForm.privacy}
+        {cf.privacyNote}
       </p>
 
       <div className="mt-5 flex flex-wrap gap-3">
         <CTAButton type="submit" variant="primary" size="lg">
-          {t.contactForm.submit}
+          {cf.submitLabel}
         </CTAButton>
       </div>
     </form>

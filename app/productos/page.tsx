@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import ProductosContent from "./ProductosContent";
+import ProductosContent from "./productos-content";
 
 export const metadata: Metadata = {
   title: "Catálogo de análisis genéticos",

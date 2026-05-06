@@ -5,24 +5,15 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Logo from "./Logo";
 import CTAButton from "./CTAButton";
-import LanguageSwitcher from "./LanguageSwitcher";
-import { whatsappLink, DEFAULT_WHATSAPP_MESSAGE } from "@/lib/site";
-import { useT } from "@/lib/i18n/useT";
+import InstagramIcon from "./InstagramIcon";
+import { whatsappLink, DEFAULT_WHATSAPP_MESSAGE, SITE } from "@/lib/site";
+import { useLanguage } from "@/lib/language-context";
 
 export default function Navbar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const { t } = useT();
-
-  const navItems = [
-    { label: t.nav.home, href: "/" },
-    { label: t.nav.productos, href: "/productos" },
-    { label: t.nav.proceso, href: "/proceso" },
-    { label: t.nav.medicos, href: "/medicos" },
-    { label: t.nav.faq, href: "/preguntas-frecuentes" },
-    { label: t.nav.contacto, href: "/contacto" },
-  ];
+  const { lang, setLang, t } = useLanguage();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 6);
@@ -57,10 +48,10 @@ export default function Navbar() {
         <Logo size="xl" />
 
         <nav
-          aria-label={t.nav.mainNav}
+          aria-label={t.nav.ariaLabel}
           className="hidden items-center gap-1 lg:flex"
         >
-          {navItems.map((item) => (
+          {t.nav.items.map((item) => (
             <Link
               key={item.href}
               href={item.href}
@@ -82,7 +73,42 @@ export default function Navbar() {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <LanguageSwitcher />
+          {/* Language switcher */}
+          <div className="flex items-center gap-0.5 rounded-lg border border-slate-200 p-0.5 text-xs font-semibold">
+            <button
+              type="button"
+              onClick={() => setLang("es")}
+              className={`rounded-md px-2.5 py-1 transition-colors ${
+                lang === "es"
+                  ? "bg-navy text-white"
+                  : "text-navy/60 hover:text-navy"
+              }`}
+              aria-pressed={lang === "es"}
+            >
+              ES
+            </button>
+            <button
+              type="button"
+              onClick={() => setLang("en")}
+              className={`rounded-md px-2.5 py-1 transition-colors ${
+                lang === "en"
+                  ? "bg-navy text-white"
+                  : "text-navy/60 hover:text-navy"
+              }`}
+              aria-pressed={lang === "en"}
+            >
+              EN
+            </button>
+          </div>
+          <a
+            href={SITE.instagramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={t.contacto.instagramAria}
+            className="grid h-9 w-9 place-items-center rounded-lg border border-slate-200 text-navy/80 transition-all hover:-translate-y-0.5 hover:border-cobalt-200 hover:text-navy"
+          >
+            <InstagramIcon size={18} />
+          </a>
           <CTAButton
             href={whatsappLink(DEFAULT_WHATSAPP_MESSAGE)}
             external
@@ -101,46 +127,43 @@ export default function Navbar() {
             }
             iconPosition="left"
           >
-            {t.nav.whatsapp}
+            {t.nav.whatsappCTA}
           </CTAButton>
         </div>
 
-        <div className="flex items-center gap-2 lg:hidden">
-          <LanguageSwitcher />
-          <button
-            type="button"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-navy hover:bg-navy-50"
-            aria-label={open ? t.nav.closeMenu : t.nav.openMenu}
-            aria-expanded={open}
-            aria-controls="mobile-nav"
-            onClick={() => setOpen((v) => !v)}
+        <button
+          type="button"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-navy hover:bg-navy-50 lg:hidden"
+          aria-label={open ? t.nav.closeMenu : t.nav.openMenu}
+          aria-expanded={open}
+          aria-controls="mobile-nav"
+          onClick={() => setOpen((v) => !v)}
+        >
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden
           >
-            <svg
-              width="22"
-              height="22"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden
-            >
-              {open ? (
-                <>
-                  <path d="M18 6 6 18" />
-                  <path d="m6 6 12 12" />
-                </>
-              ) : (
-                <>
-                  <path d="M4 7h16" />
-                  <path d="M4 12h16" />
-                  <path d="M4 17h16" />
-                </>
-              )}
-            </svg>
-          </button>
-        </div>
+            {open ? (
+              <>
+                <path d="M18 6 6 18" />
+                <path d="m6 6 12 12" />
+              </>
+            ) : (
+              <>
+                <path d="M4 7h16" />
+                <path d="M4 12h16" />
+                <path d="M4 17h16" />
+              </>
+            )}
+          </svg>
+        </button>
       </div>
 
       {/* Mobile menu */}
@@ -151,10 +174,10 @@ export default function Navbar() {
         } border-t border-slate-100 bg-white`}
       >
         <nav
-          aria-label={t.nav.mobileNav}
+          aria-label={t.nav.ariaLabelMobile}
           className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-4 sm:px-6"
         >
-          {navItems.map((item) => (
+          {t.nav.items.map((item) => (
             <Link
               key={item.href}
               href={item.href}
@@ -167,6 +190,47 @@ export default function Navbar() {
               {item.label}
             </Link>
           ))}
+          {/* Mobile language switcher */}
+          <div className="mt-2 flex items-center gap-2 px-3">
+            <span className="text-xs font-medium text-navy/50">
+              {lang === "es" ? "Idioma" : "Language"}:
+            </span>
+            <div className="flex items-center gap-0.5 rounded-lg border border-slate-200 p-0.5 text-xs font-semibold">
+              <button
+                type="button"
+                onClick={() => setLang("es")}
+                className={`rounded-md px-2.5 py-1 transition-colors ${
+                  lang === "es"
+                    ? "bg-navy text-white"
+                    : "text-navy/60 hover:text-navy"
+                }`}
+                aria-pressed={lang === "es"}
+              >
+                ES
+              </button>
+              <button
+                type="button"
+                onClick={() => setLang("en")}
+                className={`rounded-md px-2.5 py-1 transition-colors ${
+                  lang === "en"
+                    ? "bg-navy text-white"
+                    : "text-navy/60 hover:text-navy"
+                }`}
+                aria-pressed={lang === "en"}
+              >
+                EN
+              </button>
+            </div>
+          </div>
+          <a
+            href={SITE.instagramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-3 inline-flex items-center justify-center gap-2 rounded-lg border border-slate-200 px-4 py-3 text-sm font-semibold text-navy hover:bg-navy-50"
+          >
+            <InstagramIcon size={18} />
+            Instagram
+          </a>
           <div className="mt-3">
             <CTAButton
               href={whatsappLink(DEFAULT_WHATSAPP_MESSAGE)}
@@ -175,7 +239,7 @@ export default function Navbar() {
               size="lg"
               fullWidth
             >
-              {t.nav.whatsapp}
+              {t.nav.whatsappMobile}
             </CTAButton>
           </div>
         </nav>

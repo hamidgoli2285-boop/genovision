@@ -2,20 +2,12 @@
 
 import Link from "next/link";
 import Logo from "./Logo";
+import InstagramIcon from "./InstagramIcon";
 import { SITE, whatsappLink, DEFAULT_WHATSAPP_MESSAGE } from "@/lib/site";
-import { useT } from "@/lib/i18n/useT";
+import { useLanguage } from "@/lib/language-context";
 
 export default function Footer() {
-  const { t } = useT();
-
-  const navItems = [
-    { label: t.nav.home, href: "/" },
-    { label: t.nav.productos, href: "/productos" },
-    { label: t.nav.proceso, href: "/proceso" },
-    { label: t.nav.medicos, href: "/medicos" },
-    { label: t.nav.faq, href: "/preguntas-frecuentes" },
-    { label: t.nav.contacto, href: "/contacto" },
-  ];
+  const { t } = useLanguage();
 
   return (
     <footer className="mt-24 border-t border-slate-200 bg-navy text-white/80">
@@ -26,16 +18,16 @@ export default function Footer() {
               <Logo variant="light" size="xl" />
             </div>
             <p className="mt-4 text-sm leading-relaxed text-white/70">
-              {t.footer.description}
+              {t.footer.tagline}
             </p>
           </div>
 
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-white">
-              {t.footer.navigation}
+              {t.footer.navHeading}
             </h3>
             <ul className="mt-4 space-y-2.5 text-sm">
-              {navItems.map((item) => (
+              {t.nav.items.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
@@ -50,7 +42,7 @@ export default function Footer() {
 
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-white">
-              {t.footer.contact}
+              {t.footer.contactHeading}
             </h3>
             <ul className="mt-4 space-y-3 text-sm text-white/70">
               <li>
@@ -118,12 +110,23 @@ export default function Footer() {
                   {SITE.address.country}
                 </span>
               </li>
+              <li>
+                <a
+                  href={SITE.instagramUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 hover:text-white"
+                >
+                  <InstagramIcon size={16} />
+                  Instagram: {SITE.instagramHandle}
+                </a>
+              </li>
             </ul>
           </div>
 
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-white">
-              {t.footer.legal}
+              {t.footer.legalHeading}
             </h3>
             <p className="mt-4 text-sm leading-relaxed text-white/65">
               {t.footer.legalText}
@@ -133,7 +136,7 @@ export default function Footer() {
 
         <div className="mt-12 flex flex-col items-start justify-between gap-3 border-t border-white/10 pt-6 text-xs text-white/50 md:flex-row md:items-center">
           <p>
-            © 2026 {SITE.name}. {t.footer.rights}
+            © {new Date().getFullYear()} {SITE.name}. {t.footer.rights}
           </p>
           <p>{t.footer.location}</p>
         </div>

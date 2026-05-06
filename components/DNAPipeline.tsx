@@ -1,18 +1,12 @@
-type Step = {
-  label: string;
-  sub: string;
-  icon: "sample" | "extract" | "sequence" | "analyze" | "report";
-};
+"use client";
 
-const steps: Step[] = [
-  { label: "Muestra", sub: "Bucal o saliva", icon: "sample" },
-  { label: "Extracción", sub: "ADN purificado", icon: "extract" },
-  { label: "Secuenciación", sub: "Tecnología NGS", icon: "sequence" },
-  { label: "Bioinformática", sub: "Análisis de variantes", icon: "analyze" },
-  { label: "Reporte", sub: "Interpretación clínica", icon: "report" },
-];
+import { useLanguage } from "@/lib/language-context";
 
-const Icon = ({ kind }: { kind: Step["icon"] }) => {
+type StepIcon = "sample" | "extract" | "sequence" | "analyze" | "report";
+
+const ICONS: StepIcon[] = ["sample", "extract", "sequence", "analyze", "report"];
+
+const Icon = ({ kind }: { kind: StepIcon }) => {
   const common = {
     width: 22,
     height: 22,
@@ -66,6 +60,9 @@ type Props = {
 };
 
 export default function DNAPipeline({ className = "" }: Props) {
+  const { t } = useLanguage();
+  const steps = t.dnaPipeline.steps;
+
   return (
     <div
       className={`relative overflow-hidden rounded-2xl bg-white p-6 ring-1 ring-slate-200 shadow-card sm:p-8 ${className}`}
@@ -78,12 +75,12 @@ export default function DNAPipeline({ className = "" }: Props) {
         {steps.map((s, i) => (
           <li key={s.label} className="flex items-center gap-4 md:flex-col md:text-center">
             <div className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-cobalt-50 to-teal-50 text-cobalt-700 ring-1 ring-cobalt-100">
-              <Icon kind={s.icon} />
+              <Icon kind={ICONS[i]} />
             </div>
             <div>
               <div className="flex items-center gap-2 md:justify-center">
                 <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-muted">
-                  Paso {i + 1}
+                  {t.dnaPipeline.step} {i + 1}
                 </span>
               </div>
               <div className="mt-0.5 font-display font-semibold text-navy">

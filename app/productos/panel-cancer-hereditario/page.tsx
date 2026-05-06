@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import PanelHereditarioContent from "./PanelHereditarioContent";
+import PanelContent from "./panel-content";
 
 export const metadata: Metadata = {
   title: "Panel de Cáncer Hereditario | 161 genes con NGS",
@@ -9,5 +9,5 @@ export const metadata: Metadata = {
 };
 
 export default function PanelCancerHereditarioPage() {
-  return <PanelHereditarioContent />;
+  return <PanelContent />;
 }

@@ -4,11 +4,18 @@ import Link from "next/link";
 import Badge from "./Badge";
 import type { Product } from "@/lib/products";
 import { whatsappLink } from "@/lib/site";
-import { useT } from "@/lib/i18n/useT";
+import { useLanguage } from "@/lib/language-context";
 
 type Props = {
   product: Product;
   highlight?: boolean;
+  translatedProduct?: {
+    title?: string;
+    categoryLabel?: string;
+    description?: string;
+    ctaLabel?: string;
+    badges?: string[];
+  };
 };
 
 const statusTone = {
@@ -17,28 +24,27 @@ const statusTone = {
   proximamente: "neutral",
 } as const;
 
-export default function ProductCard({ product, highlight }: Props) {
-  const { t, locale } = useT();
+export default function ProductCard({ product, highlight, translatedProduct }: Props) {
+  const { t } = useLanguage();
   const isFeatured = highlight ?? product.featured;
 
-  // Pull bilingual copy from the dictionary keyed by product id, with safe fallback to data
-  const i18n = t.products[product.id];
-  const title = i18n?.title ?? product.title;
-  const description = i18n?.description ?? product.description;
-  const categoryLabel = i18n?.categoryLabel ?? product.categoryLabel;
-  const ctaLabel = i18n?.ctaLabel ?? product.ctaLabel;
+  const title = translatedProduct?.title ?? product.title;
+  const categoryLabel = translatedProduct?.categoryLabel ?? product.categoryLabel;
+  const description = translatedProduct?.description ?? product.description;
+  const ctaLabel = translatedProduct?.ctaLabel ?? product.ctaLabel;
+  const badges = translatedProduct?.badges ?? product.badges;
 
-  const statusLabel =
-    product.status === "proximamente"
-      ? t.productCard.statusProximamente
-      : t.productCard.statusDisponible;
+  const statusLabel: Record<string, string> = {
+    disponible: t.common.available,
+    "bajo-solicitud": t.common.available,
+    proximamente: t.common.comingSoon,
+  };
 
-  const waText =
-    locale === "en"
-      ? `Hello GenoVision, I'd like information about the ${title}.`
-      : `Hola GenoVision, me interesa información sobre el ${title}.`;
-
-  const href = product.href ?? whatsappLink(waText);
+  const href =
+    product.href ??
+    whatsappLink(
+      `Hola GenoVision, me interesa información sobre el ${product.title}.`
+    );
   const isExternal = !product.href;
 
   return (
@@ -53,14 +59,14 @@ export default function ProductCard({ product, highlight }: Props) {
       {isFeatured && (
         <div className="absolute right-4 top-4">
           <Badge tone="cobalt" size="sm">
-            {t.productCard.featured}
+            {t.common.featured}
           </Badge>
         </div>
       )}
 
       <div className="flex items-center gap-2">
         <Badge tone={statusTone[product.status]} size="sm">
-          {statusLabel}
+          {statusLabel[product.status]}
         </Badge>
         <span className="text-[11px] uppercase tracking-wider text-ink-muted">
           {categoryLabel}
@@ -79,7 +85,7 @@ export default function ProductCard({ product, highlight }: Props) {
           >
             G
           </span>
-          {product.geneCount} {t.productCard.genesEvaluados}
+          {product.geneCount} {t.common.genesEvaluated}
         </div>
       )}
 
@@ -87,9 +93,9 @@ export default function ProductCard({ product, highlight }: Props) {
         {description}
       </p>
 
-      {product.badges.length > 0 && (
+      {badges.length > 0 && (
         <div className="mt-5 flex flex-wrap gap-1.5">
-          {product.badges.map((b) => (
+          {badges.map((b) => (
             <Badge key={b} tone="cobalt" size="sm">
               {b}
             </Badge>

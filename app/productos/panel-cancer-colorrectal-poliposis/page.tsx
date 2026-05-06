@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import ColorrectalContent from "./ColorrectalContent";
+import ColorrectalContent from "./colorrectal-content";
 
 const SLUG = "panel-cancer-colorrectal-poliposis";
 

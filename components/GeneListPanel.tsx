@@ -1,7 +1,7 @@
 "use client";
 
 import { useId, useMemo, useState } from "react";
-import { useT } from "@/lib/i18n/useT";
+import { useLanguage } from "@/lib/language-context";
 
 type Props = {
   genes: string[];
@@ -10,10 +10,11 @@ type Props = {
 const PREVIEW_COUNT = 28;
 
 export default function GeneListPanel({ genes }: Props) {
-  const { t } = useT();
   const [expanded, setExpanded] = useState(false);
   const [query, setQuery] = useState("");
   const inputId = useId();
+  const { t } = useLanguage();
+  const c = t.common;
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -30,14 +31,12 @@ export default function GeneListPanel({ genes }: Props) {
       <div className="flex flex-wrap items-center justify-between gap-3">
         <span className="inline-flex items-center gap-2 rounded-full bg-cobalt-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-cobalt-700 ring-1 ring-cobalt-100">
           <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-teal" />
-          {t.geneListPanel.counter}
+          {c.genesIncludedCount}
         </span>
         {isSearching && (
           <span className="text-xs text-ink-muted">
             {filtered.length}{" "}
-            {filtered.length === 1
-              ? t.geneListPanel.resultSingular
-              : t.geneListPanel.resultPlural}
+            {filtered.length === 1 ? c.result : c.results}
           </span>
         )}
       </div>
@@ -45,7 +44,7 @@ export default function GeneListPanel({ genes }: Props) {
       {expanded && (
         <div className="mt-5">
           <label htmlFor={inputId} className="sr-only">
-            {t.geneListPanel.searchLabel}
+            {c.searchGeneLabel}
           </label>
           <div className="relative">
             <span
@@ -71,7 +70,7 @@ export default function GeneListPanel({ genes }: Props) {
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder={t.geneListPanel.searchPlaceholder}
+              placeholder={c.searchGene}
               autoComplete="off"
               spellCheck={false}
               className="w-full rounded-xl border border-slate-200 bg-white py-2.5 pl-10 pr-3 text-sm text-navy placeholder:text-ink-muted focus:border-cobalt-300 focus:outline-none focus:ring-2 focus:ring-cobalt-100"
@@ -94,7 +93,7 @@ export default function GeneListPanel({ genes }: Props) {
           </ul>
         ) : (
           <p className="rounded-xl bg-slate-50 p-6 text-center text-sm text-ink-muted ring-1 ring-slate-100">
-            {t.geneListPanel.noResults}
+            {c.geneNotFound}
           </p>
         )}
       </div>
@@ -106,7 +105,7 @@ export default function GeneListPanel({ genes }: Props) {
             onClick={() => setExpanded(true)}
             className="inline-flex items-center gap-2 rounded-full bg-navy px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-navy-700"
           >
-            {t.geneListPanel.expand}
+            {c.showAllGenes}
             <svg
               width="16"
               height="16"
@@ -143,13 +142,13 @@ export default function GeneListPanel({ genes }: Props) {
             >
               <path d="M18 15l-6-6-6 6" />
             </svg>
-            {t.geneListPanel.collapse}
+            {c.hideGenes}
           </button>
         )}
       </div>
 
       <p className="mt-6 text-xs leading-relaxed text-ink-muted">
-        {t.geneListPanel.disclaimer}
+        {c.geneDisclaimerFull}
       </p>
     </div>
   );

@@ -1,3 +1,7 @@
+"use client";
+
+import { useLanguage } from "@/lib/language-context";
+
 type Props = {
   count: number;
   label?: string;
@@ -13,10 +17,13 @@ const sizes = {
 
 export default function GeneCountBadge({
   count,
-  label = "genes analizados",
+  label,
   size = "md",
   className = "",
 }: Props) {
+  const { t } = useLanguage();
+  const displayLabel = label ?? t.common.genesAnalyzed;
+
   return (
     <span
       className={`inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cobalt-50 to-teal-50 ring-1 ring-cobalt-100 text-cobalt-800 font-semibold ${sizes[size]} ${className}`}
@@ -29,7 +36,7 @@ export default function GeneCountBadge({
       </span>
       <span>
         <span className="font-bold">{count}</span>{" "}
-        <span className="font-medium text-cobalt-700">{label}</span>
+        <span className="font-medium text-cobalt-700">{displayLabel}</span>
       </span>
     </span>
   );

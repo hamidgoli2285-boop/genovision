@@ -6,7 +6,7 @@ import Badge from "./Badge";
 import SubpanelIcon from "./SubpanelIcon";
 import type { Subpanel } from "@/lib/subpanels";
 import { whatsappLink } from "@/lib/site";
-import { useT } from "@/lib/i18n/useT";
+import { useLanguage } from "@/lib/language-context";
 
 type Props = {
   subpanel: Subpanel;
@@ -14,11 +14,8 @@ type Props = {
 };
 
 export default function SubpanelHero({ subpanel, subtitle }: Props) {
-  const { t } = useT();
-  const i18n = t.subpanels[subpanel.id];
-  const title = i18n?.title ?? subpanel.title;
-  const shortTitle = i18n?.shortTitle ?? subpanel.shortTitle;
-  const whatsappMessage = i18n?.whatsappMessage ?? subpanel.whatsappMessage;
+  const { t } = useLanguage();
+  const sh = t.subpanelHero;
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-cobalt-50/70 via-surface to-surface">
@@ -29,33 +26,32 @@ export default function SubpanelHero({ subpanel, subtitle }: Props) {
       <div className="container-x relative pb-12 pt-12 sm:pt-16 lg:pb-16 lg:pt-20">
         <nav aria-label="breadcrumb" className="text-xs text-ink-muted">
           <Link href="/" className="hover:text-navy">
-            {t.subpanelHero.breadcrumbHome}
+            {t.nav.items[0]?.label ?? "Inicio"}
           </Link>
           <span className="mx-2">/</span>
           <Link href="/productos" className="hover:text-navy">
-            {t.subpanelHero.breadcrumbProducts}
+            {t.nav.items[1]?.label ?? "Productos"}
           </Link>
           <span className="mx-2">/</span>
           <Link
             href="/productos/panel-cancer-hereditario"
             className="hover:text-navy"
           >
-            {t.subpanelHero.breadcrumbMain}
+            {sh.breadcrumbPanel}
           </Link>
           <span className="mx-2">/</span>
-          <span className="text-navy">{shortTitle}</span>
+          <span className="text-navy">{subpanel.shortTitle}</span>
         </nav>
 
         <div className="mt-6 grid gap-8 lg:grid-cols-12 lg:gap-12">
           <div className="lg:col-span-9">
             <div className="flex flex-wrap items-center gap-2">
-              <Badge tone="cobalt">{t.subpanelHero.badgeSubpanel}</Badge>
+              <Badge tone="cobalt">{sh.specializedSubpanel}</Badge>
               <Badge tone="teal">{subpanel.badge}</Badge>
             </div>
 
             <h1 className="mt-4 font-display text-4xl font-semibold leading-[1.1] tracking-tight text-navy text-balance sm:text-5xl">
-              {t.subpanelHero.titlePrefix}
-              {title}
+              {sh.titlePrefix} {subpanel.title}
             </h1>
             <p className="mt-4 max-w-3xl text-lg leading-relaxed text-ink-muted">
               {subtitle}
@@ -63,7 +59,7 @@ export default function SubpanelHero({ subpanel, subtitle }: Props) {
 
             <div className="mt-7 flex flex-wrap gap-3">
               <CTAButton
-                href={whatsappLink(whatsappMessage)}
+                href={whatsappLink(subpanel.whatsappMessage)}
                 external
                 variant="whatsapp"
                 size="lg"
@@ -80,14 +76,14 @@ export default function SubpanelHero({ subpanel, subtitle }: Props) {
                 }
                 iconPosition="left"
               >
-                {t.subpanelHero.scheduleEval}
+                {sh.schedule}
               </CTAButton>
               <CTAButton
                 href="/productos/panel-cancer-hereditario"
                 variant="secondary"
                 size="lg"
               >
-                {t.subpanelHero.seeFullPanel}
+                {sh.viewFullPanel}
               </CTAButton>
             </div>
           </div>

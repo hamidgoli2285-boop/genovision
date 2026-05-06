@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import MamaContent from "./MamaContent";
+import MamaContent from "./mama-content";
 
 const SLUG = "panel-cancer-mama-hereditario";
 

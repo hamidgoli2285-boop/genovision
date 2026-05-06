@@ -1,7 +1,7 @@
 "use client";
 
 import { useId, useMemo, useState } from "react";
-import { useT } from "@/lib/i18n/useT";
+import { useLanguage } from "@/lib/language-context";
 
 type Props = {
   genes: string[];
@@ -14,9 +14,10 @@ export default function SubpanelGeneList({
   countLabel,
   showSearch = false,
 }: Props) {
-  const { t } = useT();
   const [query, setQuery] = useState("");
   const inputId = useId();
+  const { t } = useLanguage();
+  const c = t.common;
 
   const filtered = useMemo(() => {
     if (!showSearch) return genes;
@@ -38,9 +39,7 @@ export default function SubpanelGeneList({
         {isSearching && (
           <span className="text-xs text-ink-muted">
             {filtered.length}{" "}
-            {filtered.length === 1
-              ? t.subpanelGeneList.resultSingular
-              : t.subpanelGeneList.resultPlural}
+            {filtered.length === 1 ? c.result : c.results}
           </span>
         )}
       </div>
@@ -48,7 +47,7 @@ export default function SubpanelGeneList({
       {showSearch && (
         <div className="mt-5">
           <label htmlFor={inputId} className="sr-only">
-            {t.subpanelGeneList.searchLabel}
+            {c.searchGeneLabel}
           </label>
           <div className="relative">
             <span
@@ -74,7 +73,7 @@ export default function SubpanelGeneList({
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder={t.subpanelGeneList.searchPlaceholder}
+              placeholder={c.searchGene}
               autoComplete="off"
               spellCheck={false}
               className="w-full rounded-xl border border-slate-200 bg-white py-2.5 pl-10 pr-3 text-sm text-navy placeholder:text-ink-muted focus:border-cobalt-300 focus:outline-none focus:ring-2 focus:ring-cobalt-100"
@@ -97,13 +96,13 @@ export default function SubpanelGeneList({
           </ul>
         ) : (
           <p className="rounded-xl bg-slate-50 p-6 text-center text-sm text-ink-muted ring-1 ring-slate-100">
-            {t.subpanelGeneList.noResults}
+            {c.geneNotFound}
           </p>
         )}
       </div>
 
       <p className="mt-6 text-xs leading-relaxed text-ink-muted">
-        {t.subpanelGeneList.disclaimer}
+        {c.geneDisclaimerSubpanel}
       </p>
     </div>
   );

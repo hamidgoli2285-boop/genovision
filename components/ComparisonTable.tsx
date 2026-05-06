@@ -4,93 +4,40 @@ import Link from "next/link";
 import Badge from "./Badge";
 import { SUBPANELS, MAIN_PANEL_HREF } from "@/lib/subpanels";
 import { whatsappLink } from "@/lib/site";
-import { useT } from "@/lib/i18n/useT";
+import { useLanguage } from "@/lib/language-context";
 
-type Row = {
-  option: string;
-  href: string;
-  geneCount: number;
-  enfoque: string;
-  mejorPara: string;
-  nivel: string;
-  nivelTone: "cobalt" | "teal" | "navy";
-  ctaLabel: string;
-  isPrimary?: boolean;
-  whatsappMessage?: string;
-};
+const PRIMARY_WA =
+  "Hola GenoVision, me interesa agendar el Panel Completo de Cáncer Hereditario (161 genes).";
 
 export default function ComparisonTable() {
-  const { t, locale } = useT();
+  const { t } = useLanguage();
+  const ct = t.comparisonTable;
 
-  const primaryWa = t.comparisonTable.primaryWa;
-  const fullPanelOption =
-    locale === "en"
-      ? "Full Hereditary Cancer Panel"
-      : "Panel Completo de Cáncer Hereditario";
-  const fullPanelEnfoque =
-    locale === "en"
-      ? "161 genes related to multiple hereditary syndromes"
-      : "161 genes relacionados con múltiples síndromes hereditarios";
-  const fullPanelBest =
-    locale === "en"
-      ? "Broad evaluation, complex family history"
-      : "Evaluación amplia, antecedentes familiares complejos";
-  const fullPanelLevel =
-    locale === "en" ? "Most complete" : "Más completo";
-  const ctaSchedule = locale === "en" ? "Schedule" : "Agendar";
-  const ctaView = locale === "en" ? "View" : "Ver";
-
-  const subpanelOption = (id: string): string => {
-    if (locale === "en") {
-      switch (id) {
-        case "core":
-          return "Core Panel";
-        case "mama-hereditario":
-          return "Hereditary Breast & Ovarian Cancer Panel";
-        case "colorrectal-poliposis":
-          return "Colorectal & Polyposis Panel";
-        default:
-          return "Hereditary Prostate Cancer Panel";
-      }
-    }
-    switch (id) {
-      case "core":
-        return "Panel Core";
-      case "mama-hereditario":
-        return "Panel Cáncer de Mama y Ovario Hereditario";
-      case "colorrectal-poliposis":
-        return "Panel Colorrectal y Poliposis";
-      default:
-        return "Panel Cáncer de Próstata Hereditario";
-    }
-  };
-
-  const rows: Row[] = [
+  const rows = [
     {
-      option: fullPanelOption,
+      option: ct.fullPanelName,
       href: MAIN_PANEL_HREF,
       geneCount: 161,
-      enfoque: fullPanelEnfoque,
-      mejorPara: fullPanelBest,
-      nivel: fullPanelLevel,
-      nivelTone: "cobalt",
-      ctaLabel: ctaSchedule,
+      enfoque: ct.fullPanelFocus,
+      mejorPara: ct.fullPanelBestFor,
+      nivel: ct.fullPanelCoverage,
+      nivelTone: "cobalt" as const,
+      ctaLabel: ct.schedule,
       isPrimary: true,
-      whatsappMessage: primaryWa,
+      whatsappMessage: PRIMARY_WA,
     },
-    ...SUBPANELS.map<Row>((sp) => {
-      const i18n = t.subpanels[sp.id];
-      return {
-        option: subpanelOption(sp.id),
-        href: sp.href,
-        geneCount: sp.geneCount,
-        enfoque: i18n?.enfoque ?? sp.enfoque,
-        mejorPara: i18n?.mejorPara ?? sp.mejorPara,
-        nivel: i18n?.nivel ?? sp.nivel,
-        nivelTone: "teal",
-        ctaLabel: ctaView,
-      };
-    }),
+    ...SUBPANELS.map((sp) => ({
+      option: ct.subpanelNames[sp.id] ?? sp.shortTitle,
+      href: sp.href,
+      geneCount: sp.geneCount,
+      enfoque: ct.subpanelFocus[sp.id] ?? sp.enfoque,
+      mejorPara: ct.subpanelBestFor[sp.id] ?? sp.mejorPara,
+      nivel: ct.subpanelCoverage[sp.id] ?? sp.nivel,
+      nivelTone: "teal" as const,
+      ctaLabel: ct.view,
+      isPrimary: false,
+      whatsappMessage: undefined as string | undefined,
+    })),
   ];
 
   return (
@@ -101,22 +48,22 @@ export default function ComparisonTable() {
           <thead className="bg-slate-50/80 text-[11px] uppercase tracking-[0.16em] text-ink-muted">
             <tr>
               <th scope="col" className="px-6 py-4 font-semibold">
-                {t.comparisonTable.option}
+                {ct.colOption}
               </th>
               <th scope="col" className="px-6 py-4 font-semibold">
-                {t.comparisonTable.genes}
+                {ct.colGenes}
               </th>
               <th scope="col" className="px-6 py-4 font-semibold">
-                {t.comparisonTable.enfoque}
+                {ct.colFocus}
               </th>
               <th scope="col" className="px-6 py-4 font-semibold">
-                {t.comparisonTable.mejorPara}
+                {ct.colBestFor}
               </th>
               <th scope="col" className="px-6 py-4 font-semibold">
-                {t.comparisonTable.nivel}
+                {ct.colCoverage}
               </th>
               <th scope="col" className="px-6 py-4 text-right font-semibold">
-                {t.comparisonTable.cta}
+                {ct.colCta}
               </th>
             </tr>
           </thead>
@@ -140,14 +87,14 @@ export default function ComparisonTable() {
                     <span>{row.option}</span>
                     {row.isPrimary && (
                       <Badge tone="cobalt" size="sm">
-                        {t.comparisonTable.recommended}
+                        {ct.recommended}
                       </Badge>
                     )}
                   </div>
                 </th>
                 <td className="px-6 py-5 align-top">
                   <span className="inline-flex items-center rounded-full bg-cobalt-50 px-2.5 py-1 text-xs font-semibold text-cobalt-700 ring-1 ring-cobalt-100">
-                    {row.geneCount} {t.comparisonTable.geneSuffix}
+                    {row.geneCount} genes
                   </span>
                 </td>
                 <td className="px-6 py-5 align-top text-ink-muted">
@@ -164,9 +111,7 @@ export default function ComparisonTable() {
                 <td className="px-6 py-5 align-top text-right">
                   {row.isPrimary ? (
                     <a
-                      href={whatsappLink(
-                        row.whatsappMessage ?? primaryWa,
-                      )}
+                      href={whatsappLink(row.whatsappMessage ?? PRIMARY_WA)}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center justify-center rounded-xl bg-cobalt px-4 py-2 text-sm font-semibold text-white transition-all hover:-translate-y-px hover:bg-cobalt-600"
@@ -200,11 +145,11 @@ export default function ComparisonTable() {
                 {row.nivel}
               </Badge>
               <Badge tone="teal" size="sm">
-                {row.geneCount} {t.comparisonTable.geneSuffix}
+                {row.geneCount} genes
               </Badge>
               {row.isPrimary && (
                 <Badge tone="cobalt" size="sm">
-                  {t.comparisonTable.recommended}
+                  {ct.recommended}
                 </Badge>
               )}
             </div>
@@ -214,13 +159,13 @@ export default function ComparisonTable() {
             <dl className="mt-3 space-y-2 text-sm">
               <div>
                 <dt className="text-[11px] font-semibold uppercase tracking-wider text-ink-muted">
-                  {t.comparisonTable.enfoque}
+                  {ct.labelFocus}
                 </dt>
                 <dd className="text-navy/85">{row.enfoque}</dd>
               </div>
               <div>
                 <dt className="text-[11px] font-semibold uppercase tracking-wider text-ink-muted">
-                  {t.comparisonTable.mejorPara}
+                  {ct.labelBestFor}
                 </dt>
                 <dd className="text-navy/85">{row.mejorPara}</dd>
               </div>
@@ -228,7 +173,7 @@ export default function ComparisonTable() {
             <div className="mt-4">
               {row.isPrimary ? (
                 <a
-                  href={whatsappLink(row.whatsappMessage ?? primaryWa)}
+                  href={whatsappLink(row.whatsappMessage ?? PRIMARY_WA)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center rounded-xl bg-cobalt px-4 py-2 text-sm font-semibold text-white"

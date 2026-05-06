@@ -4,8 +4,8 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
-import LanguageProvider from "@/components/LanguageProvider";
 import { SITE } from "@/lib/site";
+import { LanguageProvider } from "@/lib/language-context";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -67,18 +67,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es-MX" className={inter.variable} suppressHydrationWarning>
-      <head>
-        {/*
-         * No-flicker locale init: read the persisted locale from localStorage
-         * synchronously and reflect it on <html> BEFORE React hydrates so the
-         * LanguageProvider picks it up via document.documentElement attributes.
-         */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){try{var k='genovision-locale';var v=localStorage.getItem(k);if(v!=='es'&&v!=='en')v='es';document.documentElement.setAttribute('data-lang',v);document.documentElement.setAttribute('lang',v==='en'?'en':'es-MX');}catch(e){document.documentElement.setAttribute('data-lang','es');}})();`,
-          }}
-        />
-      </head>
       <body className="min-h-screen font-sans text-ink">
         <LanguageProvider>
           <a
