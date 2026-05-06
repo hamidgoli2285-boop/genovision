@@ -105,7 +105,7 @@ export default function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={t.contacto.instagramAria}
-            className="grid h-7 w-7 place-items-center rounded text-slate-400 transition-colors hover:text-slate-600"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-500 shadow-sm transition hover:text-blue-700"
           >
             <InstagramIcon size={15} />
           </a>
