@@ -11,8 +11,8 @@ const sizes: Record<NonNullable<Props["size"]>, string> = {
   sm: "h-9 w-auto sm:h-10",
   md: "h-11 w-auto sm:h-12",
   lg: "h-12 w-auto sm:h-14",
-  // h-40 = 160px, original aspect ratio preserved via w-auto
-  xl: "h-40 w-auto object-contain",
+  // h-[11.5rem] = 184px (+15% from 160px), aspect ratio preserved via w-auto
+  xl: "h-[11.5rem] w-auto object-contain",
 };
 
 export default function Logo({

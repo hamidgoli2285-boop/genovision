@@ -19,21 +19,16 @@ export default function SectionHeader({
   return (
     <header className={`max-w-3xl ${alignCls} ${className}`}>
       {eyebrow && (
-        <div
-          className={`mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-cobalt-700`}
-        >
-          <span
-            aria-hidden
-            className="h-1.5 w-1.5 rounded-full bg-teal animate-pulse-soft"
-          />
+        <div className="mb-3 inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-cobalt-600">
+          <span aria-hidden className="h-1 w-4 rounded-full bg-teal opacity-80" />
           {eyebrow}
         </div>
       )}
-      <h2 className="font-display text-3xl font-semibold tracking-tight text-navy sm:text-4xl">
+      <h2 className="font-display text-3xl font-semibold text-navy text-balance sm:text-4xl">
         {title}
       </h2>
       {description && (
-        <p className="mt-4 text-base leading-relaxed text-ink-muted sm:text-lg">
+        <p className="mt-4 text-base leading-[1.75] text-ink-muted sm:text-lg">
           {description}
         </p>
       )}

@@ -44,7 +44,7 @@ export default function Navbar() {
           : "bg-white/0"
       }`}
     >
-      <div className="mx-auto flex h-44 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex h-[12.5rem] max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Logo size="xl" />
 
         <nav
@@ -105,9 +105,9 @@ export default function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={t.contacto.instagramAria}
-            className="grid h-9 w-9 place-items-center rounded-lg border border-slate-200 text-navy/80 transition-all hover:-translate-y-0.5 hover:border-cobalt-200 hover:text-navy"
+            className="grid h-7 w-7 place-items-center rounded text-slate-400 transition-colors hover:text-slate-600"
           >
-            <InstagramIcon size={18} />
+            <InstagramIcon size={15} />
           </a>
           <CTAButton
             href={whatsappLink(DEFAULT_WHATSAPP_MESSAGE)}
@@ -226,9 +226,9 @@ export default function Navbar() {
             href={SITE.instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-3 inline-flex items-center justify-center gap-2 rounded-lg border border-slate-200 px-4 py-3 text-sm font-semibold text-navy hover:bg-navy-50"
+            className="mt-1 inline-flex items-center gap-1.5 px-3 py-2 text-sm text-slate-500 hover:text-slate-700"
           >
-            <InstagramIcon size={18} />
+            <InstagramIcon size={15} />
             Instagram
           </a>
           <div className="mt-3">

@@ -22,10 +22,11 @@
     background-color: rgb(var(--color-surface));
     color: rgb(var(--color-ink));
     font-feature-settings: "ss01", "cv11";
+    line-height: 1.65;
   }
 
   ::selection {
-    background-color: rgba(21, 94, 239, 0.18);
+    background-color: rgba(21, 94, 239, 0.15);
     color: rgb(var(--color-navy));
   }
 
@@ -33,7 +34,22 @@
   h2,
   h3,
   h4 {
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+  }
+
+  p {
+    line-height: 1.7;
+  }
+
+  a {
+    transition: color 0.15s ease;
+  }
+
+  input,
+  select,
+  textarea {
+    font-feature-settings: inherit;
   }
 }
 

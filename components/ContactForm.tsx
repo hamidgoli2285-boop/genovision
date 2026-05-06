@@ -8,8 +8,6 @@ import { useLanguage } from "@/lib/language-context";
 type FormState = {
   nombre: string;
   telefono: string;
-  correo: string;
-  paraQuien: string;
   antecedentes: string;
   mensaje: string;
 };
@@ -17,8 +15,6 @@ type FormState = {
 const initialState: FormState = {
   nombre: "",
   telefono: "",
-  correo: "",
-  paraQuien: "",
   antecedentes: "",
   mensaje: "",
 };
@@ -37,14 +33,10 @@ export default function ContactForm() {
     e.preventDefault();
     const lines = [
       cf.whatsappIntro,
-      ``,
+      "",
       `${cf.whatsappName}: ${data.nombre}`,
       `${cf.whatsappPhone}: ${data.telefono}`,
-      `${cf.whatsappEmail}: ${data.correo}`,
-      data.paraQuien ? `${cf.whatsappForWhom}: ${data.paraQuien}` : "",
-      data.antecedentes
-        ? `${cf.whatsappHistory}: ${data.antecedentes}`
-        : "",
+      data.antecedentes ? `${cf.whatsappHistory}: ${data.antecedentes}` : "",
       data.mensaje ? `${cf.whatsappMessage}: ${data.mensaje}` : "",
     ].filter(Boolean);
 
@@ -55,17 +47,8 @@ export default function ContactForm() {
   if (submitted && waLink) {
     return (
       <div className="rounded-2xl bg-white p-8 ring-1 ring-slate-200 shadow-card">
-        <div className="mb-4 grid h-12 w-12 place-items-center rounded-full bg-emerald-50 text-emerald-700">
-          <svg
-            width="22"
-            height="22"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
+        <div className="mb-5 grid h-12 w-12 place-items-center rounded-full bg-emerald-50 text-emerald-600">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
             <path d="M20 6 9 17l-5-5" />
           </svg>
         </div>
@@ -75,7 +58,7 @@ export default function ContactForm() {
         <p className="mt-2 text-sm leading-relaxed text-ink-muted">
           {cf.successDescription}
         </p>
-        <div className="mt-5 flex flex-wrap gap-3">
+        <div className="mt-6 flex flex-wrap gap-3">
           <CTAButton href={waLink} external variant="whatsapp" size="lg">
             {cf.continueWhatsApp}
           </CTAButton>
@@ -96,7 +79,9 @@ export default function ContactForm() {
   }
 
   const inputCls =
-    "w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-navy placeholder:text-ink-muted/70 focus:border-cobalt focus:outline-none focus:ring-2 focus:ring-cobalt/20";
+    "w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-navy placeholder:text-slate-400 focus:border-cobalt focus:outline-none focus:ring-2 focus:ring-cobalt/15 transition-colors";
+
+  const labelCls = "mb-1.5 block text-sm font-medium text-navy/90";
 
   return (
     <form
@@ -104,84 +89,45 @@ export default function ContactForm() {
       className="rounded-2xl bg-white p-6 ring-1 ring-slate-200 shadow-card sm:p-8"
       noValidate
     >
-      <div className="grid gap-4 sm:grid-cols-2">
-        <div>
-          <label
-            htmlFor="nombre"
-            className="mb-1.5 block text-sm font-medium text-navy"
-          >
-            {cf.nameLabel} <span className="text-cobalt">*</span>
-          </label>
-          <input
-            id="nombre"
-            name="nombre"
-            type="text"
-            required
-            value={data.nombre}
-            onChange={(e) => update("nombre", e.target.value)}
-            className={inputCls}
-            placeholder={cf.namePlaceholder}
-          />
+      <h3 className="font-display text-xl font-semibold text-navy">{cf.title}</h3>
+      <p className="mt-1 text-sm text-ink-muted">{cf.privacyNote}</p>
+
+      <div className="mt-6 space-y-5">
+        <div className="grid gap-5 sm:grid-cols-2">
+          <div>
+            <label htmlFor="nombre" className={labelCls}>
+              {cf.nameLabel} <span className="text-cobalt">*</span>
+            </label>
+            <input
+              id="nombre"
+              name="nombre"
+              type="text"
+              required
+              value={data.nombre}
+              onChange={(e) => update("nombre", e.target.value)}
+              className={inputCls}
+              placeholder={cf.namePlaceholder}
+            />
+          </div>
+          <div>
+            <label htmlFor="telefono" className={labelCls}>
+              {cf.phoneLabel} <span className="text-cobalt">*</span>
+            </label>
+            <input
+              id="telefono"
+              name="telefono"
+              type="tel"
+              required
+              value={data.telefono}
+              onChange={(e) => update("telefono", e.target.value)}
+              className={inputCls}
+              placeholder="999 000 0000"
+            />
+          </div>
         </div>
+
         <div>
-          <label
-            htmlFor="telefono"
-            className="mb-1.5 block text-sm font-medium text-navy"
-          >
-            {cf.phoneLabel} <span className="text-cobalt">*</span>
-          </label>
-          <input
-            id="telefono"
-            name="telefono"
-            type="tel"
-            required
-            value={data.telefono}
-            onChange={(e) => update("telefono", e.target.value)}
-            className={inputCls}
-            placeholder="999 000 0000"
-          />
-        </div>
-        <div className="sm:col-span-2">
-          <label
-            htmlFor="correo"
-            className="mb-1.5 block text-sm font-medium text-navy"
-          >
-            {cf.emailLabel}
-          </label>
-          <input
-            id="correo"
-            name="correo"
-            type="email"
-            value={data.correo}
-            onChange={(e) => update("correo", e.target.value)}
-            className={inputCls}
-            placeholder="tu@correo.com"
-          />
-        </div>
-        <div>
-          <label
-            htmlFor="paraQuien"
-            className="mb-1.5 block text-sm font-medium text-navy"
-          >
-            {cf.forWhomLabel}
-          </label>
-          <select
-            id="paraQuien"
-            name="paraQuien"
-            value={data.paraQuien}
-            onChange={(e) => update("paraQuien", e.target.value)}
-            className={inputCls}
-          >
-            <option value="">{cf.forWhomPlaceholder}</option>
-            <option value={cf.whatsappForSelf}>{cf.forWhomSelf}</option>
-            <option value={cf.whatsappForFamily}>{cf.forWhomFamily}</option>
-          </select>
-        </div>
-        <div>
-          <label
-            htmlFor="antecedentes"
-            className="mb-1.5 block text-sm font-medium text-navy"
-          >
+          <label htmlFor="antecedentes" className={labelCls}>
             {cf.historyLabel}
           </label>
           <select
@@ -197,11 +143,9 @@ export default function ContactForm() {
             <option value={cf.whatsappHistoryUnsure}>{cf.historyUnsure}</option>
           </select>
         </div>
-        <div className="sm:col-span-2">
-          <label
-            htmlFor="mensaje"
-            className="mb-1.5 block text-sm font-medium text-navy"
-          >
+
+        <div>
+          <label htmlFor="mensaje" className={labelCls}>
             {cf.messageLabel}
           </label>
           <textarea
@@ -216,12 +160,15 @@ export default function ContactForm() {
         </div>
       </div>
 
-      <p className="mt-4 text-xs leading-relaxed text-ink-muted">
-        {cf.privacyNote}
-      </p>
-
-      <div className="mt-5 flex flex-wrap gap-3">
-        <CTAButton type="submit" variant="primary" size="lg">
+      <div className="mt-6">
+        <CTAButton type="submit" variant="whatsapp" size="lg" fullWidth
+          icon={
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+              <path d="M20.5 3.5A11 11 0 0 0 3.6 17.3L2 22l4.8-1.6A11 11 0 1 0 20.5 3.5Z" />
+            </svg>
+          }
+          iconPosition="left"
+        >
           {cf.submitLabel}
         </CTAButton>
       </div>
