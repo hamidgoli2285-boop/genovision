@@ -53,12 +53,12 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-  icons: {
-  icon: "/icon-192.png?v=10",
-  shortcut: "/icon-192.png?v=10",
-  apple: "/apple-touch-icon.png?v=10",
+icons: {
+  icon: "/icon-192.png?v=20",
+  shortcut: "/icon-192.png?v=20",
+  apple: "/apple-touch-icon.png?v=20",
 },
-  manifest: "/site.webmanifest",
+manifest: "/site.webmanifest?v=20",
 };
 
 export const viewport: Viewport = {
