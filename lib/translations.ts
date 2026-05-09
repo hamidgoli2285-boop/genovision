@@ -1242,6 +1242,14 @@ const es = {
       ctaLabel: "Solicitar información",
       badges: ["WGS", "Neurología"],
     },
+    "microbiota-intestinal": {
+      title: "Microbiota Intestinal",
+      categoryLabel: "Microbioma",
+      description:
+        "Análisis del ecosistema bacteriano intestinal para evaluar diversidad microbiana, disbiosis y orientar estrategias nutricionales y de salud digestiva.",
+      ctaLabel: "Ver análisis",
+      badges: ["Secuenciación 16S", "Pangea Lab", "Microbioma", "Salud digestiva"],
+    },
   } as Record<string, { title: string; categoryLabel: string; description: string; ctaLabel: string; badges: string[] }>,
   productCategories: [
     { id: "all", label: "Todos" },
@@ -1254,7 +1262,176 @@ const es = {
     { id: "farmacogenomica", label: "Farmacogenómica" },
     { id: "tiroides", label: "Tiroides" },
     { id: "exoma", label: "Exoma / Genoma" },
+    { id: "microbioma", label: "Microbioma" },
   ],
+  microbiotaIntestinal: {
+    heroBadge: "En colaboración con Pangea Laboratory",
+    heroTitle: "Microbiota Intestinal",
+    heroSubtitle:
+      "Conoce el ecosistema bacteriano de tu intestino. Identifica desequilibrios, orientados a mejorar tu salud digestiva, inmunológica y metabólica.",
+    heroBadges: ["Secuenciación 16S", "Pangea Lab", "Resultados aprox. 21 días", "Muestra en casa"],
+    heroCtaPrimary: "Solicitar información por WhatsApp",
+    heroCtaSecondary: "Ver proceso",
+    whatEyebrow: "¿Qué es este estudio?",
+    whatTitle: "Un mapa de tu ecosistema intestinal",
+    whatBody:
+      "El análisis de Microbiota Intestinal identifica y cuantifica las bacterias presentes en tu intestino a partir de una muestra de heces. Utilizamos secuenciación del gen 16S rRNA, una tecnología de referencia en microbiología clínica, para obtener un perfil detallado de la composición bacteriana intestinal y detectar patrones de disbiosis.",
+    whatBody2:
+      "El estudio es realizado por Pangea Laboratory, laboratorio especializado en análisis del microbioma, y la interpretación clínica es integrada por GenoVision en el contexto de la salud del paciente.",
+    evaluatesEyebrow: "¿Qué evalúa?",
+    evaluatesTitle: "Dimensiones clave del microbioma",
+    evaluates: [
+      {
+        title: "Diversidad microbiana (alfa y beta)",
+        description:
+          "Índices de riqueza y diversidad de especies bacterianas, indicadores clave de un microbioma saludable.",
+      },
+      {
+        title: "Abundancia relativa por phylum y género",
+        description:
+          "Proporción de los principales grupos bacterianos: Firmicutes, Bacteroidetes, Proteobacteria y otros.",
+      },
+      {
+        title: "Detección de disbiosis",
+        description:
+          "Identificación de desequilibrios en la comunidad bacteriana asociados con síntomas digestivos o inflamación.",
+      },
+      {
+        title: "Bacterias beneficiosas y oportunistas",
+        description:
+          "Presencia y abundancia de géneros protectores (Lactobacillus, Bifidobacterium) y oportunistas relevantes.",
+      },
+      {
+        title: "Indicadores de permeabilidad intestinal",
+        description:
+          "Patrones bacterianos asociados con compromiso de la barrera intestinal.",
+      },
+      {
+        title: "Orientación nutricional personalizada",
+        description:
+          "El reporte incluye recomendaciones basadas en el perfil bacteriano para apoyar intervenciones dietéticas.",
+      },
+    ],
+    whoEyebrow: "¿Para quién es?",
+    whoTitle: "Candidatos ideales para este análisis",
+    whoDescription:
+      "El análisis de microbiota intestinal es especialmente útil para quienes presentan síntomas digestivos persistentes o buscan optimizar su salud desde un enfoque preventivo.",
+    candidates: [
+      {
+        title: "Síntomas digestivos crónicos",
+        description:
+          "Personas con distensión, estreñimiento, diarrea recurrente, gases o síndrome de intestino irritable.",
+      },
+      {
+        title: "Seguimiento post-antibiótico",
+        description:
+          "Evaluación de la recuperación del microbioma tras tratamientos antibióticos prolongados o frecuentes.",
+      },
+      {
+        title: "Condiciones metabólicas e inflamatorias",
+        description:
+          "Diabetes tipo 2, obesidad, enfermedades autoinmunes o inflamatorias con posible componente intestinal.",
+      },
+      {
+        title: "Fatiga crónica y neblina mental",
+        description:
+          "Síntomas sistémicos que pueden asociarse con el eje intestino-cerebro y alteraciones del microbioma.",
+      },
+      {
+        title: "Optimización del bienestar",
+        description:
+          "Personas que buscan personalizar su alimentación y estilo de vida con base en su perfil microbiano.",
+      },
+      {
+        title: "Seguimiento oncológico",
+        description:
+          "Pacientes en tratamiento o seguimiento oncológico donde el estado del microbioma puede ser clínicamente relevante.",
+      },
+    ],
+    oncologyEyebrow: "Contexto oncológico",
+    oncologyTitle: "Microbioma y cáncer: evidencia emergente",
+    oncologyBody:
+      "La investigación científica ha identificado asociaciones entre la composición del microbioma intestinal y el riesgo, progresión y respuesta al tratamiento en algunos tipos de cáncer, particularmente colorrectal, hepático y de pulmón. La evidencia también sugiere que el microbioma influye en la respuesta a inmunoterapia.",
+    oncologyBody2:
+      "En GenoVision, ofrecemos este análisis como complemento al seguimiento clínico en pacientes oncológicos bajo indicación médica, con el objetivo de identificar disbiosis que puedan ser abordadas como parte del plan de cuidado integral.",
+    oncologyNote:
+      "Este análisis no es diagnóstico de cáncer ni lo descarta. Su interpretación debe hacerse siempre en el contexto clínico del paciente.",
+    processEyebrow: "¿Cómo funciona?",
+    processTitle: "Un proceso sencillo desde casa",
+    processSteps: [
+      {
+        title: "Orientación inicial",
+        description:
+          "Conversamos sobre tu caso y confirmamos si el análisis es adecuado para ti.",
+      },
+      {
+        title: "Envío del kit de recolección",
+        description:
+          "Recibes un kit de toma de muestra en casa. La recolección es sencilla, en la comodidad de tu hogar.",
+      },
+      {
+        title: "Envío de la muestra",
+        description:
+          "La muestra se envía al laboratorio Pangea siguiendo las instrucciones del kit.",
+      },
+      {
+        title: "Análisis por secuenciación 16S",
+        description:
+          "Pangea Laboratory realiza el análisis de microbioma con tecnología de secuenciación genómica.",
+      },
+      {
+        title: "Reporte e interpretación",
+        description:
+          "GenoVision integra el reporte con contexto clínico y te acompaña en la comprensión de los resultados.",
+      },
+    ],
+    physicianEyebrow: "Para el médico",
+    physicianTitle: "Utilidad clínica para el profesional de la salud",
+    physicianItems: [
+      {
+        title: "Guía intervenciones dietéticas y probióticas",
+        description:
+          "El perfil microbiano permite personalizar recomendaciones de alimentación y suplementación con base en evidencia.",
+      },
+      {
+        title: "Monitoreo post-antibiótico",
+        description:
+          "Evaluación objetiva de la recuperación del microbioma tras antibioticoterapia.",
+      },
+      {
+        title: "Complemento en seguimiento oncológico",
+        description:
+          "Información microbiana potencialmente relevante en pacientes bajo tratamiento o vigilancia oncológica.",
+      },
+      {
+        title: "Reporte clínico estructurado",
+        description:
+          "Resultado en formato interpretado, con índices de diversidad, perfiles por phylum/género y hallazgos destacados.",
+      },
+    ],
+    limitationsEyebrow: "Limitaciones y alcance",
+    limitationsTitle: "Lo que este análisis no hace",
+    limitations: [
+      "No detecta genes hereditarios ni variantes de ADN del paciente.",
+      "No diagnostica ni descarta enfermedades digestivas, infecciosas o neoplásicas.",
+      "La secuenciación 16S no identifica a nivel de especie con la misma precisión que metagenómica shotgun.",
+      "Los resultados deben interpretarse en el contexto clínico por un profesional de salud.",
+      "Las asociaciones entre microbioma y enfermedad representan correlaciones, no causalidad establecida.",
+    ],
+    limitationsNote:
+      "Este análisis es una herramienta de apoyo clínico. No reemplaza la evaluación médica ni el diagnóstico endoscópico o microbiológico específico.",
+    ctaTitle: "¿Te interesa conocer tu microbioma?",
+    ctaSubtitle:
+      "Escríbenos por WhatsApp y te orientamos sobre si este análisis es adecuado para ti o tu paciente.",
+    ctaPrimary: "Solicitar información",
+    ctaSecondary: "Ver catálogo completo",
+    partnerNote: "Análisis realizado por",
+    partnerName: "Pangea Laboratory",
+    partnerDescription:
+      "Laboratorio especializado en análisis de microbioma con tecnología de secuenciación genómica de alta resolución.",
+    whatsappMessage:
+      "Hola GenoVision, me interesa información sobre el análisis de Microbiota Intestinal.",
+  },
   subpanelData: {
     "colorrectal-poliposis": {
       title: "Cáncer Colorrectal Hereditario y Poliposis",
@@ -2569,6 +2746,14 @@ const en: typeof es = {
       ctaLabel: "Request information",
       badges: ["WGS", "Neurology"],
     },
+    "microbiota-intestinal": {
+      title: "Gut Microbiome",
+      categoryLabel: "Microbiome",
+      description:
+        "Analysis of the intestinal bacterial ecosystem to assess microbial diversity, dysbiosis, and guide nutritional and digestive health strategies.",
+      ctaLabel: "View analysis",
+      badges: ["16S Sequencing", "Pangea Lab", "Microbiome", "Digestive health"],
+    },
   } as Record<string, { title: string; categoryLabel: string; description: string; ctaLabel: string; badges: string[] }>,
   productCategories: [
     { id: "all", label: "All" },
@@ -2581,7 +2766,176 @@ const en: typeof es = {
     { id: "farmacogenomica", label: "Pharmacogenomics" },
     { id: "tiroides", label: "Thyroid" },
     { id: "exoma", label: "Exome / Genome" },
+    { id: "microbioma", label: "Microbiome" },
   ],
+  microbiotaIntestinal: {
+    heroBadge: "In collaboration with Pangea Laboratory",
+    heroTitle: "Gut Microbiome",
+    heroSubtitle:
+      "Discover the bacterial ecosystem of your gut. Identify imbalances to improve your digestive, immune, and metabolic health.",
+    heroBadges: ["16S Sequencing", "Pangea Lab", "Results approx. 21 days", "Home sample collection"],
+    heroCtaPrimary: "Request information via WhatsApp",
+    heroCtaSecondary: "View process",
+    whatEyebrow: "What is this analysis?",
+    whatTitle: "A map of your intestinal ecosystem",
+    whatBody:
+      "The Gut Microbiome analysis identifies and quantifies the bacteria present in your intestine from a stool sample. We use 16S rRNA gene sequencing, a reference technology in clinical microbiology, to obtain a detailed profile of your intestinal bacterial composition and detect dysbiosis patterns.",
+    whatBody2:
+      "The analysis is performed by Pangea Laboratory, a laboratory specialized in microbiome analysis, and the clinical interpretation is integrated by GenoVision in the context of the patient's health.",
+    evaluatesEyebrow: "What does it evaluate?",
+    evaluatesTitle: "Key dimensions of the microbiome",
+    evaluates: [
+      {
+        title: "Microbial diversity (alpha and beta)",
+        description:
+          "Richness and diversity indices of bacterial species — key indicators of a healthy microbiome.",
+      },
+      {
+        title: "Relative abundance by phylum and genus",
+        description:
+          "Proportion of major bacterial groups: Firmicutes, Bacteroidetes, Proteobacteria, and others.",
+      },
+      {
+        title: "Dysbiosis detection",
+        description:
+          "Identification of imbalances in the bacterial community associated with digestive symptoms or inflammation.",
+      },
+      {
+        title: "Beneficial and opportunistic bacteria",
+        description:
+          "Presence and abundance of protective genera (Lactobacillus, Bifidobacterium) and relevant opportunistic ones.",
+      },
+      {
+        title: "Intestinal permeability indicators",
+        description:
+          "Bacterial patterns associated with intestinal barrier compromise.",
+      },
+      {
+        title: "Personalized nutritional guidance",
+        description:
+          "The report includes recommendations based on the bacterial profile to support dietary interventions.",
+      },
+    ],
+    whoEyebrow: "Who is it for?",
+    whoTitle: "Ideal candidates for this analysis",
+    whoDescription:
+      "Gut microbiome analysis is especially useful for those with persistent digestive symptoms or looking to optimize their health through a preventive approach.",
+    candidates: [
+      {
+        title: "Chronic digestive symptoms",
+        description:
+          "People with bloating, constipation, recurrent diarrhea, gas, or irritable bowel syndrome.",
+      },
+      {
+        title: "Post-antibiotic follow-up",
+        description:
+          "Assessment of microbiome recovery after prolonged or frequent antibiotic treatments.",
+      },
+      {
+        title: "Metabolic and inflammatory conditions",
+        description:
+          "Type 2 diabetes, obesity, autoimmune or inflammatory diseases with a possible intestinal component.",
+      },
+      {
+        title: "Chronic fatigue and brain fog",
+        description:
+          "Systemic symptoms that may be associated with the gut-brain axis and microbiome alterations.",
+      },
+      {
+        title: "Wellness optimization",
+        description:
+          "People seeking to personalize their diet and lifestyle based on their microbial profile.",
+      },
+      {
+        title: "Oncology follow-up",
+        description:
+          "Patients in treatment or oncology surveillance where microbiome status may be clinically relevant.",
+      },
+    ],
+    oncologyEyebrow: "Oncology context",
+    oncologyTitle: "Microbiome and cancer: emerging evidence",
+    oncologyBody:
+      "Scientific research has identified associations between gut microbiome composition and the risk, progression, and treatment response in some cancers, particularly colorectal, hepatic, and lung. Evidence also suggests that the microbiome influences immunotherapy response.",
+    oncologyBody2:
+      "At GenoVision, we offer this analysis as a complement to clinical follow-up in oncology patients under medical indication, with the goal of identifying dysbiosis that may be addressed as part of the comprehensive care plan.",
+    oncologyNote:
+      "This analysis does not diagnose or rule out cancer. Its interpretation must always be made in the patient's clinical context by a healthcare professional.",
+    processEyebrow: "How does it work?",
+    processTitle: "A simple process from home",
+    processSteps: [
+      {
+        title: "Initial guidance",
+        description:
+          "We discuss your case and confirm whether the analysis is appropriate for you.",
+      },
+      {
+        title: "Collection kit delivery",
+        description:
+          "You receive a home sample collection kit. Collection is simple and comfortable at home.",
+      },
+      {
+        title: "Sample shipment",
+        description:
+          "The sample is sent to Pangea Laboratory following the kit instructions.",
+      },
+      {
+        title: "16S sequencing analysis",
+        description:
+          "Pangea Laboratory performs the microbiome analysis using high-resolution genomic sequencing technology.",
+      },
+      {
+        title: "Report and interpretation",
+        description:
+          "GenoVision integrates the report with clinical context and guides you through understanding the results.",
+      },
+    ],
+    physicianEyebrow: "For physicians",
+    physicianTitle: "Clinical utility for healthcare professionals",
+    physicianItems: [
+      {
+        title: "Guides dietary and probiotic interventions",
+        description:
+          "The microbial profile allows personalized evidence-based dietary and supplementation recommendations.",
+      },
+      {
+        title: "Post-antibiotic monitoring",
+        description:
+          "Objective assessment of microbiome recovery following antibiotic therapy.",
+      },
+      {
+        title: "Complement in oncology follow-up",
+        description:
+          "Potentially relevant microbial information for patients undergoing treatment or oncology surveillance.",
+      },
+      {
+        title: "Structured clinical report",
+        description:
+          "Results in an interpreted format with diversity indices, phylum/genus profiles, and highlighted findings.",
+      },
+    ],
+    limitationsEyebrow: "Limitations and scope",
+    limitationsTitle: "What this analysis does not do",
+    limitations: [
+      "Does not detect hereditary genes or patient DNA variants.",
+      "Does not diagnose or rule out digestive, infectious, or neoplastic diseases.",
+      "16S sequencing does not identify to species level with the same precision as shotgun metagenomics.",
+      "Results must be interpreted in clinical context by a healthcare professional.",
+      "Associations between microbiome and disease represent correlations, not established causality.",
+    ],
+    limitationsNote:
+      "This analysis is a clinical support tool. It does not replace medical evaluation or specific endoscopic or microbiological diagnosis.",
+    ctaTitle: "Interested in knowing your microbiome?",
+    ctaSubtitle:
+      "Contact us via WhatsApp and we will guide you on whether this analysis is right for you or your patient.",
+    ctaPrimary: "Request information",
+    ctaSecondary: "View full catalog",
+    partnerNote: "Analysis performed by",
+    partnerName: "Pangea Laboratory",
+    partnerDescription:
+      "A laboratory specialized in microbiome analysis using high-resolution genomic sequencing technology.",
+    whatsappMessage:
+      "Hello GenoVision, I'm interested in information about the Gut Microbiome analysis.",
+  },
   subpanelData: {
     "colorrectal-poliposis": {
       title: "Hereditary Colorectal Cancer and Polyposis",

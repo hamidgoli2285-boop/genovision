@@ -12,7 +12,8 @@ export type ProductCategory =
   | "farmacogenomica"
   | "tiroides"
   | "exoma"
-  | "cardiometabolico";
+  | "cardiometabolico"
+  | "microbioma";
 
 export type Product = {
   id: string;
@@ -212,5 +213,19 @@ export const PRODUCTS: Product[] = [
       "Análisis genómico amplio para condiciones neurológicas complejas bajo indicación médica.",
     badges: ["WGS", "Neurología"],
     ctaLabel: "Solicitar información",
+  },
+  {
+    id: "microbiota-intestinal",
+    slug: "microbiota-intestinal",
+    title: "Microbiota Intestinal",
+    shortTitle: "Microbiota Intestinal",
+    category: "microbioma",
+    categoryLabel: "Microbioma",
+    status: "disponible",
+    description:
+      "Análisis del ecosistema bacteriano intestinal para evaluar diversidad microbiana, disbiosis y orientar estrategias nutricionales y de salud digestiva.",
+    badges: ["Secuenciación 16S", "Pangea Lab", "Microbioma", "Salud digestiva"],
+    ctaLabel: "Ver análisis",
+    href: "/productos/microbiota-intestinal",
   },
 ];
