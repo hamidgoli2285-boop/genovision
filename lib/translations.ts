@@ -83,89 +83,113 @@ const es = {
     genesIncludedCount: "161 genes incluidos",
   },
   home: {
-    heroBadge: "Genómica clínica en Mérida",
-    heroTitle: "Predice tu riesgo genético de cáncer",
-    heroTitleHighlight: "antes de que sea tarde",
+    heroTitlePart1: "Genética del cáncer y ",
+    heroTitleHighlight: "oncología de precisión",
+    heroTitlePart2: " en Mérida",
     heroDescription:
-      "En GenoVision analizamos {genes} genes relacionados con predisposición hereditaria al cáncer mediante tecnología NGS, para ayudarte a tomar decisiones preventivas con información clara y profesional.",
-    ctaWhatsapp: "Agendar consulta por WhatsApp",
-    ctaPanel: "Ver panel de cáncer",
-    whyEyebrow: "Por qué importa",
-    whyTitle: "El cáncer no siempre avisa.",
-    whyTitleLine2: "Tu ADN puede dar señales antes.",
-    whyDescription:
-      "Identificar predisposición genética hereditaria permite anticiparse, vigilar y orientar decisiones preventivas con tu médico.",
-    reasons: [
+      "Estudios genéticos que ayudan a médicos y familias a entender el riesgo hereditario de cáncer, las opciones de tratamiento y el monitoreo de la enfermedad.",
+    ctaWhatsapp: "Agendar por WhatsApp",
+    ctaViewStudies: "Ver estudios",
+
+    decision: {
+      eyebrow: "RUTA DE DECISIÓN CLÍNICA",
+      heading: "Elige el estudio genético correcto para cada pregunta clínica.",
+      paragraph:
+        "En GenoVision ayudamos a pacientes y médicos a identificar qué estudio genético se adapta mejor al objetivo: riesgo hereditario, decisiones de tratamiento o monitoreo de la enfermedad.",
+      ctaLabel: "Agendar orientación",
+      cards: [
+        {
+          number: "01",
+          title: "Riesgo hereditario",
+          body: "Para familias con antecedentes de cáncer o pacientes que necesitan entender su predisposición hereditaria.",
+          recommendedLabel: "Estudio recomendado",
+          recommendedValue: "Panel de Cáncer Hereditario",
+          ctaText: "",
+        },
+        {
+          number: "02",
+          title: "Decisiones de tratamiento",
+          body: "Para pacientes oncológicos que necesitan información molecular relacionada con el tumor para orientar decisiones terapéuticas.",
+          recommendedLabel: "Estudios recomendados",
+          recommendedValue: "Biopsia Líquida · Farmacogenómica",
+          ctaText: "",
+        },
+        {
+          number: "03",
+          title: "Monitoreo de enfermedad",
+          body: "Para casos oncológicos seleccionados donde el seguimiento molecular o la evaluación de recurrencia puede ser clínicamente útil.",
+          recommendedLabel: "Estudio recomendado",
+          recommendedValue: "Biopsia Líquida",
+          ctaText: "",
+        },
+        {
+          number: "04",
+          title: "¿No sabes cuál corresponde?",
+          body: "Si el objetivo aún no está claro, GenoVision puede orientar el siguiente paso según el contexto clínico.",
+          recommendedLabel: "",
+          recommendedValue: "",
+          ctaText: "Solicitar orientación",
+        },
+      ],
+    },
+
+    servicesEyebrow: "Estudios Genómicos",
+    servicesTitle: "Genética del cáncer y oncología de precisión, en un solo lugar",
+    servicesDescription:
+      "Cada estudio responde a un objetivo clínico distinto: prevención, riesgo hereditario, selección de tratamiento o monitoreo — coordinados en Mérida con interpretación profesional incluida.",
+    services: [
       {
-        title: "Antecedentes familiares",
-        description:
-          "Casos de cáncer en padres, hermanos o familiares cercanos pueden indicar un componente hereditario.",
+        name: "Panel de Cáncer Hereditario",
+        purpose: "Identifica mutaciones hereditarias asociadas con un mayor riesgo de cáncer.",
+        useCase: "Útil para pacientes con historia personal o familiar de cáncer.",
       },
       {
-        title: "Cáncer a edad temprana",
-        description:
-          "Diagnósticos antes de los 50 años en la familia son una señal a considerar.",
+        name: "Biopsia Líquida",
+        purpose: "Analiza información genética relacionada con el tumor a partir de una muestra de sangre.",
+        useCase: "Puede apoyar la selección de tratamiento y el monitoreo en casos oncológicos seleccionados.",
       },
       {
-        title: "Múltiples casos en la familia",
-        description:
-          "Varios familiares afectados, incluso de distintas generaciones, sugieren predisposición genética.",
+        name: "Farmacogenómica",
+        purpose: "Ayuda a entender cómo puede responder un paciente a ciertos medicamentos.",
+        useCase: "Útil para la planeación personalizada de medicamentos.",
       },
       {
-        title: "Prevención personalizada",
-        description:
-          "Conocer tu perfil genético permite ajustar revisiones, hábitos y vigilancia médica.",
+        name: "NIPT",
+        purpose: "Tamizaje prenatal no invasivo a partir de sangre materna.",
+        useCase: "Evalúa condiciones cromosómicas comunes y sexo fetal desde la semana 10.",
       },
       {
-        title: "Decisiones médicas informadas",
-        description:
-          "Información genética que apoya a tu médico para definir estrategias de seguimiento.",
+        name: "Secuenciación del Genoma Completo",
+        purpose: "Análisis amplio de la información genética.",
+        useCase: "Útil cuando se requiere una evaluación genética más amplia.",
+      },
+      {
+        name: "Microbiota Intestinal",
+        purpose: "Evalúa la composición de la microbiota intestinal.",
+        useCase: "Útil para contextos seleccionados de bienestar y apoyo clínico.",
       },
     ],
-    howEyebrow: "Cómo funciona",
-    howTitle: "Un proceso clínico, claro y guiado",
-    howDescription:
-      "Desde la primera consulta hasta la entrega de resultados, te acompañamos en cada paso.",
-    viewProcess: "Ver proceso completo",
-    steps: [
-      {
-        title: "Consulta inicial",
-        description:
-          "Resolvemos tus dudas y revisamos antecedentes para definir si el panel es adecuado.",
-      },
-      {
-        title: "Toma de muestra bucal o saliva",
-        description: "Procedimiento sencillo, indoloro y no invasivo.",
-      },
-      {
-        title: "Análisis genómico por NGS",
-        description:
-          "Secuenciación de nueva generación para evaluar múltiples genes simultáneamente.",
-      },
-      {
-        title: "Interpretación profesional",
-        description:
-          "Tu resultado se interpreta dentro del contexto clínico y familiar.",
-      },
-      {
-        title: "Recomendaciones de seguimiento",
-        description:
-          "Te orientamos para llevar el resultado a tu médico tratante y definir un plan.",
-      },
+    availableLabel: "Disponible",
+    featuredLabel: "Estudio principal",
+    viewDetails: "Ver detalles",
+    clinicalUseLabel: "Uso clínico: ",
+
+    trustEyebrow: "Presencia local",
+    trustTitle: "Coordinación local. Estudios de nivel internacional.",
+    trustPoints: [
+      "Con sede en Mérida, Yucatán",
+      "Coordinación de pacientes en CÉNIT Medical Center",
+      "Atención en español",
+      "Comunicación por WhatsApp",
+      "Enfoque en genética del cáncer y oncología de precisión",
+      "Coordinación de muestra disponible localmente",
     ],
-    featuredBadge: "Producto destacado",
-    featuredTitle: "Panel de Cáncer Hereditario",
-    featuredDescription:
-      "Evaluación avanzada de 161 genes asociados con predisposición hereditaria a distintos tipos de cáncer.",
-    featuredBadges: ["161 genes", "NGS", "Prevención", "Riesgo hereditario"],
-    featuredCTAPrimary: "Ver detalles del panel",
-    featuredCTASecondary: "Hablar con un especialista",
-    featuredOtherPanels: "¿Buscas otros paneles?",
-    featuredViewCatalog: "Ver catálogo completo",
-    ctaTitle: "Si hay cáncer en tu familia, no lo ignores.",
-    ctaSubtitle:
-      "Una conversación puede ser el primer paso para definir si una evaluación genética es adecuada para ti.",
-    ctaSecondaryLabel: "Conocer el proceso",
+
+    finalCtaTitle: "¿Qué estudio genético necesita tu paciente?",
+    finalCtaSubtitle:
+      "Cada caso es diferente. GenoVision puede ayudar a identificar el estudio genético más adecuado según el objetivo clínico: prevención, apoyo diagnóstico, selección de tratamiento o monitoreo.",
+    finalCtaPrimaryLabel: "Contactar por WhatsApp",
+    finalCtaSecondaryLabel: "Ver estudios disponibles",
   },
   productos: {
     eyebrow: "Catálogo",
@@ -1587,89 +1611,113 @@ const en: typeof es = {
     genesIncludedCount: "161 genes included",
   },
   home: {
-    heroBadge: "Clinical genomics in Mérida",
-    heroTitle: "Predict your genetic cancer risk",
-    heroTitleHighlight: "before it's too late",
+    heroTitlePart1: "Cancer genetics and ",
+    heroTitleHighlight: "precision oncology",
+    heroTitlePart2: " in Mérida",
     heroDescription:
-      "At GenoVision we analyze {genes} genes associated with hereditary cancer predisposition using NGS technology, to help you make preventive decisions with clear, professional information.",
-    ctaWhatsapp: "Schedule consultation via WhatsApp",
-    ctaPanel: "View cancer panel",
-    whyEyebrow: "Why it matters",
-    whyTitle: "Cancer doesn't always give warning.",
-    whyTitleLine2: "Your DNA can signal risk early.",
-    whyDescription:
-      "Identifying hereditary genetic predisposition allows you to anticipate, monitor, and guide preventive decisions with your physician.",
-    reasons: [
+      "Genetic studies that help physicians and families understand hereditary cancer risk, treatment options, and disease monitoring.",
+    ctaWhatsapp: "Schedule via WhatsApp",
+    ctaViewStudies: "View studies",
+
+    decision: {
+      eyebrow: "CLINICAL DECISION PATHWAY",
+      heading: "Choose the right genetic study for the right clinical question.",
+      paragraph:
+        "GenoVision helps patients and physicians identify which genetic test best fits the goal: hereditary risk, treatment decisions, or disease monitoring.",
+      ctaLabel: "Schedule guidance",
+      cards: [
+        {
+          number: "01",
+          title: "Hereditary risk",
+          body: "For families with a history of cancer or patients who need to understand hereditary cancer predisposition.",
+          recommendedLabel: "Recommended study",
+          recommendedValue: "Hereditary Cancer Panel",
+          ctaText: "",
+        },
+        {
+          number: "02",
+          title: "Treatment decisions",
+          body: "For oncology patients who need tumor-related molecular information to support treatment planning.",
+          recommendedLabel: "Recommended studies",
+          recommendedValue: "Liquid Biopsy · Pharmacogenomics",
+          ctaText: "",
+        },
+        {
+          number: "03",
+          title: "Disease monitoring",
+          body: "For selected oncology cases where molecular follow-up or recurrence assessment may be clinically useful.",
+          recommendedLabel: "Recommended study",
+          recommendedValue: "Liquid Biopsy",
+          ctaText: "",
+        },
+        {
+          number: "04",
+          title: "Not sure what fits?",
+          body: "If the goal is not clear yet, GenoVision can help orient the next step based on the clinical context.",
+          recommendedLabel: "",
+          recommendedValue: "",
+          ctaText: "Ask for guidance",
+        },
+      ],
+    },
+
+    servicesEyebrow: "Genomic Studies",
+    servicesTitle: "Cancer genetics and precision oncology, all in one place",
+    servicesDescription:
+      "Each study addresses a distinct clinical goal: prevention, hereditary risk, treatment selection, or monitoring — coordinated in Mérida with professional interpretation included.",
+    services: [
       {
-        title: "Family history",
-        description:
-          "Cancer in parents, siblings, or close relatives may indicate a hereditary component.",
+        name: "Hereditary Cancer Panel",
+        purpose: "Identifies hereditary mutations associated with increased cancer risk.",
+        useCase: "Useful for patients with a personal or family history of cancer.",
       },
       {
-        title: "Early-onset cancer",
-        description:
-          "Diagnoses before age 50 in the family are a signal to consider.",
+        name: "Liquid Biopsy",
+        purpose: "Analyzes tumor-related genetic information from a blood sample.",
+        useCase: "May support treatment selection and monitoring in selected oncology cases.",
       },
       {
-        title: "Multiple cases in the family",
-        description:
-          "Several affected relatives, even across generations, suggest genetic predisposition.",
+        name: "Pharmacogenomics",
+        purpose: "Helps understand how a patient may respond to certain medications.",
+        useCase: "Useful for personalized medication planning.",
       },
       {
-        title: "Personalized prevention",
-        description:
-          "Knowing your genetic profile allows you to adjust screenings, habits, and medical surveillance.",
+        name: "NIPT",
+        purpose: "Non-invasive prenatal screening from maternal blood.",
+        useCase: "Assesses common chromosomal conditions and fetal sex from week 10.",
       },
       {
-        title: "Informed medical decisions",
-        description:
-          "Genetic information that supports your physician in defining follow-up strategies.",
+        name: "Whole Genome Sequencing",
+        purpose: "Broad analysis of genetic information.",
+        useCase: "Useful when a broader genetic evaluation is needed.",
+      },
+      {
+        name: "Gut Microbiota",
+        purpose: "Assesses the composition of the gut microbiota.",
+        useCase: "Useful for selected wellness and clinical support contexts.",
       },
     ],
-    howEyebrow: "How it works",
-    howTitle: "A clear, clinically guided process",
-    howDescription:
-      "From the first consultation to results delivery, we guide you at every step.",
-    viewProcess: "View full process",
-    steps: [
-      {
-        title: "Initial consultation",
-        description:
-          "We answer your questions and review history to determine if the panel is right for you.",
-      },
-      {
-        title: "Buccal swab or saliva sample",
-        description: "Simple, painless, and non-invasive procedure.",
-      },
-      {
-        title: "Genomic analysis by NGS",
-        description:
-          "Next-generation sequencing to evaluate multiple genes simultaneously.",
-      },
-      {
-        title: "Professional interpretation",
-        description:
-          "Your result is interpreted within the clinical and family context.",
-      },
-      {
-        title: "Follow-up recommendations",
-        description:
-          "We guide you on how to bring the result to your treating physician and define a plan.",
-      },
+    availableLabel: "Available",
+    featuredLabel: "Featured study",
+    viewDetails: "View details",
+    clinicalUseLabel: "Clinical use: ",
+
+    trustEyebrow: "Local presence",
+    trustTitle: "Local coordination. International-level studies.",
+    trustPoints: [
+      "Based in Mérida, Yucatán",
+      "Patient coordination at CÉNIT Medical Center",
+      "Service in Spanish",
+      "Communication via WhatsApp",
+      "Focus on cancer genetics and precision oncology",
+      "Local sample coordination available",
     ],
-    featuredBadge: "Featured product",
-    featuredTitle: "Hereditary Cancer Panel",
-    featuredDescription:
-      "Advanced evaluation of 161 genes associated with hereditary predisposition to various cancer types.",
-    featuredBadges: ["161 genes", "NGS", "Prevention", "Hereditary risk"],
-    featuredCTAPrimary: "View panel details",
-    featuredCTASecondary: "Talk to a specialist",
-    featuredOtherPanels: "Looking for other panels?",
-    featuredViewCatalog: "View full catalog",
-    ctaTitle: "If cancer runs in your family, don't ignore it.",
-    ctaSubtitle:
-      "A conversation can be the first step in determining whether genetic testing is right for you.",
-    ctaSecondaryLabel: "Learn about the process",
+
+    finalCtaTitle: "Which genetic test does your patient need?",
+    finalCtaSubtitle:
+      "Every case is different. GenoVision can help identify the most appropriate genetic test based on the clinical goal: prevention, diagnostic support, treatment selection, or monitoring.",
+    finalCtaPrimaryLabel: "Contact via WhatsApp",
+    finalCtaSecondaryLabel: "View available studies",
   },
   productos: {
     eyebrow: "Catalog",

@@ -31,13 +31,13 @@ type ButtonProps = CommonProps & {
 type Props = LinkProps | ButtonProps;
 
 const baseClasses =
-  "inline-flex items-center justify-center gap-2 rounded-xl font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cobalt focus-visible:ring-offset-2 focus-visible:ring-offset-white disabled:opacity-60 disabled:pointer-events-none";
+  "inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cobalt focus-visible:ring-offset-2 focus-visible:ring-offset-white disabled:opacity-60 disabled:pointer-events-none";
 
 const variants: Record<Variant, string> = {
   primary:
     "bg-cobalt text-white shadow-sm hover:bg-cobalt-600 hover:-translate-y-px hover:shadow-md",
   secondary:
-    "bg-white text-navy border border-navy-100 hover:border-cobalt-300 hover:text-cobalt-700 hover:-translate-y-px",
+    "bg-white text-navy border border-slate-300 hover:border-cobalt-300 hover:text-cobalt-700 hover:-translate-y-px",
   ghost:
     "bg-transparent text-navy hover:bg-navy-50/60 hover:text-cobalt-700",
   whatsapp:

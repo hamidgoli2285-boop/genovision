@@ -2,6 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-9px); }
+}
+
+/* Scroll-reveal */
+.reveal-hidden {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal-hidden.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-dna-drift-1,
+  .animate-dna-drift-2,
+  .animate-dna-drift-3 {
+    animation: none !important;
+  }
+}
+
 @layer base {
   :root {
     --color-navy: 6 27 58;
@@ -72,11 +96,11 @@
   .bg-grid {
     background-image: linear-gradient(
         to right,
-        rgba(21, 94, 239, 0.06) 1px,
+        rgba(21, 94, 239, 0.035) 1px,
         transparent 1px
       ),
-      linear-gradient(to bottom, rgba(21, 94, 239, 0.06) 1px, transparent 1px);
-    background-size: 56px 56px;
+      linear-gradient(to bottom, rgba(21, 94, 239, 0.035) 1px, transparent 1px);
+    background-size: 72px 72px;
   }
 
   .mask-fade-y {

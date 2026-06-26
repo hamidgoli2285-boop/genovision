@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
+import SkipToContentLink from "@/components/SkipToContentLink";
 import { SITE } from "@/lib/site";
 import { LanguageProvider } from "@/lib/language-context";
 
@@ -76,12 +77,7 @@ export default function RootLayout({
     <html lang="es-MX" className={inter.variable} suppressHydrationWarning>
       <body className="min-h-screen font-sans text-ink">
         <LanguageProvider>
-          <a
-            href="#main"
-            className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-navy focus:px-4 focus:py-2 focus:text-white"
-          >
-            Saltar al contenido principal
-          </a>
+          <SkipToContentLink />
           <Navbar />
           <main id="main">{children}</main>
           <Footer />

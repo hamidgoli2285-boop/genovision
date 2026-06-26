@@ -53,6 +53,12 @@ const config: Config = {
           muted: "#64748B",
         },
         surface: "#F8FAFC",
+        brand: {
+          navy:    "#0A2240",
+          cyan:    "#00C2D1",
+          gray:    "#F6F9FC",
+          charcoal:"#1B2430",
+        },
       },
       fontFamily: {
         sans: [
@@ -77,13 +83,15 @@ const config: Config = {
         "grid-faint":
           "linear-gradient(to right, rgba(21, 94, 239, 0.06) 1px, transparent 1px), linear-gradient(to bottom, rgba(21, 94, 239, 0.06) 1px, transparent 1px)",
         "hero-glow":
-          "radial-gradient(60% 60% at 50% 0%, rgba(33, 212, 253, 0.18) 0%, rgba(21, 94, 239, 0.06) 40%, rgba(255,255,255,0) 70%)",
+          "radial-gradient(55% 50% at 50% 0%, rgba(21, 94, 239, 0.08) 0%, rgba(21, 94, 239, 0.03) 50%, rgba(255,255,255,0) 75%)",
       },
       boxShadow: {
         card: "0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 24px rgba(15, 23, 42, 0.06)",
         cardHover:
           "0 2px 4px rgba(15, 23, 42, 0.05), 0 16px 40px rgba(15, 23, 42, 0.10)",
         ring: "0 0 0 1px rgba(21, 94, 239, 0.18)",
+        premium: "0 4px 6px -1px rgba(10,34,64,0.05), 0 20px 60px -8px rgba(10,34,64,0.12)",
+        float: "0 8px 30px rgba(10,34,64,0.14)",
       },
       keyframes: {
         "fade-up": {
@@ -94,10 +102,25 @@ const config: Config = {
           "0%, 100%": { opacity: "0.65" },
           "50%": { opacity: "1" },
         },
+        "dna-drift-1": {
+          "0%, 100%": { transform: "translate(0, 0) rotate(0deg)" },
+          "50%": { transform: "translate(-2.5%, -4%) rotate(2deg)" },
+        },
+        "dna-drift-2": {
+          "0%, 100%": { transform: "translate(0, 0) rotate(0deg)" },
+          "50%": { transform: "translate(3%, 3.5%) rotate(-2.5deg)" },
+        },
+        "dna-drift-3": {
+          "0%, 100%": { transform: "translate(0, 0) rotate(0deg)" },
+          "50%": { transform: "translate(-3.5%, 2.5%) rotate(1.5deg)" },
+        },
       },
       animation: {
         "fade-up": "fade-up 0.5s ease-out both",
         "pulse-soft": "pulse-soft 3s ease-in-out infinite",
+        "dna-drift-1": "dna-drift-1 75s ease-in-out infinite",
+        "dna-drift-2": "dna-drift-2 95s ease-in-out infinite reverse",
+        "dna-drift-3": "dna-drift-3 60s ease-in-out infinite",
       },
     },
   },

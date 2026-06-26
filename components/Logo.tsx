@@ -10,7 +10,7 @@ type Props = {
 const sizes: Record<NonNullable<Props["size"]>, string> = {
   sm: "h-9 w-auto sm:h-10",
   md: "h-11 w-auto sm:h-12",
-  lg: "h-12 w-auto sm:h-14",
+  lg: "h-14 w-auto sm:h-16",
   // h-[11.5rem] = 184px (+15% from 160px), aspect ratio preserved via w-auto
   xl: "h-[11.5rem] w-auto object-contain",
 };
@@ -31,7 +31,7 @@ export default function Logo({
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/genovision-logo.svg"
+        src="/genovision-logo.png"
         alt="GenoVision"
         className={`${sizes[size]} select-none [image-rendering:auto] [transform:translateZ(0)]`}
         decoding="async"
