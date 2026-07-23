@@ -2,7 +2,6 @@
 
 import SectionHeader from "@/components/SectionHeader";
 import ContactCTA from "@/components/ContactCTA";
-import SubpanelGrid from "@/components/SubpanelGrid";
 import ProductsCatalog from "./ProductsCatalog";
 import { useLanguage } from "@/lib/language-context";
 
@@ -24,12 +23,6 @@ export default function ProductosContent() {
             <ProductsCatalog />
           </div>
         </div>
-      </section>
-
-      {/* ── Hereditary cancer subpanels ───────────────────────────── */}
-      <section className="container-x mt-16 lg:mt-24">
-        <SectionHeader eyebrow={p.subpanelsEyebrow} title={p.subpanelsTitle} description={p.subpanelsDescription} />
-        <SubpanelGrid className="mt-10" />
       </section>
 
       {/* ── Contact CTA ───────────────────────────────────────────── */}
