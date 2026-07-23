@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import CTAButton from "@/components/CTAButton";
 import ContactCTA from "@/components/ContactCTA";
 import DoctorReferralCard from "@/components/DoctorReferralCard";
@@ -14,79 +13,10 @@ const NAVY = "#0A2240";
 const CYAN = "#00C2D1";
 const GRAY = "#F6F9FC";
 
-/* ─── Services (icons/links/featured flag; text comes from translations, by index) ─── */
-const SERVICE_META = [
-  {
-    href: "/productos/panel-cancer-hereditario",
-    featured: true,
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M7 3h10a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z" />
-        <path d="M9 3v2h6V3" />
-        <path d="m9.5 13 1.8 1.8L14.5 11" />
-      </svg>
-    ),
-  },
-  {
-    href: "/productos",
-    featured: true,
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 2.5c2.6 3.3 5.5 7.2 5.5 10.6a5.5 5.5 0 1 1-11 0c0-3.4 2.9-7.3 5.5-10.6Z" />
-        <path d="M9.6 14.2a2.4 2.4 0 0 0 2.4 2.4" />
-      </svg>
-    ),
-  },
-  {
-    href: "/productos",
-    featured: false,
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="4" y="8" width="16" height="8" rx="4" />
-        <path d="M12 8v8" />
-      </svg>
-    ),
-  },
-  {
-    href: "/productos",
-    featured: false,
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 20.5s-7.5-4.3-7.5-10A4.5 4.5 0 0 1 12 7.7a4.5 4.5 0 0 1 7.5 2.8c0 5.7-7.5 10-7.5 10Z" />
-        <path d="M9.2 12h1.4l1-2 1.6 4 1-2h1.6" />
-      </svg>
-    ),
-  },
-  {
-    href: "/productos",
-    featured: false,
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="4" y="4" width="16" height="4.5" rx="1.4" />
-        <rect x="4" y="9.75" width="16" height="4.5" rx="1.4" />
-        <rect x="4" y="15.5" width="16" height="4.5" rx="1.4" />
-      </svg>
-    ),
-  },
-  {
-    href: "/productos/microbiota-intestinal",
-    featured: false,
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="9" cy="9" r="2.3" />
-        <circle cx="16" cy="8.5" r="1.6" />
-        <circle cx="15" cy="15.5" r="2.5" />
-        <circle cx="8.5" cy="16" r="1.5" />
-      </svg>
-    ),
-  },
-];
-
 export default function HomeContent() {
   const { t } = useLanguage();
   const h = t.home;
 
-  const SERVICES = h.services.map((s, i) => ({ ...s, ...SERVICE_META[i] }));
   const TRUST_POINTS = h.trustPoints;
 
   return (
@@ -347,119 +277,25 @@ export default function HomeContent() {
       </section>
 
       {/* ══════════════════════════════════════════════
-          SERVICES / TESTS
+          GENOMIC SOLUTIONS INTRO
       ══════════════════════════════════════════════ */}
       <section style={{ background: GRAY }}>
-        <div className="container-x py-20 pb-28 lg:py-28 lg:pb-32">
+        <div className="container-x py-16 lg:py-20">
           <Reveal>
-            <div className="mb-14 max-w-2xl">
-              <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em]" style={{ color: CYAN }}>
-                {h.servicesEyebrow}
-              </p>
+            <div className="mx-auto max-w-2xl text-center">
               <h2 className="font-display text-3xl font-bold tracking-tight sm:text-4xl" style={{ color: NAVY }}>
-                {h.servicesTitle}
+                {h.solutionsTitle}
               </h2>
               <p className="mt-4 text-base leading-relaxed" style={{ color: "#475569" }}>
-                {h.servicesDescription}
+                {h.solutionsText}
               </p>
+              <div className="mt-8">
+                <CTAButton href="/productos" variant="primary" size="lg">
+                  {h.solutionsCta}
+                </CTAButton>
+              </div>
             </div>
           </Reveal>
-
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {SERVICES.map((svc, i) => (
-              <Reveal key={svc.name} delay={i * 60}>
-                <Link
-                  href={svc.href}
-                  className="group relative flex h-full flex-col overflow-hidden rounded-2xl bg-white p-7 transition-all duration-300 ease-out hover:-translate-y-2"
-                  style={{
-                    boxShadow: svc.featured
-                      ? "0 1px 1px rgba(10,34,64,0.04), 0 2px 6px rgba(10,34,64,0.06), 0 18px 40px rgba(10,34,64,0.13)"
-                      : "0 1px 1px rgba(10,34,64,0.03), 0 2px 4px rgba(10,34,64,0.04), 0 12px 28px rgba(10,34,64,0.08)",
-                    border: svc.featured
-                      ? "1px solid rgba(0,194,209,0.35)"
-                      : "1px solid rgba(15,23,42,0.06)",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.boxShadow = svc.featured
-                      ? "0 1px 1px rgba(10,34,64,0.05), 0 4px 10px rgba(10,34,64,0.08), 0 28px 56px rgba(0,194,209,0.18)"
-                      : "0 1px 1px rgba(10,34,64,0.04), 0 4px 8px rgba(10,34,64,0.06), 0 22px 44px rgba(10,34,64,0.14)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.boxShadow = svc.featured
-                      ? "0 1px 1px rgba(10,34,64,0.04), 0 2px 6px rgba(10,34,64,0.06), 0 18px 40px rgba(10,34,64,0.13)"
-                      : "0 1px 1px rgba(10,34,64,0.03), 0 2px 4px rgba(10,34,64,0.04), 0 12px 28px rgba(10,34,64,0.08)";
-                  }}
-                >
-                  {/* Top accent bar — featured services only */}
-                  {svc.featured && (
-                    <span
-                      aria-hidden
-                      className="absolute inset-x-0 top-0 h-1"
-                      style={{ background: `linear-gradient(90deg, ${CYAN} 0%, ${NAVY} 100%)` }}
-                    />
-                  )}
-
-                  {/* Glass sheen overlay */}
-                  <span
-                    aria-hidden
-                    className="pointer-events-none absolute inset-x-0 top-0 h-20 rounded-t-2xl"
-                    style={{ background: "linear-gradient(180deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 100%)" }}
-                  />
-
-                  {/* Header row: icon + badge */}
-                  <div className="relative z-10 mb-5 flex items-start justify-between gap-3">
-                    <div
-                      className="grid h-[3.25rem] w-[3.25rem] shrink-0 place-items-center rounded-2xl"
-                      style={{
-                        background: "linear-gradient(135deg, rgba(0,194,209,0.14) 0%, rgba(10,34,64,0.05) 100%)",
-                        color: NAVY,
-                        boxShadow: "inset 0 1px 1px rgba(255,255,255,0.6), inset 0 -2px 4px rgba(10,34,64,0.06)",
-                      }}
-                    >
-                      {svc.icon}
-                    </div>
-
-                    <span
-                      className="inline-flex shrink-0 items-center gap-1.5 rounded-full px-2.5 py-1 text-[9px] font-bold uppercase tracking-wider text-white"
-                      style={{ background: CYAN, boxShadow: "0 2px 6px rgba(0,194,209,0.35)" }}
-                    >
-                      <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M20 6 9 17l-5-5" />
-                      </svg>
-                      {h.availableLabel}
-                    </span>
-                  </div>
-
-                  {svc.featured && (
-                    <p className="relative z-10 mb-1.5 text-[10px] font-bold uppercase tracking-[0.16em]" style={{ color: CYAN }}>
-                      {h.featuredLabel}
-                    </p>
-                  )}
-
-                  <h3 className="relative z-10 font-display text-lg font-bold leading-snug" style={{ color: NAVY }}>
-                    {svc.name}
-                  </h3>
-                  <p className="relative z-10 mt-2.5 text-sm font-medium leading-relaxed" style={{ color: "#334155" }}>
-                    {svc.purpose}
-                  </p>
-                  <p className="relative z-10 mt-2 flex-1 text-[13px] leading-relaxed" style={{ color: "#64748B" }}>
-                    <span className="font-semibold" style={{ color: "#475569" }}>{h.clinicalUseLabel}</span>
-                    {svc.useCase}
-                  </p>
-
-                  <div
-                    className="relative z-10 mt-6 flex items-center gap-1.5 border-t pt-4 text-[13px] font-bold"
-                    style={{ borderColor: "rgba(15,23,42,0.07)", color: NAVY }}
-                  >
-                    {h.viewDetails}
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={CYAN} strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-200 group-hover:translate-x-1">
-                      <path d="M5 12h14M12 5l7 7-7 7" />
-                    </svg>
-                  </div>
-                </Link>
-              </Reveal>
-            ))}
-          </div>
         </div>
       </section>
 

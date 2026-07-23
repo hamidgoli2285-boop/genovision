@@ -134,46 +134,10 @@ const es = {
       ],
     },
 
-    servicesEyebrow: "Estudios Genómicos",
-    servicesTitle: "Genética del cáncer y oncología de precisión, en un solo lugar",
-    servicesDescription:
-      "Cada estudio responde a un objetivo clínico distinto: prevención, riesgo hereditario, selección de tratamiento o monitoreo — coordinados en Mérida con interpretación profesional incluida.",
-    services: [
-      {
-        name: "Panel de Cáncer Hereditario",
-        purpose: "Identifica mutaciones hereditarias asociadas con un mayor riesgo de cáncer.",
-        useCase: "Útil para pacientes con historia personal o familiar de cáncer.",
-      },
-      {
-        name: "Biopsia Líquida",
-        purpose: "Analiza información genética relacionada con el tumor a partir de una muestra de sangre.",
-        useCase: "Puede apoyar la selección de tratamiento y el monitoreo en casos oncológicos seleccionados.",
-      },
-      {
-        name: "Farmacogenómica",
-        purpose: "Ayuda a entender cómo puede responder un paciente a ciertos medicamentos.",
-        useCase: "Útil para la planeación personalizada de medicamentos.",
-      },
-      {
-        name: "NIPT",
-        purpose: "Tamizaje prenatal no invasivo a partir de sangre materna.",
-        useCase: "Evalúa condiciones cromosómicas comunes y sexo fetal desde la semana 10.",
-      },
-      {
-        name: "Secuenciación del Genoma Completo",
-        purpose: "Análisis amplio de la información genética.",
-        useCase: "Útil cuando se requiere una evaluación genética más amplia.",
-      },
-      {
-        name: "Microbiota Intestinal",
-        purpose: "Evalúa la composición de la microbiota intestinal.",
-        useCase: "Útil para contextos seleccionados de bienestar y apoyo clínico.",
-      },
-    ],
-    availableLabel: "Disponible",
-    featuredLabel: "Estudio principal",
-    viewDetails: "Ver detalles",
-    clinicalUseLabel: "Uso clínico: ",
+    solutionsTitle: "Soluciones genómicas para cada necesidad clínica",
+    solutionsText:
+      "Desde la evaluación del riesgo hereditario hasta la selección de tratamientos y el monitoreo molecular, GenoVision ayuda a identificar el estudio genético más adecuado para cada paciente.",
+    solutionsCta: "Ver todos los estudios",
 
     trustEyebrow: "Presencia local",
     trustTitle: "Coordinación local. Estudios de nivel internacional.",
@@ -1922,46 +1886,10 @@ const en: typeof es = {
       ],
     },
 
-    servicesEyebrow: "Genomic Studies",
-    servicesTitle: "Cancer genetics and precision oncology, all in one place",
-    servicesDescription:
-      "Each study addresses a distinct clinical goal: prevention, hereditary risk, treatment selection, or monitoring — coordinated in Mérida with professional interpretation included.",
-    services: [
-      {
-        name: "Hereditary Cancer Panel",
-        purpose: "Identifies hereditary mutations associated with increased cancer risk.",
-        useCase: "Useful for patients with a personal or family history of cancer.",
-      },
-      {
-        name: "Liquid Biopsy",
-        purpose: "Analyzes tumor-related genetic information from a blood sample.",
-        useCase: "May support treatment selection and monitoring in selected oncology cases.",
-      },
-      {
-        name: "Pharmacogenomics",
-        purpose: "Helps understand how a patient may respond to certain medications.",
-        useCase: "Useful for personalized medication planning.",
-      },
-      {
-        name: "NIPT",
-        purpose: "Non-invasive prenatal screening from maternal blood.",
-        useCase: "Assesses common chromosomal conditions and fetal sex from week 10.",
-      },
-      {
-        name: "Whole Genome Sequencing",
-        purpose: "Broad analysis of genetic information.",
-        useCase: "Useful when a broader genetic evaluation is needed.",
-      },
-      {
-        name: "Gut Microbiota",
-        purpose: "Assesses the composition of the gut microbiota.",
-        useCase: "Useful for selected wellness and clinical support contexts.",
-      },
-    ],
-    availableLabel: "Available",
-    featuredLabel: "Featured study",
-    viewDetails: "View details",
-    clinicalUseLabel: "Clinical use: ",
+    solutionsTitle: "Genomic solutions for every clinical need",
+    solutionsText:
+      "From hereditary risk assessment to treatment selection and molecular monitoring, GenoVision helps identify the most appropriate genomic study for every patient.",
+    solutionsCta: "View all studies",
 
     trustEyebrow: "Local presence",
     trustTitle: "Local coordination. International-level studies.",
