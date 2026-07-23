@@ -7,7 +7,7 @@ import { whatsappLink } from "@/lib/site";
 import { useLanguage } from "@/lib/language-context";
 
 const PRIMARY_WA =
-  "Hola GenoVision, me interesa agendar el Panel Completo de Cáncer Hereditario (161 genes).";
+  "Hola GenoVision, me interesa agendar el Panel Completo de Cáncer Hereditario (193 genes).";
 
 export default function ComparisonTable() {
   const { t } = useLanguage();
@@ -17,7 +17,7 @@ export default function ComparisonTable() {
     {
       option: ct.fullPanelName,
       href: MAIN_PANEL_HREF,
-      geneCount: 161,
+      geneCount: 193,
       enfoque: ct.fullPanelFocus,
       mejorPara: ct.fullPanelBestFor,
       nivel: ct.fullPanelCoverage,

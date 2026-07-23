@@ -15,6 +15,14 @@
 
 import type { ReactNode } from "react";
 
+/**
+ * Round trig-derived SVG coordinates to a fixed precision so the value
+ * serializes identically on the server and the client. Without this, tiny
+ * floating-point string differences (e.g. 166.11027254265818 vs
+ * 166.1102725426582) trigger React hydration warnings on the illustrations.
+ */
+const r = (n: number) => Math.round(n * 100) / 100;
+
 /* ─── Shared scene shell ─────────────────────────────────────────────────── */
 
 type SceneProps = {
@@ -261,13 +269,13 @@ function SceneMetabolic({ uid }: { uid: string }) {
     <Scene uid={uid} dark="#020C1E" mid="#081A3A" accent="#3B82F6" accent2="#14B8A6">
       {/* Hexagonal glucose ring */}
       {[0,1,2,3,4,5].map(i => {
-        const r = 110;
+        const rad = 110;
         const a1 = (i * 60 - 30) * Math.PI / 180;
         const a2 = ((i + 1) * 60 - 30) * Math.PI / 180;
         return (
           <line key={i}
-            x1={400 + r * Math.cos(a1)} y1={225 + r * Math.sin(a1)}
-            x2={400 + r * Math.cos(a2)} y2={225 + r * Math.sin(a2)}
+            x1={r(400 + rad * Math.cos(a1))} y1={r(225 + rad * Math.sin(a1))}
+            x2={r(400 + rad * Math.cos(a2))} y2={r(225 + rad * Math.sin(a2))}
             stroke="#6BAAFF" strokeWidth="3" opacity="0.75"
           />
         );
@@ -276,7 +284,7 @@ function SceneMetabolic({ uid }: { uid: string }) {
       {[0,1,2,3,4,5].map(i => {
         const a = (i * 60 - 30) * Math.PI / 180;
         return (
-          <circle key={i} cx={400 + 110 * Math.cos(a)} cy={225 + 110 * Math.sin(a)}
+          <circle key={i} cx={r(400 + 110 * Math.cos(a))} cy={r(225 + 110 * Math.sin(a))}
             r="9" fill="#6BAAFF" opacity="0.8" />
         );
       })}
@@ -287,8 +295,8 @@ function SceneMetabolic({ uid }: { uid: string }) {
       {[[180,160],[180,290],[620,160],[620,290]].map(([cx,cy],i) => (
         <g key={i}>
           <circle cx={cx} cy={cy} r="7" fill="#14B8A6" opacity="0.6" />
-          <line x1={cx} y1={cy} x2={400 + 110 * Math.cos([210,150,330,30][i] * Math.PI/180)}
-                              y2={225 + 110 * Math.sin([210,150,330,30][i] * Math.PI/180)}
+          <line x1={cx} y1={cy} x2={r(400 + 110 * Math.cos([210,150,330,30][i] * Math.PI/180))}
+                              y2={r(225 + 110 * Math.sin([210,150,330,30][i] * Math.PI/180))}
             stroke="#14B8A6" strokeWidth="1.2" opacity="0.2" strokeDasharray="6 5" />
         </g>
       ))}
@@ -313,8 +321,8 @@ function SceneEye({ uid }: { uid: string }) {
       {Array.from({length:18},(_,i) => {
         const a = i * 20 * Math.PI / 180;
         return (
-          <line key={i} x1={400+68*Math.cos(a)} y1={225+68*Math.sin(a)}
-            x2={400+118*Math.cos(a)} y2={225+118*Math.sin(a)}
+          <line key={i} x1={r(400+68*Math.cos(a))} y1={r(225+68*Math.sin(a))}
+            x2={r(400+118*Math.cos(a))} y2={r(225+118*Math.sin(a))}
             stroke="#4A9EFF" strokeWidth="1.5" opacity="0.4" />
         );
       })}
@@ -738,23 +746,53 @@ function SceneWGS({ uid }: { uid: string }) {
 /* ─── Map ─────────────────────────────────────────────────────────────────── */
 
 const SCENES: Record<string, (uid: string) => React.ReactElement> = {
+  /* Detail-page routes (kept) */
   "panel-cancer-hereditario":           uid => <SceneDNA uid={uid} />,
   "panel-core-cancer-hereditario":      uid => <SceneDNA uid={uid} />,
   "panel-cancer-mama-hereditario":      uid => <SceneWomensHealth uid={uid} />,
   "panel-cancer-colorrectal-poliposis": uid => <SceneColorectal uid={uid} />,
   "panel-cancer-prostata-hereditario":  uid => <SceneProstate uid={uid} />,
-  "panel-cardio-pulmonar":              uid => <SceneCardio uid={uid} />,
-  "reporte-cardiometabolico":           uid => <SceneCardio uid={uid} />,
-  "panel-neurologico":                  uid => <SceneNeuro uid={uid} />,
-  "neuro-panel-wgs":                    uid => <SceneWGS uid={uid} />,
-  "panel-inmunologico":                 uid => <SceneImmune uid={uid} />,
-  "panel-diabetes":                     uid => <SceneMetabolic uid={uid} />,
-  "panel-oftalmologico":                uid => <SceneEye uid={uid} />,
-  "panel-respiratorio":                 uid => <SceneLungs uid={uid} />,
-  "panel-autismo":                      uid => <SceneNeuroDev uid={uid} />,
-  "panel-farmacogenomica":              uid => <ScenePharma uid={uid} />,
-  "panel-tiroides":                     uid => <SceneThyroid uid={uid} />,
-  "exoma-completo":                     uid => <SceneExome uid={uid} />,
+
+  /* Cancer & Oncology */
+  "familial-cancer-panel":              uid => <SceneDNA uid={uid} />,
+  "universal-cancer-screening":         uid => <SceneDNA uid={uid} />,
+  "cancer-pgx":                         uid => <ScenePharma uid={uid} />,
+
+  /* Pharmacogenomics */
+  "comprehensive-pgx":                  uid => <ScenePharma uid={uid} />,
+  "pain-pgx":                           uid => <ScenePharma uid={uid} />,
+  "psychiatric-pgx":                    uid => <SceneNeuro uid={uid} />,
+  "cardiac-pgx":                        uid => <SceneCardio uid={uid} />,
+
+  /* Reproductive & Family Testing */
+  "gender-reveal":                      uid => <SceneWomensHealth uid={uid} />,
+  "nipt":                               uid => <SceneWomensHealth uid={uid} />,
+  "prenatal-paternity":                 uid => <SceneDNA uid={uid} />,
+  "carrier-detection":                  uid => <SceneDNA uid={uid} />,
+  "paternity-relationship":             uid => <SceneDNA uid={uid} />,
+
+  /* Infectious Disease Panels */
+  "covid-rtpcr":                        uid => <SceneLungs uid={uid} />,
+  "covid-flu-rsv":                      uid => <SceneLungs uid={uid} />,
+  "respiratory-pathogen":               uid => <SceneLungs uid={uid} />,
+  "uti-panel":                          uid => <SceneImmune uid={uid} />,
+  "wound-panel":                        uid => <SceneImmune uid={uid} />,
+  "vaginitis-panel":                    uid => <SceneImmune uid={uid} />,
+  "hpv-panel":                          uid => <SceneImmune uid={uid} />,
+
+  /* Clinical Genomics & Inherited Disorders */
+  "clinical-wgs":                       uid => <SceneWGS uid={uid} />,
+  "clinical-wes":                       uid => <SceneExome uid={uid} />,
+  "inherited-disorders":                uid => <SceneDNA uid={uid} />,
+  "immune-panel":                       uid => <SceneImmune uid={uid} />,
+  "dementia-neuro":                     uid => <SceneNeuro uid={uid} />,
+  "eye-retinopathies":                  uid => <SceneEye uid={uid} />,
+  "adult-metabolic":                    uid => <SceneMetabolic uid={uid} />,
+  "developmental-metabolic":            uid => <SceneNeuroDev uid={uid} />,
+
+  /* Personalized Health, Metabolism & Microbiota */
+  "diabetes-type2":                     uid => <SceneMetabolic uid={uid} />,
+  "ancestry-heritage":                  uid => <SceneDNA uid={uid} />,
   "microbiota-intestinal":              uid => <SceneMicrobiome uid={uid} />,
 };
 

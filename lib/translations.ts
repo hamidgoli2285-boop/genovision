@@ -34,7 +34,7 @@ const es = {
   },
   trustBar: {
     items: [
-      { label: "161 genes", sub: "evaluados" },
+      { label: "193 genes", sub: "evaluados" },
       { label: "Tecnología NGS", sub: "secuenciación de nueva generación" },
       { label: "Muestra bucal o saliva", sub: "no invasiva" },
       { label: "Resultados aprox. 28 días", sub: "tiempo estimado" },
@@ -51,12 +51,13 @@ const es = {
     featured: "Destacado",
     requestInfo: "Solicitar información",
     viewFullProcess: "Ver proceso completo",
+    studiesCount: "estudios",
     viewPanel: "Ver panel",
     viewSubpanel: "Ver subpanel",
     viewFullCatalog: "Ver catálogo completo",
     viewPanelDetails: "Ver detalles del panel",
-    viewFullPanel: "Ver panel completo (161 genes)",
-    backToFullPanel: "Ver panel completo de 161 genes",
+    viewFullPanel: "Ver panel completo (193 genes)",
+    backToFullPanel: "Ver panel completo de 193 genes",
     scheduleWhatsApp: "Agendar consulta por WhatsApp",
     writeWhatsApp: "Escríbenos por WhatsApp",
     sendWhatsApp: "Enviar WhatsApp ahora",
@@ -78,9 +79,9 @@ const es = {
       "La inclusión de un gen en este subpanel no significa diagnóstico de cáncer. Los resultados deben interpretarse junto con la historia personal, familiar y criterio médico.",
     geneDisclaimerFull:
       "La inclusión de un gen en el panel no significa diagnóstico de cáncer. Los resultados deben interpretarse junto con la historia personal, familiar y criterio médico.",
-    showAllGenes: "Ver los 161 genes",
+    showAllGenes: "Ver los 193 genes",
     hideGenes: "Ocultar lista",
-    genesIncludedCount: "161 genes incluidos",
+    genesIncludedCount: "193 genes incluidos",
   },
   home: {
     heroTitlePart1: "Genética del cáncer y ",
@@ -192,21 +193,62 @@ const es = {
     finalCtaSecondaryLabel: "Ver estudios disponibles",
   },
   productos: {
-    eyebrow: "Catálogo",
-    title: "Catálogo de análisis genéticos",
+    eyebrow: "Catálogo clínico",
+    title: "Catálogo de estudios genéticos",
     description:
-      "Explora nuestros análisis genómicos diseñados para prevención, riesgo hereditario y medicina personalizada. Algunos paneles están disponibles bajo solicitud y bajo indicación médica.",
+      "Encuentra el estudio adecuado según tu objetivo clínico: riesgo hereditario, oncología de precisión, farmacogenómica, salud reproductiva, infecciones, microbiota y genómica clínica.",
+    oncologyEyebrow: "Área destacada",
+    oncologyTitle: "Oncología y riesgo hereditario",
+    oncologyDescription:
+      "Estudios diseñados para identificar predisposición hereditaria, apoyar decisiones terapéuticas y orientar el seguimiento oncológico con información genómica.",
+    oncologyFlagshipLabel: "Estudio principal",
+    oncologyGenesLabel: "genes analizados",
+    anchorsTitle: "Encuentra el estudio según tu objetivo",
+    catalogEyebrow: "Catálogo completo",
+    catalogTitle: "Directorio clínico de estudios",
+    railTitle: "Categorías",
+    railGuidanceCta: "Solicitar orientación",
+    viewStudy: "Ver estudio",
+    productDetail: {
+      backToCatalog: "Volver al catálogo",
+      overview: "Descripción general",
+      applications: "Aplicaciones clínicas",
+      whoShould: "¿Quién debería considerar este estudio?",
+      indications: "Indicaciones clínicas",
+      conditions: "Condiciones, genes y biomarcadores",
+      conditionsSearchPlaceholder: "Buscar en la lista...",
+      technology: "Tecnología",
+      sample: "Requisitos de muestra",
+      turnaround: "Tiempo de entrega",
+      workflow: "Flujo clínico",
+      genoVisionProcess: "Proceso con GenoVision",
+      interpretation: "Interpretación de resultados",
+      limitations: "Limitaciones importantes",
+      faq: "Preguntas frecuentes",
+      contactTitle: "¿Te interesa este estudio?",
+      contactSubtitle:
+        "Escríbenos y con gusto te orientamos sobre este estudio genético según tu objetivo clínico.",
+      ctaAvailable: "Solicitar información",
+      ctaCheck: "Disponible bajo solicitud",
+      processSteps: [
+        "Orientación inicial",
+        "Selección del estudio",
+        "Coordinación de la muestra",
+        "Análisis genómico",
+        "Entrega e interpretación de resultados",
+      ],
+    },
     subpanelsEyebrow: "Cáncer hereditario",
     subpanelsTitle: "Subpaneles de cáncer hereditario",
     subpanelsDescription:
-      "Subpaneles enfocados derivados del Panel de Cáncer Hereditario de 161 genes, organizados por tipo de cáncer e indicación médica.",
-    ctaTitle: "¿Necesitas orientación para elegir un panel?",
+      "Subpaneles enfocados derivados del Panel Familiar de Cáncer de 193 genes, organizados por tipo de cáncer e indicación médica.",
+    ctaTitle: "¿Necesitas orientación para elegir un estudio?",
     ctaSubtitle:
       "Cuéntanos tu caso y te ayudamos a definir si un análisis genético es adecuado para ti o tu familiar.",
     ctaPrimary: "Hablar por WhatsApp",
     ctaSecondary: "Conocer el proceso",
     emptyCategory:
-      "No hay paneles en esta categoría todavía. Pronto agregaremos más.",
+      "No hay estudios en esta categoría todavía. Pronto agregaremos más.",
     filterLabel: "Filtros de catálogo",
   },
   panelCancer: {
@@ -217,7 +259,7 @@ const es = {
     descriptionPart2:
       "genes para identificar predisposición hereditaria al cáncer y orientar decisiones preventivas con tu médico.",
     badges: [
-      "161 genes",
+      "193 genes",
       "NGS",
       "Muestra bucal o saliva",
       "Resultados aprox. 28 días",
@@ -288,7 +330,7 @@ const es = {
     genesEyebrow: "Genes incluidos",
     genesTitle: "Genes analizados en el Panel de Cáncer Hereditario",
     genesDescription:
-      "El panel completo evalúa 161 genes relacionados con predisposición hereditaria a distintos tipos de cáncer y síndromes familiares.",
+      "El panel completo evalúa 193 genes relacionados con predisposición hereditaria a distintos tipos de cáncer y síndromes familiares.",
     processEyebrow: "Cómo es el proceso",
     processTitle: "Del primer contacto al plan de seguimiento",
     processDescription:
@@ -312,7 +354,7 @@ const es = {
       {
         title: "Análisis genético",
         description:
-          "Secuenciación de nueva generación de 161 genes asociados con cáncer hereditario.",
+          "Secuenciación de nueva generación de 193 genes asociados con cáncer hereditario.",
       },
       {
         title: "Interpretación del resultado",
@@ -357,13 +399,13 @@ const es = {
     subpanelsEyebrow: "Subpaneles enfocados",
     subpanelsTitle: "Subpaneles especializados",
     subpanelsDescription:
-      "Además del panel completo de 161 genes, GenoVision organiza la evaluación en subpaneles enfocados según el antecedente familiar, el tipo de cáncer y la indicación médica.",
+      "Además del panel completo de 193 genes, GenoVision organiza la evaluación en subpaneles enfocados según el antecedente familiar, el tipo de cáncer y la indicación médica.",
     subpanelsNote:
       "El panel completo de {genes} genes sigue siendo la opción más amplia. Los subpaneles son alternativas enfocadas bajo criterio médico.",
     comparisonEyebrow: "Comparativa",
     comparisonTitle: "Comparativa de paneles",
     comparisonDescription:
-      "Tabla comparativa entre el Panel Completo de 161 genes y los subpaneles enfocados disponibles.",
+      "Tabla comparativa entre el Panel Completo de 193 genes y los subpaneles enfocados disponibles.",
     familyImpactBadge: "Impacto familiar",
     familyImpactTitle: "Tu resultado también puede proteger a tu familia",
     familyImpactDescription:
@@ -394,7 +436,7 @@ const es = {
     view: "Ver",
     fullPanelName: "Panel Completo de Cáncer Hereditario",
     fullPanelFocus:
-      "161 genes relacionados con múltiples síndromes hereditarios",
+      "193 genes relacionados con múltiples síndromes hereditarios",
     fullPanelBestFor: "Evaluación amplia, antecedentes familiares complejos",
     fullPanelCoverage: "Más completo",
     subpanelNames: {
@@ -437,7 +479,7 @@ const es = {
     breadcrumbPanel: "Panel de Cáncer Hereditario",
     specializedSubpanel: "Subpanel especializado",
     schedule: "Agendar evaluación",
-    viewFullPanel: "Ver panel completo (161 genes)",
+    viewFullPanel: "Ver panel completo (193 genes)",
     titlePrefix: "Panel de",
   },
   medicalDisclaimer: {
@@ -544,7 +586,7 @@ const es = {
         a: "Aproximadamente 28 días desde la recepción de la muestra en el laboratorio.",
       },
       {
-        q: "¿Qué significa analizar 161 genes?",
+        q: "¿Qué significa analizar 193 genes?",
         a: "Significa que se revisan múltiples genes asociados con predisposición hereditaria al cáncer en un solo análisis, lo que permite una visión amplia y eficiente.",
       },
       {
@@ -702,7 +744,7 @@ const es = {
       {
         title: "Análisis genético amplio",
         description:
-          "Panel de 161 genes asociados con predisposición hereditaria al cáncer mediante secuenciación NGS.",
+          "Panel de 193 genes asociados con predisposición hereditaria al cáncer mediante secuenciación NGS.",
       },
       {
         title: "Reporte clínico claro",
@@ -843,7 +885,7 @@ const es = {
     ctaSubtitle:
       "Habla con nuestro equipo y conoce si una evaluación genética enfocada es adecuada para ti.",
     ctaPrimary: "Agendar consulta por WhatsApp",
-    ctaSecondary: "Ver panel completo (161 genes)",
+    ctaSecondary: "Ver panel completo (193 genes)",
   },
   subpanelMama: {
     subtitle:
@@ -951,7 +993,7 @@ const es = {
     ctaSubtitle:
       "Una evaluación genética enfocada puede aportar información clave para prevención y vigilancia.",
     ctaPrimary: "Agendar consulta por WhatsApp",
-    ctaSecondary: "Ver panel completo (161 genes)",
+    ctaSecondary: "Ver panel completo (193 genes)",
   },
   subpanelCore: {
     subtitle:
@@ -962,7 +1004,7 @@ const es = {
       "Un panel core agrupa genes con evidencia clínica establecida en predisposición hereditaria al cáncer. Es una opción más enfocada que un panel amplio, pensada para evaluación inicial o para indicaciones médicas específicas. El panel core",
     whatBodyBold: "no reemplaza",
     whatBody2:
-      "al panel completo de 161 genes; ofrece una vía dirigida cuando el contexto clínico lo justifica.",
+      "al panel completo de 193 genes; ofrece una vía dirigida cuando el contexto clínico lo justifica.",
     whenEyebrow: "¿Cuándo conviene usarlo?",
     whenTitle:
       "Situaciones donde el panel core puede ser una buena opción",
@@ -989,7 +1031,7 @@ const es = {
       },
     ],
     fullPanelBadge: "Panel completo",
-    fullPanelTitle: "161 genes",
+    fullPanelTitle: "193 genes",
     fullPanelDesc:
       "La evaluación más amplia de GenoVision para predisposición hereditaria al cáncer. Incluye múltiples síndromes y genes de alta y moderada penetrancia.",
     fullPanelBenefits: [
@@ -1012,7 +1054,7 @@ const es = {
     limitationsDescription:
       "Conocer las limitaciones del panel core ayuda a tomar una decisión informada con tu médico.",
     limitations: [
-      "No analiza la totalidad de los 161 genes incluidos en el panel completo.",
+      "No analiza la totalidad de los 193 genes incluidos en el panel completo.",
       "Puede no detectar variantes en genes fuera del panel core.",
       "Un resultado negativo no descarta predisposición hereditaria por completo.",
       "Las variantes de significado incierto pueden requerir reanálisis futuro.",
@@ -1051,7 +1093,7 @@ const es = {
     ctaSubtitle:
       "Conversemos para definir si el panel core o el panel completo es la opción adecuada para tu caso.",
     ctaPrimary: "Hablar por WhatsApp",
-    ctaSecondary: "Ver panel completo (161 genes)",
+    ctaSecondary: "Ver panel completo (193 genes)",
   },
   subpanelProstata: {
     subtitle:
@@ -1159,134 +1201,352 @@ const es = {
     ctaSubtitle:
       "Una evaluación genética enfocada puede aportar información clave para vigilancia y prevención.",
     ctaPrimary: "Agendar consulta por WhatsApp",
-    ctaSecondary: "Ver panel completo (161 genes)",
+    ctaSecondary: "Ver panel completo (193 genes)",
   },
   products: {
-    "panel-cancer-hereditario": {
-      title: "Panel de Cáncer Hereditario",
-      categoryLabel: "Cáncer hereditario",
+    "familial-cancer-panel": {
+      title: "Panel Familiar de Cáncer",
+      categoryLabel: "Cáncer y Oncología",
       description:
-        "Análisis de genes asociados a predisposición hereditaria a cáncer de mama, ovario, colon, próstata, páncreas, melanoma y otros síndromes hereditarios.",
-      ctaLabel: "Ver panel",
-      badges: ["161 genes", "NGS", "Prevención", "Riesgo hereditario"],
+        "Análisis integral de 193 genes asociados con predisposición hereditaria a cáncer de mama, ovario, colon, próstata, páncreas, melanoma y otros síndromes hereditarios.",
+      ctaLabel: "Ver estudio",
+      badges: ["193 genes", "NGS", "Riesgo hereditario", "Prevención"],
     },
-    "panel-cardio-pulmonar": {
-      title: "Panel Cardio-Pulmonar",
-      categoryLabel: "Salud cardiovascular",
+    "universal-cancer-screening": {
+      title: "Tamizaje Universal de Cáncer (Biopsia Líquida)",
+      categoryLabel: "Cáncer y Oncología",
       description:
-        "Evaluación genética orientada a condiciones cardiovasculares y pulmonares hereditarias.",
+        "Biopsia líquida en sangre que evalúa señales moleculares relacionadas con el tumor para apoyar la detección temprana y el monitoreo en múltiples tipos de cáncer.",
       ctaLabel: "Solicitar información",
-      badges: ["NGS", "Cardiovascular"],
+      badges: ["Biopsia líquida", "Multicáncer", "Muestra de sangre"],
     },
-    "panel-neurologico": {
-      title: "Panel Neurológico",
-      categoryLabel: "Neurología",
+    "cancer-pgx": {
+      title: "Panel Cancer-PGx",
+      categoryLabel: "Cáncer y Oncología",
       description:
-        "Análisis genético para condiciones neurológicas hereditarias y neurodegenerativas seleccionadas.",
+        "Análisis farmacogenómico enfocado en fármacos oncológicos, para orientar la selección y dosificación de quimioterapia y terapias dirigidas.",
       ctaLabel: "Solicitar información",
-      badges: ["NGS", "Neurología"],
+      badges: ["PGx", "Oncología", "Respuesta a fármacos"],
     },
-    "panel-inmunologico": {
-      title: "Panel Inmunológico",
-      categoryLabel: "Inmunología",
-      description:
-        "Evaluación de variantes asociadas con inmunodeficiencias primarias y trastornos autoinmunes/autoinflamatorios.",
-      ctaLabel: "Solicitar información",
-      badges: ["NGS", "Inmunología"],
-    },
-    "panel-diabetes": {
-      title: "Panel de Diabetes",
-      categoryLabel: "Diabetes",
-      description:
-        "Análisis genético enfocado en predisposición y formas monogénicas relacionadas con diabetes.",
-      ctaLabel: "Solicitar información",
-      badges: ["NGS", "Metabolismo"],
-    },
-    "panel-oftalmologico": {
-      title: "Panel Oftalmológico",
-      categoryLabel: "Oftalmología",
-      description:
-        "Evaluación genética para trastornos oculares hereditarios y retinopatías.",
-      ctaLabel: "Solicitar información",
-      badges: ["NGS", "Oftalmología"],
-    },
-    "panel-respiratorio": {
-      title: "Panel Respiratorio",
-      categoryLabel: "Respiratorio",
-      description:
-        "Análisis de variantes asociadas a enfermedades respiratorias hereditarias o predisposición pulmonar.",
-      ctaLabel: "Solicitar información",
-      badges: ["NGS", "Respiratorio"],
-    },
-    "panel-autismo": {
-      title: "Panel de Autismo / Neurodesarrollo",
-      categoryLabel: "Neurodesarrollo",
-      description:
-        "Análisis genético orientado a condiciones del neurodesarrollo bajo criterio médico.",
-      ctaLabel: "Solicitar información",
-      badges: ["NGS", "Neurodesarrollo"],
-    },
-    "panel-farmacogenomica": {
-      title: "Panel de Farmacogenómica",
+    "comprehensive-pgx": {
+      title: "Farmacogenómica Integral (PGx)",
       categoryLabel: "Farmacogenómica",
       description:
-        "Evaluación genética para orientar respuesta a medicamentos y metabolismo farmacológico.",
+        "Perfil farmacogenómico amplio basado en el sistema del citocromo P450 (CYP2D6, CYP2C19, CYP2C9, CYP3A4/5) y en genes como VKORC1, TPMT y SLCO1B1. Evalúa cómo el paciente metaboliza y responde a los medicamentos, con información relevante para cerca de 200 fármacos con guía farmacogenómica en las áreas cardiovascular, de dolor, psiquiátrica, neurológica, oncológica y de asma.",
       ctaLabel: "Solicitar información",
-      badges: ["NGS", "Medicina personalizada"],
+      badges: ["PGx", "Citocromo P450", "Dosis personalizada"],
     },
-    "panel-tiroides": {
-      title: "Panel de Tiroides",
-      categoryLabel: "Tiroides",
+    "pain-pgx": {
+      title: "Panel Pain-PGx",
+      categoryLabel: "Farmacogenómica",
       description:
-        "Evaluación genética relacionada con predisposición a trastornos tiroideos seleccionados.",
+        "Panel farmacogenómico enfocado en analgésicos y medicamentos para el manejo del dolor, para una prescripción más segura y personalizada.",
       ctaLabel: "Solicitar información",
-      badges: ["NGS", "Endocrinología"],
+      badges: ["PGx", "Manejo del dolor"],
     },
-    "exoma-completo": {
-      title: "Secuenciación de Exoma Completo (WES)",
-      categoryLabel: "Exoma / Genoma",
+    "psychiatric-pgx": {
+      title: "Panel Psychiatric-PGx",
+      categoryLabel: "Farmacogenómica",
       description:
-        "Análisis de regiones codificantes del genoma para investigación clínica avanzada bajo indicación médica.",
+        "Panel farmacogenómico para medicamentos psiquiátricos, que orienta la selección de antidepresivos, antipsicóticos y estabilizadores del ánimo.",
       ctaLabel: "Solicitar información",
-      badges: ["WES", "Investigación clínica"],
+      badges: ["PGx", "Psiquiatría"],
     },
-    "reporte-cardiometabolico": {
-      title: "Reporte Cardiometabólico / PRS",
-      categoryLabel: "Salud cardiovascular",
+    "cardiac-pgx": {
+      title: "Panel Cardiac-PGx",
+      categoryLabel: "Farmacogenómica",
       description:
-        "Reporte de riesgo genético cardiometabólico para prevención personalizada.",
+        "Panel farmacogenómico para medicamentos cardiovasculares, incluidos anticoagulantes, antiplaquetarios y estatinas.",
       ctaLabel: "Solicitar información",
-      badges: ["PRS", "Prevención"],
+      badges: ["PGx", "Cardiología"],
     },
-    "neuro-panel-wgs": {
-      title: "Neuro Panel Whole Genome",
-      categoryLabel: "Neurología",
+    "gender-reveal": {
+      title: "Prueba de Revelación de Sexo Fetal",
+      categoryLabel: "Salud Reproductiva y Pruebas Familiares",
       description:
-        "Análisis genómico amplio para condiciones neurológicas complejas bajo indicación médica.",
+        "Determinación temprana del sexo fetal a partir de una muestra de sangre materna.",
       ctaLabel: "Solicitar información",
-      badges: ["WGS", "Neurología"],
+      badges: ["Muestra de sangre", "Resultado temprano"],
+    },
+    "nipt": {
+      title: "Tamizaje Prenatal No Invasivo (NIPS/NIPT)",
+      categoryLabel: "Salud Reproductiva y Pruebas Familiares",
+      description:
+        "Tamizaje prenatal no invasivo que analiza el ADN fetal libre presente en la sangre materna desde la semana 10 de gestación. Evalúa las trisomías 21 (síndrome de Down), 18 (Edwards) y 13 (Patau), las aneuploidías de los cromosomas sexuales y, bajo solicitud médica, microdeleciones. Es una prueba de tamizaje segura, sin riesgo de aborto; los resultados positivos se confirman mediante amniocentesis y cariotipo.",
+      ctaLabel: "Solicitar información",
+      badges: ["NIPS/NIPT", "ADN fetal libre", "Desde la semana 10"],
+    },
+    "prenatal-paternity": {
+      title: "Prueba de Paternidad Prenatal",
+      categoryLabel: "Salud Reproductiva y Pruebas Familiares",
+      description:
+        "Prueba de paternidad prenatal no invasiva a partir de una muestra de sangre materna, segura durante el embarazo.",
+      ctaLabel: "Solicitar información",
+      badges: ["No invasivo", "Prenatal"],
+    },
+    "carrier-detection": {
+      title: "Prueba de Detección de Portadores",
+      categoryLabel: "Salud Reproductiva y Pruebas Familiares",
+      description:
+        "Tamizaje de portadores para identificar variantes hereditarias que podrían transmitirse a futuros hijos.",
+      ctaLabel: "Solicitar información",
+      badges: ["Tamizaje de portadores", "Planificación familiar"],
+    },
+    "paternity-relationship": {
+      title: "Prueba de Paternidad y Relación Biológica",
+      categoryLabel: "Salud Reproductiva y Pruebas Familiares",
+      description:
+        "Prueba de ADN para confirmar paternidad y otras relaciones biológicas familiares.",
+      ctaLabel: "Solicitar información",
+      badges: ["Prueba de ADN", "Relación biológica"],
+    },
+    "covid-rtpcr": {
+      title: "Prueba COVID RT-PCR",
+      categoryLabel: "Enfermedades Infecciosas",
+      description:
+        "Detección de SARS-CoV-2 mediante RT-PCR, el estándar de referencia.",
+      ctaLabel: "Solicitar información",
+      badges: ["RT-PCR", "SARS-CoV-2"],
+    },
+    "covid-flu-rsv": {
+      title: "Panel COVID-FLU-RSV",
+      categoryLabel: "Enfermedades Infecciosas",
+      description:
+        "Panel molecular combinado que detecta COVID-19, Influenza A/B y VSR en una sola muestra.",
+      ctaLabel: "Solicitar información",
+      badges: ["Multiplex", "COVID / FLU / VSR"],
+    },
+    "respiratory-pathogen": {
+      title: "Paneles de Patógenos Respiratorios (RPP LITE / RPP / PLUS)",
+      categoryLabel: "Enfermedades Infecciosas",
+      description:
+        "Paneles de patógenos respiratorios que detectan una amplia gama de patógenos virales y bacterianos.",
+      ctaLabel: "Solicitar información",
+      badges: ["RPP", "Multiplex", "LITE / RPP / PLUS"],
+    },
+    "uti-panel": {
+      title: "Paneles de Infección Urinaria — UTI (LITE / UTI / PLUS, con AMR)",
+      categoryLabel: "Enfermedades Infecciosas",
+      description:
+        "Paneles de infección urinaria con marcadores de resistencia antimicrobiana (AMR) para orientar el tratamiento.",
+      ctaLabel: "Solicitar información",
+      badges: ["UTI", "AMR", "LITE / UTI / PLUS"],
+    },
+    "wound-panel": {
+      title: "Paneles de Heridas (LITE / WOUND / PLUS)",
+      categoryLabel: "Enfermedades Infecciosas",
+      description:
+        "Paneles de infección de heridas que identifican patógenos y marcadores de resistencia para orientar el tratamiento.",
+      ctaLabel: "Solicitar información",
+      badges: ["Heridas", "AMR", "LITE / WOUND / PLUS"],
+    },
+    "vaginitis-panel": {
+      title: "Panel de Vaginitis",
+      categoryLabel: "Enfermedades Infecciosas",
+      description:
+        "Panel molecular para las causas comunes de vaginitis e infecciones vaginales.",
+      ctaLabel: "Solicitar información",
+      badges: ["Vaginitis", "Molecular"],
+    },
+    "hpv-panel": {
+      title: "Panel de VPH (Virus del Papiloma Humano)",
+      categoryLabel: "Enfermedades Infecciosas",
+      description:
+        "Panel de genotipificación del Virus del Papiloma Humano (VPH), incluidos los tipos de alto riesgo.",
+      ctaLabel: "Solicitar información",
+      badges: ["VPH", "Genotipificación", "Tipos de alto riesgo"],
+    },
+    "clinical-wgs": {
+      title: "Secuenciación Clínica del Genoma Completo",
+      categoryLabel: "Genómica Clínica y Trastornos Hereditarios",
+      description:
+        "Secuenciación del genoma completo (WGS) para el diagnóstico de enfermedades raras y no diagnosticadas con fenotipos inexplicados. Detecta SNV, indels, variantes estructurales, CNV y expansiones por repetición, con análisis del probando o familiar (trío/dúo). El análisis se realiza mediante secuenciación con biblioteca PCR-free en la plataforma Illumina NovaSeq X Plus (2×150 pb, profundidad media mínima 30×) y procesamiento con DRAGEN sobre el genoma de referencia GRCh38. Incluye hallazgos secundarios opcionales según la lista ACMG SF v3.3 (84 genes). Muestra: sangre (EDTA), saliva o hisopado bucal. Tiempo de entrega aproximado: 4–6 semanas.",
+      ctaLabel: "Solicitar información",
+      badges: ["WGS", "Illumina NovaSeq X Plus", "ACMG SF v3.3"],
+    },
+    "clinical-wes": {
+      title: "Secuenciación Clínica del Exoma Completo",
+      categoryLabel: "Genómica Clínica y Trastornos Hereditarios",
+      description:
+        "Secuenciación clínica del exoma completo que analiza las regiones codificantes para condiciones hereditarias y sin diagnóstico.",
+      ctaLabel: "Solicitar información",
+      badges: ["WES", "Diagnóstico"],
+    },
+    "inherited-disorders": {
+      title: "Panel de Trastornos Hereditarios",
+      categoryLabel: "Genómica Clínica y Trastornos Hereditarios",
+      description:
+        "Panel para una amplia gama de trastornos genéticos hereditarios.",
+      ctaLabel: "Solicitar información",
+      badges: ["NGS", "Enfermedad hereditaria"],
+    },
+    "immune-panel": {
+      title: "Panel Inmunológico (Inmunología / Sarcoidosis / Inmunodeficiencia)",
+      categoryLabel: "Genómica Clínica y Trastornos Hereditarios",
+      description:
+        "Panel germinal por NGS para inmunodeficiencias primarias (congénitas), trastornos autoinmunes y sarcoidosis. Puede ser útil ante infecciones virales, fúngicas o bacterianas recurrentes o difíciles de tratar, COVID persistente (long COVID), fiebres o erupciones recurrentes y alergias graves.",
+      ctaLabel: "Solicitar información",
+      badges: ["NGS", "Inmunodeficiencia primaria", "Autoinmunidad"],
+    },
+    "dementia-neuro": {
+      title: "Panel de Demencia y Trastornos Neurológicos",
+      categoryLabel: "Genómica Clínica y Trastornos Hereditarios",
+      description:
+        "Panel germinal por NGS para trastornos neurológicos hereditarios: ataxias, enfermedad de Charcot-Marie-Tooth (CMT), paraplejía espástica, enfermedad de Parkinson, enfermedad de Alzheimer, demencia frontotemporal (DFT), esclerosis lateral amiotrófica (ELA) y epilepsia. Disponible en un nivel enfocado (Alzheimer, demencia y Parkinson) y en un nivel integral con más de 400 genes.",
+      ctaLabel: "Solicitar información",
+      badges: ["NGS", "Neurología", "Enfoque a integral (400+ genes)"],
+    },
+    "eye-retinopathies": {
+      title: "Panel de Enfermedades Oculares y Retinopatías",
+      categoryLabel: "Genómica Clínica y Trastornos Hereditarios",
+      description:
+        "Panel germinal por NGS para trastornos oculares hereditarios y retinopatías: retinosis pigmentaria, ceguera nocturna y cromática, nistagmo, degeneración macular asociada a la edad, cataratas, glaucomas y microftalmía, entre otros.",
+      ctaLabel: "Solicitar información",
+      badges: ["NGS", "Oftalmología", "Retinopatías"],
+    },
+    "adult-metabolic": {
+      title: "Panel de Trastornos Metabólicos en Adultos",
+      categoryLabel: "Genómica Clínica y Trastornos Hereditarios",
+      description:
+        "Panel germinal integral por NGS para trastornos metabólicos de inicio en la adultez y cuidado de heridas: hipercolesterolemia e hiperlipidemia, hipertensión, diabetes, gota, porfiria, hemocromatosis, pie diabético, complicaciones vasculares asociadas a la diabetes y diversos trastornos de cicatrización de heridas.",
+      ctaLabel: "Solicitar información",
+      badges: ["NGS", "Metabólico", "Cicatrización de heridas"],
+    },
+    "developmental-metabolic": {
+      title: "Panel de Trastornos Metabólicos del Desarrollo",
+      categoryLabel: "Genómica Clínica y Trastornos Hereditarios",
+      description:
+        "Panel germinal por NGS para trastornos metabólicos del desarrollo: aminoacidopatías, acidemias orgánicas, trastornos de depósito lisosomal y trastornos de la oxidación de ácidos grasos, causados por alteraciones en las vías metabólicas.",
+      ctaLabel: "Solicitar información",
+      badges: ["NGS", "Metabólico", "Desarrollo"],
+    },
+    "diabetes-type2": {
+      title: "Panel de Predicción de Diabetes Mellitus Tipo II",
+      categoryLabel: "Salud Personalizada, Metabolismo y Microbiota",
+      description:
+        "Panel germinal por NGS para diabetes mellitus que evalúa formas de tipo 1 y tipo 2, diabetes del joven de inicio en la madurez (MODY), formas neonatales/congénitas y gestacionales, factores de riesgo genético y complicaciones multiorgánicas. Se han descrito alrededor de 250 variantes genéticas asociadas al riesgo de diabetes tipo 2.",
+      ctaLabel: "Solicitar información",
+      badges: ["NGS", "Diabetes", "MODY / neonatal / gestacional"],
+    },
+    "ancestry-heritage": {
+      title: "Ancestría y Herencia",
+      categoryLabel: "Salud Personalizada, Metabolismo y Microbiota",
+      description: "Explora tu ancestría genética y tu herencia.",
+      ctaLabel: "Solicitar información",
+      badges: ["Ancestría", "Herencia"],
     },
     "microbiota-intestinal": {
-      title: "Microbiota Intestinal",
-      categoryLabel: "Microbioma",
+      title: "Panel de Microbiota Intestinal",
+      categoryLabel: "Salud Personalizada, Metabolismo y Microbiota",
       description:
-        "Análisis del ecosistema bacteriano intestinal para evaluar diversidad microbiana, disbiosis y orientar estrategias nutricionales y de salud digestiva.",
-      ctaLabel: "Ver análisis",
-      badges: ["Secuenciación 16S", "Pangea Lab", "Microbioma", "Salud digestiva"],
+        "Análisis del ecosistema bacteriano intestinal para evaluar la diversidad microbiana, la disbiosis y orientar estrategias nutricionales y de salud digestiva.",
+      ctaLabel: "Ver estudio",
+      badges: ["Secuenciación 16S", "Microbioma", "Salud digestiva"],
+    },
+    "cardio-pulmonary": {
+      title: "Panel de Trastornos Cardio-Pulmonares",
+      categoryLabel: "Genómica Clínica y Trastornos Hereditarios",
+      description:
+        "Panel germinal por NGS para enfermedad cardio-pulmonar hereditaria: miocardiopatías, arritmias cardíacas, cardiopatías congénitas, síndrome de Noonan, fibrosis pulmonar, bronquiectasias, discinesia ciliar primaria y aneurisma/disección aórtica.",
+      ctaLabel: "Disponible bajo solicitud",
+      badges: ["NGS", "Cardíaco", "Pulmonar"],
+    },
+    "thyroid-panel": {
+      title: "Panel de Trastornos Tiroideos y Cáncer de Tiroides",
+      categoryLabel: "Genómica Clínica y Trastornos Hereditarios",
+      description:
+        "Panel germinal por NGS para trastornos tiroideos: dishormonogénesis, hipertiroidismo, hipotiroidismo y predisposición hereditaria a cánceres de tiroides.",
+      ctaLabel: "Disponible bajo solicitud",
+      badges: ["NGS", "Tiroides", "Endocrinología"],
+    },
+    "hearing-impairment": {
+      title: "Panel de Hipoacusia",
+      categoryLabel: "Genómica Clínica y Trastornos Hereditarios",
+      description:
+        "Panel germinal por NGS para hipoacusia hereditaria sindrómica y no sindrómica, que cubre formas autosómicas recesivas, autosómicas dominantes y ligadas al X.",
+      ctaLabel: "Disponible bajo solicitud",
+      badges: ["NGS", "Audiología", "Sindrómica / no sindrómica"],
+    },
+    "hematological-panel": {
+      title: "Panel Hematológico",
+      categoryLabel: "Genómica Clínica y Trastornos Hereditarios",
+      description:
+        "Panel germinal integral por NGS para enfermedad hereditaria de la sangre y el sistema linfático: anemias, coagulopatías, microangiopatías trombóticas, síndromes de falla medular y predisposición a neoplasias hematológicas.",
+      ctaLabel: "Disponible bajo solicitud",
+      badges: ["NGS", "Hematología"],
+    },
+    "mitochondrial-disorders": {
+      title: "Panel de Trastornos Mitocondriales (Nuclear-Mito)",
+      categoryLabel: "Genómica Clínica y Trastornos Hereditarios",
+      description:
+        "Panel germinal por NGS enfocado en variantes del ADN nuclear que afectan la función mitocondrial, incluidas las deficiencias de la fosforilación oxidativa (complejos I–V) que comprometen múltiples órganos.",
+      ctaLabel: "Disponible bajo solicitud",
+      badges: ["NGS", "Mitocondrial", "ADN nuclear"],
+    },
+    "neuromuscular-disease": {
+      title: "Panel de Enfermedades Neuromusculares",
+      categoryLabel: "Genómica Clínica y Trastornos Hereditarios",
+      description:
+        "Panel germinal por NGS para enfermedad neuromuscular hereditaria: enfermedad de Charcot-Marie-Tooth, paraplejía espástica hereditaria, esclerosis lateral amiotrófica (ELA), atrofia muscular espinal y neuropatías hereditarias.",
+      ctaLabel: "Disponible bajo solicitud",
+      badges: ["NGS", "Neuromuscular"],
+    },
+    "musculoskeletal-disease": {
+      title: "Panel de Enfermedades Musculoesqueléticas",
+      categoryLabel: "Genómica Clínica y Trastornos Hereditarios",
+      description:
+        "Panel germinal por NGS para enfermedad musculoesquelética hereditaria: distrofias musculares de cinturas y otras, miopatías, condrodisplasias, síndrome de Ehlers-Danlos y osteogénesis imperfecta.",
+      ctaLabel: "Disponible bajo solicitud",
+      badges: ["NGS", "Musculoesquelético"],
+    },
+    "respiratory-genetic": {
+      title: "Panel Integral de Enfermedad Respiratoria",
+      categoryLabel: "Genómica Clínica y Trastornos Hereditarios",
+      description:
+        "Panel germinal por NGS para enfermedad respiratoria hereditaria y predisposición, incluidos asma, EPOC, fibrosis pulmonar y compromiso pulmonar autoinmune/autoinflamatorio. (Distinto de los Paneles de Patógenos Respiratorios infecciosos.)",
+      ctaLabel: "Disponible bajo solicitud",
+      badges: ["NGS", "Respiratorio", "Hereditario"],
+    },
+    "autism-neurodevelopment": {
+      title: "Panel de Trastorno del Espectro Autista (TEA)",
+      categoryLabel: "Genómica Clínica y Trastornos Hereditarios",
+      description:
+        "Panel germinal por NGS que analiza más de 100 genes reportados en el trastorno del espectro autista y condiciones del neurodesarrollo, para apoyar la evaluación diagnóstica de diferencias sociales, conductuales y de comunicación.",
+      ctaLabel: "Disponible bajo solicitud",
+      badges: ["NGS", "Neurodesarrollo", "Más de 100 genes"],
     },
   } as Record<string, { title: string; categoryLabel: string; description: string; ctaLabel: string; badges: string[] }>,
   productCategories: [
-    { id: "all", label: "Todos" },
-    { id: "cancer", label: "Cáncer hereditario" },
-    { id: "cardiovascular", label: "Salud cardiovascular" },
-    { id: "neurologia", label: "Neurología" },
-    { id: "inmunologia", label: "Inmunología" },
-    { id: "diabetes", label: "Diabetes" },
-    { id: "oftalmologia", label: "Oftalmología" },
-    { id: "farmacogenomica", label: "Farmacogenómica" },
-    { id: "tiroides", label: "Tiroides" },
-    { id: "exoma", label: "Exoma / Genoma" },
-    { id: "microbioma", label: "Microbioma" },
+    {
+      id: "cancer",
+      label: "Cáncer y Oncología",
+      description: "Riesgo hereditario y apoyo a decisiones oncológicas",
+    },
+    {
+      id: "farmacogenomica",
+      label: "Farmacogenómica",
+      description: "Respuesta y dosificación de medicamentos",
+    },
+    {
+      id: "reproductiva",
+      label: "Salud Reproductiva y Pruebas Familiares",
+      description: "Estudios prenatales y de planeación familiar",
+    },
+    {
+      id: "infecciosas",
+      label: "Enfermedades Infecciosas",
+      description: "Detección de patógenos e infecciones",
+    },
+    {
+      id: "genomica",
+      label: "Genómica Clínica y Trastornos Hereditarios",
+      description: "Secuenciación amplia y paneles hereditarios",
+    },
+    {
+      id: "personalizada",
+      label: "Salud Personalizada, Metabolismo y Microbiota",
+      description: "Metabolismo, ancestría y microbiota",
+    },
   ],
   microbiotaIntestinal: {
     heroBadge: "En colaboración con Pangea Laboratory",
@@ -1562,7 +1822,7 @@ const en: typeof es = {
   },
   trustBar: {
     items: [
-      { label: "161 genes", sub: "evaluated" },
+      { label: "193 genes", sub: "evaluated" },
       { label: "NGS Technology", sub: "next-generation sequencing" },
       { label: "Buccal swab or saliva", sub: "non-invasive" },
       { label: "Results approx. 28 days", sub: "estimated time" },
@@ -1579,12 +1839,13 @@ const en: typeof es = {
     featured: "Featured",
     requestInfo: "Request information",
     viewFullProcess: "View full process",
+    studiesCount: "studies",
     viewPanel: "View panel",
     viewSubpanel: "View subpanel",
     viewFullCatalog: "View full catalog",
     viewPanelDetails: "View panel details",
-    viewFullPanel: "View full panel (161 genes)",
-    backToFullPanel: "View full panel of 161 genes",
+    viewFullPanel: "View full panel (193 genes)",
+    backToFullPanel: "View full panel of 193 genes",
     scheduleWhatsApp: "Schedule consultation via WhatsApp",
     writeWhatsApp: "Message us on WhatsApp",
     sendWhatsApp: "Send WhatsApp now",
@@ -1606,9 +1867,9 @@ const en: typeof es = {
       "The inclusion of a gene in this subpanel does not mean a cancer diagnosis. Results must be interpreted alongside personal, family history and medical judgment.",
     geneDisclaimerFull:
       "The inclusion of a gene in the panel does not mean a cancer diagnosis. Results must be interpreted alongside personal, family history and medical judgment.",
-    showAllGenes: "Show all 161 genes",
+    showAllGenes: "Show all 193 genes",
     hideGenes: "Hide list",
-    genesIncludedCount: "161 genes included",
+    genesIncludedCount: "193 genes included",
   },
   home: {
     heroTitlePart1: "Cancer genetics and ",
@@ -1720,21 +1981,62 @@ const en: typeof es = {
     finalCtaSecondaryLabel: "View available studies",
   },
   productos: {
-    eyebrow: "Catalog",
-    title: "Genetic analysis catalog",
+    eyebrow: "Clinical catalog",
+    title: "Genetic testing catalog",
     description:
-      "Explore our genomic analyses designed for prevention, hereditary risk, and personalized medicine. Some panels are available on request and under medical indication.",
+      "Find the right test for your clinical goal: hereditary risk, precision oncology, pharmacogenomics, reproductive health, infections, microbiota and clinical genomics.",
+    oncologyEyebrow: "Featured area",
+    oncologyTitle: "Oncology & hereditary risk",
+    oncologyDescription:
+      "Studies designed to identify hereditary predisposition, support treatment decisions, and guide oncology follow-up with genomic information.",
+    oncologyFlagshipLabel: "Flagship study",
+    oncologyGenesLabel: "genes analyzed",
+    anchorsTitle: "Find the study for your goal",
+    catalogEyebrow: "Full catalog",
+    catalogTitle: "Clinical test directory",
+    railTitle: "Categories",
+    railGuidanceCta: "Request guidance",
+    viewStudy: "View study",
+    productDetail: {
+      backToCatalog: "Back to catalog",
+      overview: "Overview",
+      applications: "Clinical applications",
+      whoShould: "Who should consider this test?",
+      indications: "Clinical indications",
+      conditions: "Conditions, genes & biomarkers",
+      conditionsSearchPlaceholder: "Search the list...",
+      technology: "Technology",
+      sample: "Sample requirements",
+      turnaround: "Turnaround time",
+      workflow: "Clinical workflow",
+      genoVisionProcess: "The GenoVision process",
+      interpretation: "Result interpretation",
+      limitations: "Important limitations",
+      faq: "Frequently asked questions",
+      contactTitle: "Interested in this study?",
+      contactSubtitle:
+        "Get in touch and we'll gladly guide you on this genetic study based on your clinical goal.",
+      ctaAvailable: "Request information",
+      ctaCheck: "Available upon request",
+      processSteps: [
+        "Initial guidance",
+        "Study selection",
+        "Sample coordination",
+        "Genomic analysis",
+        "Results delivery and interpretation",
+      ],
+    },
     subpanelsEyebrow: "Hereditary cancer",
     subpanelsTitle: "Hereditary cancer subpanels",
     subpanelsDescription:
-      "Focused subpanels derived from the 161-gene Hereditary Cancer Panel, organized by cancer type and medical indication.",
-    ctaTitle: "Need guidance choosing a panel?",
+      "Focused subpanels derived from the 193-gene Familial Cancer Panel, organized by cancer type and medical indication.",
+    ctaTitle: "Need guidance choosing a study?",
     ctaSubtitle:
       "Tell us your case and we'll help determine whether genetic testing is right for you or your family member.",
     ctaPrimary: "Chat on WhatsApp",
     ctaSecondary: "Learn about the process",
     emptyCategory:
-      "No panels in this category yet. More coming soon.",
+      "No studies in this category yet. More coming soon.",
     filterLabel: "Catalog filters",
   },
   panelCancer: {
@@ -1745,7 +2047,7 @@ const en: typeof es = {
     descriptionPart2:
       "genes to identify hereditary cancer predisposition and guide preventive decisions with your physician.",
     badges: [
-      "161 genes",
+      "193 genes",
       "NGS",
       "Buccal swab or saliva",
       "Results approx. 28 days",
@@ -1816,7 +2118,7 @@ const en: typeof es = {
     genesEyebrow: "Genes included",
     genesTitle: "Genes analyzed in the Hereditary Cancer Panel",
     genesDescription:
-      "The full panel evaluates 161 genes associated with hereditary predisposition to various cancer types and familial syndromes.",
+      "The full panel evaluates 193 genes associated with hereditary predisposition to various cancer types and familial syndromes.",
     processEyebrow: "How the process works",
     processTitle: "From first contact to follow-up plan",
     processDescription:
@@ -1840,7 +2142,7 @@ const en: typeof es = {
       {
         title: "Genetic analysis",
         description:
-          "Next-generation sequencing of 161 genes associated with hereditary cancer.",
+          "Next-generation sequencing of 193 genes associated with hereditary cancer.",
       },
       {
         title: "Result interpretation",
@@ -1885,13 +2187,13 @@ const en: typeof es = {
     subpanelsEyebrow: "Focused subpanels",
     subpanelsTitle: "Specialized subpanels",
     subpanelsDescription:
-      "In addition to the full 161-gene panel, GenoVision organizes evaluation into focused subpanels based on family history, cancer type, and medical indication.",
+      "In addition to the full 193-gene panel, GenoVision organizes evaluation into focused subpanels based on family history, cancer type, and medical indication.",
     subpanelsNote:
       "The full panel of {genes} genes remains the broadest option. Subpanels are focused alternatives under medical judgment.",
     comparisonEyebrow: "Comparison",
     comparisonTitle: "Panel comparison",
     comparisonDescription:
-      "Comparative table between the Full 161-gene Panel and the available focused subpanels.",
+      "Comparative table between the Full 193-gene Panel and the available focused subpanels.",
     familyImpactBadge: "Family impact",
     familyImpactTitle: "Your result can also protect your family",
     familyImpactDescription:
@@ -1922,7 +2224,7 @@ const en: typeof es = {
     view: "View",
     fullPanelName: "Full Hereditary Cancer Panel",
     fullPanelFocus:
-      "161 genes related to multiple hereditary syndromes",
+      "193 genes related to multiple hereditary syndromes",
     fullPanelBestFor: "Broad evaluation, complex family history",
     fullPanelCoverage: "Most comprehensive",
     subpanelNames: {
@@ -1965,7 +2267,7 @@ const en: typeof es = {
     breadcrumbPanel: "Hereditary Cancer Panel",
     specializedSubpanel: "Specialized subpanel",
     schedule: "Schedule evaluation",
-    viewFullPanel: "View full panel (161 genes)",
+    viewFullPanel: "View full panel (193 genes)",
     titlePrefix: "Panel of",
   },
   medicalDisclaimer: {
@@ -2072,7 +2374,7 @@ const en: typeof es = {
         a: "Approximately 28 days from the laboratory's receipt of the sample.",
       },
       {
-        q: "What does analyzing 161 genes mean?",
+        q: "What does analyzing 193 genes mean?",
         a: "It means multiple genes associated with hereditary cancer predisposition are reviewed in a single analysis, enabling a broad and efficient view.",
       },
       {
@@ -2230,7 +2532,7 @@ const en: typeof es = {
       {
         title: "Broad genetic analysis",
         description:
-          "Panel of 161 genes associated with hereditary cancer predisposition via NGS sequencing.",
+          "Panel of 193 genes associated with hereditary cancer predisposition via NGS sequencing.",
       },
       {
         title: "Clear clinical report",
@@ -2371,7 +2673,7 @@ const en: typeof es = {
     ctaSubtitle:
       "Talk to our team and find out if a focused genetic evaluation is right for you.",
     ctaPrimary: "Schedule consultation via WhatsApp",
-    ctaSecondary: "View full panel (161 genes)",
+    ctaSecondary: "View full panel (193 genes)",
   },
   subpanelMama: {
     subtitle:
@@ -2479,7 +2781,7 @@ const en: typeof es = {
     ctaSubtitle:
       "A focused genetic evaluation can provide key information for prevention and surveillance.",
     ctaPrimary: "Schedule consultation via WhatsApp",
-    ctaSecondary: "View full panel (161 genes)",
+    ctaSecondary: "View full panel (193 genes)",
   },
   subpanelCore: {
     subtitle:
@@ -2490,7 +2792,7 @@ const en: typeof es = {
       "A core panel groups genes with established clinical evidence in hereditary cancer predisposition. It is a more focused option than a broad panel, designed for initial evaluation or specific medical indications. The core panel",
     whatBodyBold: "does not replace",
     whatBody2:
-      "the full 161-gene panel; it offers a directed approach when the clinical context justifies it.",
+      "the full 193-gene panel; it offers a directed approach when the clinical context justifies it.",
     whenEyebrow: "When is it appropriate?",
     whenTitle:
       "Situations where the core panel may be a good option",
@@ -2517,7 +2819,7 @@ const en: typeof es = {
       },
     ],
     fullPanelBadge: "Full panel",
-    fullPanelTitle: "161 genes",
+    fullPanelTitle: "193 genes",
     fullPanelDesc:
       "GenoVision's broadest evaluation for hereditary cancer predisposition. Includes multiple syndromes and high- and moderate-penetrance genes.",
     fullPanelBenefits: [
@@ -2540,7 +2842,7 @@ const en: typeof es = {
     limitationsDescription:
       "Understanding the core panel's limitations helps make an informed decision with your physician.",
     limitations: [
-      "Does not analyze all 161 genes included in the full panel.",
+      "Does not analyze all 193 genes included in the full panel.",
       "May not detect variants in genes outside the core panel.",
       "A negative result does not completely rule out hereditary predisposition.",
       "Variants of uncertain significance may require future reanalysis.",
@@ -2579,7 +2881,7 @@ const en: typeof es = {
     ctaSubtitle:
       "Let's discuss whether the core panel or the full panel is the right option for your case.",
     ctaPrimary: "Chat on WhatsApp",
-    ctaSecondary: "View full panel (161 genes)",
+    ctaSecondary: "View full panel (193 genes)",
   },
   subpanelProstata: {
     subtitle:
@@ -2687,134 +2989,350 @@ const en: typeof es = {
     ctaSubtitle:
       "A focused genetic evaluation can provide key information for surveillance and prevention.",
     ctaPrimary: "Schedule consultation via WhatsApp",
-    ctaSecondary: "View full panel (161 genes)",
+    ctaSecondary: "View full panel (193 genes)",
   },
   products: {
-    "panel-cancer-hereditario": {
-      title: "Hereditary Cancer Panel",
-      categoryLabel: "Hereditary cancer",
+    "familial-cancer-panel": {
+      title: "Familial Cancer Panel",
+      categoryLabel: "Cancer & Oncology",
       description:
-        "Analysis of genes associated with hereditary predisposition to breast, ovarian, colon, prostate, pancreatic, melanoma, and other hereditary syndromes.",
-      ctaLabel: "View panel",
-      badges: ["161 genes", "NGS", "Prevention", "Hereditary risk"],
+        "Comprehensive analysis of 193 genes associated with hereditary predisposition to breast, ovarian, colorectal, prostate, pancreatic, melanoma and other cancer syndromes.",
+      ctaLabel: "View study",
+      badges: ["193 genes", "NGS", "Hereditary risk", "Prevention"],
     },
-    "panel-cardio-pulmonar": {
-      title: "Cardio-Pulmonary Panel",
-      categoryLabel: "Cardiovascular health",
+    "universal-cancer-screening": {
+      title: "Universal Cancer Screening (Liquid Biopsy)",
+      categoryLabel: "Cancer & Oncology",
       description:
-        "Genetic evaluation focused on hereditary cardiovascular and pulmonary conditions.",
+        "Blood-based liquid biopsy that screens for tumor-related molecular signals to support early detection and monitoring across multiple cancer types.",
       ctaLabel: "Request information",
-      badges: ["NGS", "Cardiovascular"],
+      badges: ["Liquid biopsy", "Multi-cancer", "Blood sample"],
     },
-    "panel-neurologico": {
-      title: "Neurological Panel",
-      categoryLabel: "Neurology",
+    "cancer-pgx": {
+      title: "Cancer-PGx Panel",
+      categoryLabel: "Cancer & Oncology",
       description:
-        "Genetic analysis for selected hereditary and neurodegenerative neurological conditions.",
+        "Pharmacogenomic analysis focused on oncology drugs, helping guide chemotherapy and targeted-therapy selection and dosing.",
       ctaLabel: "Request information",
-      badges: ["NGS", "Neurology"],
+      badges: ["PGx", "Oncology", "Drug response"],
     },
-    "panel-inmunologico": {
-      title: "Immunological Panel",
-      categoryLabel: "Immunology",
-      description:
-        "Evaluation of variants associated with primary immunodeficiencies and autoimmune/autoinflammatory disorders.",
-      ctaLabel: "Request information",
-      badges: ["NGS", "Immunology"],
-    },
-    "panel-diabetes": {
-      title: "Diabetes Panel",
-      categoryLabel: "Diabetes",
-      description:
-        "Genetic analysis focused on predisposition and monogenic forms related to diabetes.",
-      ctaLabel: "Request information",
-      badges: ["NGS", "Metabolism"],
-    },
-    "panel-oftalmologico": {
-      title: "Ophthalmological Panel",
-      categoryLabel: "Ophthalmology",
-      description:
-        "Genetic evaluation for hereditary eye disorders and retinopathies.",
-      ctaLabel: "Request information",
-      badges: ["NGS", "Ophthalmology"],
-    },
-    "panel-respiratorio": {
-      title: "Respiratory Panel",
-      categoryLabel: "Respiratory",
-      description:
-        "Analysis of variants associated with hereditary respiratory diseases or pulmonary predisposition.",
-      ctaLabel: "Request information",
-      badges: ["NGS", "Respiratory"],
-    },
-    "panel-autismo": {
-      title: "Autism / Neurodevelopment Panel",
-      categoryLabel: "Neurodevelopment",
-      description:
-        "Genetic analysis for neurodevelopmental conditions under medical guidance.",
-      ctaLabel: "Request information",
-      badges: ["NGS", "Neurodevelopment"],
-    },
-    "panel-farmacogenomica": {
-      title: "Pharmacogenomics Panel",
+    "comprehensive-pgx": {
+      title: "Comprehensive Pharmacogenomics (PGx)",
       categoryLabel: "Pharmacogenomics",
       description:
-        "Genetic evaluation to guide drug response and pharmacological metabolism.",
+        "Broad pharmacogenomic profile built on the cytochrome P450 system (CYP2D6, CYP2C19, CYP2C9, CYP3A4/5) plus genes such as VKORC1, TPMT and SLCO1B1. It evaluates how a patient metabolizes and responds to medications, informing roughly 200 drugs with pharmacogenomic guidance across cardiovascular, pain, psychiatric, neurology, oncology and asthma care.",
       ctaLabel: "Request information",
-      badges: ["NGS", "Personalized medicine"],
+      badges: ["PGx", "Cytochrome P450", "Personalized dosing"],
     },
-    "panel-tiroides": {
-      title: "Thyroid Panel",
-      categoryLabel: "Thyroid",
+    "pain-pgx": {
+      title: "Pain-PGx Panel",
+      categoryLabel: "Pharmacogenomics",
       description:
-        "Genetic evaluation related to predisposition to selected thyroid disorders.",
+        "Pharmacogenomic panel focused on analgesics and pain-management medications to support safer, personalized prescribing.",
       ctaLabel: "Request information",
-      badges: ["NGS", "Endocrinology"],
+      badges: ["PGx", "Pain management"],
     },
-    "exoma-completo": {
-      title: "Whole Exome Sequencing (WES)",
-      categoryLabel: "Exome / Genome",
+    "psychiatric-pgx": {
+      title: "Psychiatric-PGx Panel",
+      categoryLabel: "Pharmacogenomics",
       description:
-        "Analysis of coding regions of the genome for advanced clinical research under medical indication.",
+        "Pharmacogenomic panel for psychiatric medications, informing antidepressant, antipsychotic and mood-stabilizer selection.",
       ctaLabel: "Request information",
-      badges: ["WES", "Clinical research"],
+      badges: ["PGx", "Psychiatry"],
     },
-    "reporte-cardiometabolico": {
-      title: "Cardiometabolic Report / PRS",
-      categoryLabel: "Cardiovascular health",
+    "cardiac-pgx": {
+      title: "Cardiac-PGx Panel",
+      categoryLabel: "Pharmacogenomics",
       description:
-        "Cardiometabolic genetic risk report for personalized prevention.",
+        "Pharmacogenomic panel for cardiovascular medications, including anticoagulants, antiplatelets and statins.",
       ctaLabel: "Request information",
-      badges: ["PRS", "Prevention"],
+      badges: ["PGx", "Cardiology"],
     },
-    "neuro-panel-wgs": {
-      title: "Neuro Panel Whole Genome",
-      categoryLabel: "Neurology",
+    "gender-reveal": {
+      title: "Gender Reveal Test",
+      categoryLabel: "Reproductive & Family Testing",
       description:
-        "Broad genomic analysis for complex neurological conditions under medical indication.",
+        "Early, blood-based fetal sex determination from a maternal sample.",
       ctaLabel: "Request information",
-      badges: ["WGS", "Neurology"],
+      badges: ["Blood sample", "Early result"],
+    },
+    "nipt": {
+      title: "Non-Invasive Prenatal Screening (NIPS/NIPT)",
+      categoryLabel: "Reproductive & Family Testing",
+      description:
+        "Non-invasive prenatal screening that analyzes cell-free fetal DNA circulating in maternal blood from week 10 of gestation. It assesses trisomies 21 (Down syndrome), 18 (Edwards) and 13 (Patau), sex-chromosome aneuploidies and — on physician request — microdeletions. A safe screening test with no miscarriage risk; positive results are confirmed by amniocentesis and karyotyping.",
+      ctaLabel: "Request information",
+      badges: ["NIPS/NIPT", "Cell-free fetal DNA", "From week 10"],
+    },
+    "prenatal-paternity": {
+      title: "Prenatal Paternity Test",
+      categoryLabel: "Reproductive & Family Testing",
+      description:
+        "Non-invasive prenatal paternity testing from a maternal blood sample, safe during pregnancy.",
+      ctaLabel: "Request information",
+      badges: ["Non-invasive", "Prenatal"],
+    },
+    "carrier-detection": {
+      title: "Carrier Detection Test",
+      categoryLabel: "Reproductive & Family Testing",
+      description:
+        "Carrier screening to identify inherited variants that could be passed on to future children.",
+      ctaLabel: "Request information",
+      badges: ["Carrier screening", "Family planning"],
+    },
+    "paternity-relationship": {
+      title: "Paternity & Relationship Test",
+      categoryLabel: "Reproductive & Family Testing",
+      description:
+        "DNA testing to confirm paternity and other biological family relationships.",
+      ctaLabel: "Request information",
+      badges: ["DNA testing", "Relationship"],
+    },
+    "covid-rtpcr": {
+      title: "COVID RT-PCR Test",
+      categoryLabel: "Infectious Disease Panels",
+      description: "Gold-standard RT-PCR detection of SARS-CoV-2.",
+      ctaLabel: "Request information",
+      badges: ["RT-PCR", "SARS-CoV-2"],
+    },
+    "covid-flu-rsv": {
+      title: "COVID-FLU-RSV Panel",
+      categoryLabel: "Infectious Disease Panels",
+      description:
+        "Combined molecular panel detecting COVID-19, Influenza A/B and RSV from a single sample.",
+      ctaLabel: "Request information",
+      badges: ["Multiplex", "COVID / FLU / RSV"],
+    },
+    "respiratory-pathogen": {
+      title: "Respiratory Pathogen Panels (RPP LITE / RPP / PLUS)",
+      categoryLabel: "Infectious Disease Panels",
+      description:
+        "Respiratory pathogen panels detecting a broad range of viral and bacterial respiratory pathogens.",
+      ctaLabel: "Request information",
+      badges: ["RPP", "Multiplex", "LITE / RPP / PLUS"],
+    },
+    "uti-panel": {
+      title: "UTI Panels (LITE / UTI / PLUS, w/AMR)",
+      categoryLabel: "Infectious Disease Panels",
+      description:
+        "Urinary tract infection panels with antimicrobial resistance (AMR) markers to guide treatment.",
+      ctaLabel: "Request information",
+      badges: ["UTI", "AMR", "LITE / UTI / PLUS"],
+    },
+    "wound-panel": {
+      title: "Wound Panels (LITE / WOUND / PLUS)",
+      categoryLabel: "Infectious Disease Panels",
+      description:
+        "Wound infection panels identifying pathogens and resistance markers to guide treatment.",
+      ctaLabel: "Request information",
+      badges: ["Wound", "AMR", "LITE / WOUND / PLUS"],
+    },
+    "vaginitis-panel": {
+      title: "Vaginitis Panel",
+      categoryLabel: "Infectious Disease Panels",
+      description:
+        "Molecular panel for the common causes of vaginitis and vaginal infections.",
+      ctaLabel: "Request information",
+      badges: ["Vaginitis", "Molecular"],
+    },
+    "hpv-panel": {
+      title: "HPV (Human Papillomavirus) Panel",
+      categoryLabel: "Infectious Disease Panels",
+      description:
+        "Human Papillomavirus (HPV) genotyping panel, including high-risk types.",
+      ctaLabel: "Request information",
+      badges: ["HPV", "Genotyping", "High-risk types"],
+    },
+    "clinical-wgs": {
+      title: "Clinical Whole Genome Sequencing",
+      categoryLabel: "Clinical Genomics & Inherited Disorders",
+      description:
+        "Whole genome sequencing (WGS) for the diagnosis of rare and undiagnosed disease in patients with unexplained phenotypes. It detects SNVs, indels, structural variants, CNVs and repeat expansions, with proband-only or family-based (trio/duo) analysis. Analysis is performed by PCR-free library sequencing on the Illumina NovaSeq X Plus platform (2×150 bp, ≥30× mean depth) with DRAGEN processing against the GRCh38 reference genome. Includes optional secondary findings per the ACMG SF v3.3 list (84 genes). Specimen: blood (EDTA), saliva or buccal swab. Typical turnaround: 4–6 weeks.",
+      ctaLabel: "Request information",
+      badges: ["WGS", "Illumina NovaSeq X Plus", "ACMG SF v3.3"],
+    },
+    "clinical-wes": {
+      title: "Clinical Whole Exome Sequencing",
+      categoryLabel: "Clinical Genomics & Inherited Disorders",
+      description:
+        "Clinical whole exome sequencing analyzing coding regions for inherited and undiagnosed conditions.",
+      ctaLabel: "Request information",
+      badges: ["WES", "Diagnostic"],
+    },
+    "inherited-disorders": {
+      title: "Inherited Disorders Panel",
+      categoryLabel: "Clinical Genomics & Inherited Disorders",
+      description: "Panel for a broad range of inherited genetic disorders.",
+      ctaLabel: "Request information",
+      badges: ["NGS", "Inherited disease"],
+    },
+    "immune-panel": {
+      title: "Immune Panel (Immunological / Sarcoidosis / Immunodeficiency)",
+      categoryLabel: "Clinical Genomics & Inherited Disorders",
+      description:
+        "Germline NGS panel for primary (inborn) immunodeficiencies, autoimmune disorders and sarcoidosis. It may be useful with recurrent or difficult-to-treat viral, fungal or bacterial infections, long COVID, recurrent fevers or rash, and severe allergies.",
+      ctaLabel: "Request information",
+      badges: ["NGS", "Primary immunodeficiency", "Autoimmunity"],
+    },
+    "dementia-neuro": {
+      title: "Dementia & Neurological Disorders Panel",
+      categoryLabel: "Clinical Genomics & Inherited Disorders",
+      description:
+        "Germline NGS panel for hereditary neurological disorders: ataxias, Charcot-Marie-Tooth disease (CMT), spastic paraplegia, Parkinson's disease, Alzheimer's disease, frontotemporal dementia (FTD), amyotrophic lateral sclerosis (ALS) and epilepsy. Available in a focused tier (Alzheimer, dementia and Parkinson) and a comprehensive tier of 400+ genes.",
+      ctaLabel: "Request information",
+      badges: ["NGS", "Neurology", "Focused to comprehensive (400+ genes)"],
+    },
+    "eye-retinopathies": {
+      title: "Eye Disorders & Retinopathies Panel",
+      categoryLabel: "Clinical Genomics & Inherited Disorders",
+      description:
+        "Germline NGS panel for inherited eye disorders and retinopathies: retinitis pigmentosa, night and color blindness, nystagmus, age-related macular degeneration, cataract, glaucoma and microphthalmia, among others.",
+      ctaLabel: "Request information",
+      badges: ["NGS", "Ophthalmology", "Retinopathies"],
+    },
+    "adult-metabolic": {
+      title: "Adult Metabolic Disorders Panel",
+      categoryLabel: "Clinical Genomics & Inherited Disorders",
+      description:
+        "Comprehensive germline NGS panel for adult-onset metabolic disorders and wound care: hypercholesterolemia and hyperlipidemia, hypertension, diabetes, gout, porphyria, hemochromatosis, diabetic foot, diabetes-associated vascular complications and various wound-healing disorders.",
+      ctaLabel: "Request information",
+      badges: ["NGS", "Metabolic", "Wound healing"],
+    },
+    "developmental-metabolic": {
+      title: "Developmental Metabolic Disorders Panel",
+      categoryLabel: "Clinical Genomics & Inherited Disorders",
+      description:
+        "Germline NGS panel for developmental metabolic disorders: aminoacidopathies, organic acidemias, lysosomal storage disorders and fatty-acid oxidation disorders, caused by disruptions in metabolic pathways.",
+      ctaLabel: "Request information",
+      badges: ["NGS", "Metabolic", "Developmental"],
+    },
+    "diabetes-type2": {
+      title: "Type II Diabetes Mellitus Prediction Panel",
+      categoryLabel: "Personalized Health, Metabolism & Microbiota",
+      description:
+        "Germline NGS panel for diabetes mellitus assessing type 1 and type 2 forms, maturity-onset diabetes of the young (MODY), neonatal/congenital and gestational forms, genetic risk factors and multi-organ complications. About 250 genetic variants have been described in association with type 2 diabetes risk.",
+      ctaLabel: "Request information",
+      badges: ["NGS", "Diabetes", "MODY / neonatal / gestational"],
+    },
+    "ancestry-heritage": {
+      title: "Ancestry and Heritage",
+      categoryLabel: "Personalized Health, Metabolism & Microbiota",
+      description: "Explore your genetic ancestry and heritage.",
+      ctaLabel: "Request information",
+      badges: ["Ancestry", "Heritage"],
     },
     "microbiota-intestinal": {
-      title: "Gut Microbiome",
-      categoryLabel: "Microbiome",
+      title: "Intestinal Microbiota Panel",
+      categoryLabel: "Personalized Health, Metabolism & Microbiota",
       description:
-        "Analysis of the intestinal bacterial ecosystem to assess microbial diversity, dysbiosis, and guide nutritional and digestive health strategies.",
-      ctaLabel: "View analysis",
-      badges: ["16S Sequencing", "Pangea Lab", "Microbiome", "Digestive health"],
+        "Analysis of the gut bacterial ecosystem to assess microbial diversity, dysbiosis and guide nutrition and digestive-health strategies.",
+      ctaLabel: "View study",
+      badges: ["16S sequencing", "Microbiome", "Digestive health"],
+    },
+    "cardio-pulmonary": {
+      title: "Cardio-Pulmonary Disorders Panel",
+      categoryLabel: "Clinical Genomics & Inherited Disorders",
+      description:
+        "Germline NGS panel for inherited cardio-pulmonary disease: cardiomyopathies, cardiac arrhythmias, congenital heart disease, Noonan syndrome, pulmonary fibrosis, bronchiectasis, primary ciliary dyskinesia and aortic aneurysm/dissection.",
+      ctaLabel: "Available upon request",
+      badges: ["NGS", "Cardiac", "Pulmonary"],
+    },
+    "thyroid-panel": {
+      title: "Thyroid Disorders & Thyroid Cancer Panel",
+      categoryLabel: "Clinical Genomics & Inherited Disorders",
+      description:
+        "Germline NGS panel for thyroid-related disorders: dyshormonogenesis, hyperthyroidism, hypothyroidism and hereditary predisposition to thyroid cancers.",
+      ctaLabel: "Available upon request",
+      badges: ["NGS", "Thyroid", "Endocrinology"],
+    },
+    "hearing-impairment": {
+      title: "Hearing Impairment Panel",
+      categoryLabel: "Clinical Genomics & Inherited Disorders",
+      description:
+        "Germline NGS panel for syndromic and non-syndromic hereditary hearing loss, covering autosomal recessive, autosomal dominant and X-linked forms of deafness.",
+      ctaLabel: "Available upon request",
+      badges: ["NGS", "Audiology", "Syndromic / non-syndromic"],
+    },
+    "hematological-panel": {
+      title: "Hematological Panel",
+      categoryLabel: "Clinical Genomics & Inherited Disorders",
+      description:
+        "Comprehensive germline NGS panel for inherited blood and lymphatic-system disease: anemias, coagulopathies, thrombotic microangiopathies, bone-marrow-failure syndromes and hematologic malignancy predisposition.",
+      ctaLabel: "Available upon request",
+      badges: ["NGS", "Hematology"],
+    },
+    "mitochondrial-disorders": {
+      title: "Mitochondrial Disorders (Nuclear-Mito) Panel",
+      categoryLabel: "Clinical Genomics & Inherited Disorders",
+      description:
+        "Germline NGS panel focused on nuclear-DNA variations that impair mitochondrial function, including oxidative-phosphorylation (complex I–V) deficiencies affecting multiple organ systems.",
+      ctaLabel: "Available upon request",
+      badges: ["NGS", "Mitochondrial", "Nuclear DNA"],
+    },
+    "neuromuscular-disease": {
+      title: "Neuromuscular Disease Panel",
+      categoryLabel: "Clinical Genomics & Inherited Disorders",
+      description:
+        "Germline NGS panel for hereditary neuromuscular disease: Charcot-Marie-Tooth disease, hereditary spastic paraplegia, amyotrophic lateral sclerosis (ALS), spinal muscular atrophy and inherited neuropathies.",
+      ctaLabel: "Available upon request",
+      badges: ["NGS", "Neuromuscular"],
+    },
+    "musculoskeletal-disease": {
+      title: "Musculoskeletal Disease Panel",
+      categoryLabel: "Clinical Genomics & Inherited Disorders",
+      description:
+        "Germline NGS panel for hereditary musculoskeletal disease: limb-girdle and other muscular dystrophies, myopathies, chondrodysplasias, Ehlers-Danlos syndrome and osteogenesis imperfecta.",
+      ctaLabel: "Available upon request",
+      badges: ["NGS", "Musculoskeletal"],
+    },
+    "respiratory-genetic": {
+      title: "Comprehensive Respiratory Disease Panel",
+      categoryLabel: "Clinical Genomics & Inherited Disorders",
+      description:
+        "Germline NGS panel for hereditary respiratory disease and predisposition, including asthma, COPD, pulmonary fibrosis and autoimmune/autoinflammatory lung involvement. (Distinct from the infectious Respiratory Pathogen Panels.)",
+      ctaLabel: "Available upon request",
+      badges: ["NGS", "Respiratory", "Hereditary"],
+    },
+    "autism-neurodevelopment": {
+      title: "Autism Spectrum Disorder (ASD) Panel",
+      categoryLabel: "Clinical Genomics & Inherited Disorders",
+      description:
+        "Germline NGS panel analyzing more than 100 genes reported in autism spectrum disorder and neurodevelopmental conditions, to support diagnostic evaluation of social, behavioral and communication differences.",
+      ctaLabel: "Available upon request",
+      badges: ["NGS", "Neurodevelopment", "100+ genes"],
     },
   } as Record<string, { title: string; categoryLabel: string; description: string; ctaLabel: string; badges: string[] }>,
   productCategories: [
-    { id: "all", label: "All" },
-    { id: "cancer", label: "Hereditary cancer" },
-    { id: "cardiovascular", label: "Cardiovascular health" },
-    { id: "neurologia", label: "Neurology" },
-    { id: "inmunologia", label: "Immunology" },
-    { id: "diabetes", label: "Diabetes" },
-    { id: "oftalmologia", label: "Ophthalmology" },
-    { id: "farmacogenomica", label: "Pharmacogenomics" },
-    { id: "tiroides", label: "Thyroid" },
-    { id: "exoma", label: "Exome / Genome" },
-    { id: "microbioma", label: "Microbiome" },
+    {
+      id: "cancer",
+      label: "Cancer & Oncology",
+      description: "Hereditary risk and precision-oncology support",
+    },
+    {
+      id: "farmacogenomica",
+      label: "Pharmacogenomics",
+      description: "Drug response and dosing guidance",
+    },
+    {
+      id: "reproductiva",
+      label: "Reproductive & Family Testing",
+      description: "Prenatal and family-planning studies",
+    },
+    {
+      id: "infecciosas",
+      label: "Infectious Disease Panels",
+      description: "Pathogen and infection detection",
+    },
+    {
+      id: "genomica",
+      label: "Clinical Genomics & Inherited Disorders",
+      description: "Broad sequencing and hereditary panels",
+    },
+    {
+      id: "personalizada",
+      label: "Personalized Health, Metabolism & Microbiota",
+      description: "Metabolism, ancestry and microbiota",
+    },
   ],
   microbiotaIntestinal: {
     heroBadge: "In collaboration with Pangea Laboratory",

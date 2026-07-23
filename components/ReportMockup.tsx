@@ -105,7 +105,7 @@ export default function ReportMockup({ className = "" }: { className?: string })
             </div>
             <div className="rounded-lg bg-cobalt-50 px-3 py-2 text-center ring-1 ring-cobalt-100">
               <p className="text-[9px] font-semibold uppercase tracking-wider text-cobalt-600">
-                161 Genes
+                193 Genes
               </p>
               <p className="text-[10px] font-bold text-cobalt-700">Analyzed</p>
             </div>

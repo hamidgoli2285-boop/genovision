@@ -20,7 +20,7 @@ const PANELS = [
   },
   {
     name: "Cáncer Hereditario",
-    category: "Panel de 161 genes",
+    category: "Panel de 193 genes",
     accent: "bg-teal-500",
     icon: (
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">

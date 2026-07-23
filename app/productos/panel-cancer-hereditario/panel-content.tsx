@@ -67,7 +67,7 @@ export default function PanelContent() {
             </h1>
             <p className="mt-4 max-w-2xl text-lg leading-relaxed text-ink-muted">
               {pc.descriptionPart1}{" "}
-              <strong className="font-semibold text-navy">161 genes</strong>{" "}
+              <strong className="font-semibold text-navy">193 genes</strong>{" "}
               {pc.descriptionPart2}
             </p>
 
@@ -99,7 +99,7 @@ export default function PanelContent() {
               <div aria-hidden className="absolute inset-0 -z-10 rounded-full bg-gradient-to-br from-cobalt-100 via-teal-100 to-transparent blur-3xl opacity-70" />
               <DNAVisual className="h-full w-full" />
               <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 rounded-2xl bg-white px-4 py-3 ring-1 ring-slate-200 shadow-card">
-                <GeneCountBadge count={161} size="md" />
+                <GeneCountBadge count={193} size="md" />
               </div>
             </div>
           </div>
@@ -215,7 +215,7 @@ export default function PanelContent() {
         <SubpanelGrid className="mt-10" />
         <p className="mt-6 text-sm text-ink-muted">
           {pc.subpanelsNote.split("{genes}")[0]}
-          <strong className="font-semibold text-navy">161 genes</strong>
+          <strong className="font-semibold text-navy">193 genes</strong>
           {pc.subpanelsNote.split("{genes}")[1]}
         </p>
 

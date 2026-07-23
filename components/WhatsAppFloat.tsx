@@ -1,14 +1,19 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import InstagramIcon from "./InstagramIcon";
 import { whatsappLink, DEFAULT_WHATSAPP_MESSAGE, SITE } from "@/lib/site";
+
+// Pages where the floating social buttons should not appear at all.
+const HIDDEN_PATHS = ["/productos"];
 
 export default function WhatsAppFloat() {
   // Hides the floating icons while the hero (id="home-hero") or the
   // clinical decision-pathway section (id="decision-pathway") is in view,
   // so they don't clutter either section's visuals. On pages without these
   // elements, the icons stay visible as before.
+  const pathname = usePathname();
   const [hideOverHero, setHideOverHero] = useState(false);
   const intersectingMap = useRef(new Map<Element, boolean>());
 
@@ -36,6 +41,10 @@ export default function WhatsAppFloat() {
 
     return () => observer.disconnect();
   }, []);
+
+  // Fully hidden on catalog pages (e.g. /productos) — the Navbar keeps its
+  // own WhatsApp button, so no floating buttons are needed there.
+  if (HIDDEN_PATHS.includes(pathname ?? "")) return null;
 
   return (
     <div
