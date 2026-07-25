@@ -46,45 +46,6 @@ const CATEGORY_ALT: Record<ProductCategory, { es: string; en: string }> = {
   },
 };
 
-/* ── One small icon per category — purely decorative, no clinical claim ── */
-const CATEGORY_ICON: Record<ProductCategory, React.ReactNode> = {
-  cancer: (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M6 3c0 4 4 6 4 9s-4 5-4 9M18 3c0 4-4 6-4 9s4 5 4 9" />
-      <path d="M7 7h10M7 17h10" />
-    </svg>
-  ),
-  farmacogenomica: (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M10.5 20.5 3.5 13.5a5 5 0 1 1 7-7l7 7a5 5 0 0 1-7 7Z" />
-      <path d="M8.5 8.5 11 11" />
-    </svg>
-  ),
-  reproductiva: (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="12" cy="9" r="5" />
-      <path d="M12 14v7M9 18h6" />
-    </svg>
-  ),
-  infecciosas: (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3Z" />
-      <path d="m9.5 12 2 2 3.5-3.5" />
-    </svg>
-  ),
-  genomica: (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M6 3c0 5 12 5 12 10s-12 5-12 10M8 6h8M8 18h8M9 12h6" />
-    </svg>
-  ),
-  personalizada: (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="12" cy="8" r="4" />
-      <path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7" />
-    </svg>
-  ),
-};
-
 export default function ProductsCatalog() {
   const { t, lang } = useLanguage();
   const p = t.productos;
@@ -160,15 +121,6 @@ export default function ProductsCatalog() {
                   className="absolute inset-0"
                   style={{ background: "linear-gradient(180deg, rgba(10,34,64,0) 55%, rgba(10,34,64,0.45) 100%)" }}
                 />
-                <span
-                  className="absolute left-4 top-4 grid h-11 w-11 place-items-center rounded-xl"
-                  style={{
-                    background: isOpen ? `linear-gradient(135deg, ${CYAN} 0%, ${NAVY} 100%)` : "rgba(255,255,255,0.9)",
-                    color: isOpen ? "#FFFFFF" : "#0B7C93",
-                  }}
-                >
-                  {CATEGORY_ICON[cat.id]}
-                </span>
               </div>
               <div className="p-5">
                 <h3 className="font-display text-base font-bold leading-snug" style={{ color: NAVY }}>
