@@ -70,6 +70,7 @@ export const PRODUCTS: Product[] = [
     badges: ["Liquid biopsy", "Multi-cancer", "Blood sample"],
     ctaLabel: "Request information",
     featured: true,
+    href: "/productos/tamizaje-universal-cancer",
   },
   {
     id: "cancer-pgx",

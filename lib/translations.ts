@@ -1680,6 +1680,277 @@ const es = {
     whatsappMessage:
       "Hola GenoVision, me interesa información sobre el análisis de Microbiota Intestinal.",
   },
+  tamizajeUniversal: {
+    heroTitle: "Tamizaje Universal de Cáncer mediante Biopsia Líquida",
+    heroDescription:
+      "Estudio basado en una muestra de sangre que analiza señales moleculares asociadas con diferentes tipos de cáncer. Puede aportar información adicional para la evaluación preventiva, el seguimiento clínico y la orientación médica.",
+    heroBadges: [
+      "Muestra de sangre",
+      "Biopsia líquida",
+      "Evaluación multitumoral",
+      "Análisis molecular",
+      "Resultado en 2–3 semanas",
+    ],
+    heroCtaPrimary: "Solicitar información",
+    heroCtaSecondary: "Hablar por WhatsApp",
+
+    overviewTitle: "¿Qué es el Tamizaje Universal de Cáncer?",
+    overviewParagraphs: [
+      "El Tamizaje Universal de Cáncer mediante Biopsia Líquida es un estudio basado en una muestra de sangre que evalúa material molecular circulante, como ADN libre circulante y, cuando está presente, señales de ADN asociado a procesos tumorales. Está diseñado para identificar alteraciones moleculares relacionadas con diferentes tipos de cáncer.",
+      "Este análisis puede aportar información útil para la evaluación preventiva, el seguimiento clínico o la investigación médica adicional. No es, por sí mismo, una prueba diagnóstica: no confirma ni descarta la presencia de cáncer de manera independiente.",
+      "Un profesional de la salud debe interpretar los hallazgos en conjunto con la historia clínica del paciente, sus síntomas, estudios de imagen, pruebas de laboratorio y demás información clínica relevante.",
+    ],
+
+    relevanceTitle: "¿Por qué puede ser importante?",
+    relevanceCards: [
+      {
+        title: "Evaluación multitumoral",
+        description:
+          "Una sola muestra de sangre puede utilizarse para evaluar señales moleculares asociadas con múltiples tipos de cáncer.",
+      },
+      {
+        title: "Información molecular",
+        description:
+          "El análisis puede identificar alteraciones genéticas o moleculares que ayuden a orientar una evaluación médica adicional.",
+      },
+      {
+        title: "Procedimiento no invasivo",
+        description:
+          "El estudio utiliza una muestra de sangre y no requiere una biopsia quirúrgica de tejido para el análisis molecular inicial.",
+      },
+      {
+        title: "Apoyo para decisiones clínicas",
+        description:
+          "Los resultados pueden ayudar al médico a determinar si deben considerarse estudios adicionales, evaluación por especialista o pruebas confirmatorias.",
+      },
+    ],
+
+    whoTitle: "¿Quién puede considerar este estudio?",
+    whoProfiles: [
+      "Adultos interesados en una evaluación preventiva más personalizada.",
+      "Personas con antecedentes familiares de cáncer.",
+      "Personas con múltiples familiares afectados por cáncer.",
+      "Individuos con exposición ambiental u ocupacional relevante.",
+      "Fumadores actuales o exfumadores.",
+      "Personas con hallazgos clínicos no explicados que ya se encuentran en evaluación médica.",
+      "Sobrevivientes de cáncer que requieren seguimiento molecular dirigido por su médico.",
+      "Pacientes cuyo médico recomienda una evaluación molecular adicional.",
+    ],
+    whoNote:
+      "La indicación debe individualizarse. La edad, los antecedentes familiares, los síntomas, los factores de riesgo y los estudios previos deben ser considerados por un profesional de la salud.",
+
+    cancerTypesTitle: "Tipos de cáncer evaluados",
+    cancerTypesFallback:
+      "El estudio analiza señales moleculares asociadas con múltiples tipos de cáncer. La cobertura específica puede variar según la versión del análisis y debe confirmarse con GenoVision antes de solicitar el estudio.",
+    cancerTypesCta: "Consultar cobertura del estudio",
+
+    howTitle: "¿Cómo funciona?",
+    howSteps: [
+      {
+        title: "Consulta y evaluación inicial",
+        description: "Se revisan tus antecedentes y objetivos para confirmar si el estudio es adecuado para ti.",
+      },
+      {
+        title: "Toma de muestra de sangre",
+        description: "Se obtiene una muestra de sangre mediante un procedimiento estándar de extracción.",
+      },
+      {
+        title: "Procesamiento de ADN circulante",
+        description: "La muestra se procesa para aislar el material genético circulante presente en el plasma.",
+      },
+      {
+        title: "Análisis molecular",
+        description: "Se evalúan las señales moleculares mediante tecnología de secuenciación especializada.",
+      },
+      {
+        title: "Informe e interpretación clínica",
+        description: "Los resultados se integran en un informe que debe interpretarse junto con tu médico.",
+      },
+    ],
+
+    reportTitle: "¿Qué información puede incluir el informe?",
+    reportItems: [
+      "Alteraciones moleculares identificadas",
+      "Gen o biomarcador relacionado",
+      "Clasificación de la variante",
+      "Significado clínico",
+      "Posible relevancia para seguimiento médico",
+      "Posible relevancia terapéutica, cuando aplique",
+      "Limitaciones del análisis",
+      "Recomendaciones para evaluación médica adicional",
+      "Referencias o guías clínicas, cuando estén disponibles",
+    ],
+    reportDisclaimer:
+      "La información terapéutica no constituye una prescripción médica. Las decisiones de tratamiento deben ser tomadas por el médico tratante.",
+
+    applicationsTitle: "Aplicaciones clínicas",
+    applicationsCards: [
+      {
+        title: "Evaluación preventiva personalizada",
+        description:
+          "Puede aportar información adicional dentro de un enfoque de evaluación preventiva individualizado.",
+      },
+      {
+        title: "Investigación de señales moleculares",
+        description:
+          "Ayuda a explorar la presencia de alteraciones moleculares que puedan orientar estudios posteriores.",
+      },
+      {
+        title: "Apoyo al seguimiento clínico",
+        description:
+          "Puede utilizarse como información complementaria dentro de un plan de seguimiento definido por el médico tratante.",
+      },
+      {
+        title: "Orientación para estudios complementarios",
+        description:
+          "Los hallazgos pueden ayudar a definir si se requieren estudios de imagen, laboratorio o evaluación especializada adicional.",
+      },
+    ],
+
+    notReplaceTitle: "¿Qué no sustituye este estudio?",
+    notReplaceItems: [
+      "Consulta médica",
+      "Exploración física",
+      "Biopsia de tejido",
+      "Histopatología",
+      "Estudios de imagen",
+      "Tamizaje específico por órgano",
+      "Pruebas de laboratorio estándar",
+      "Pruebas moleculares confirmatorias, cuando sean necesarias",
+    ],
+    notReplaceNotice:
+      "Un resultado negativo no descarta completamente la presencia de cáncer. Un resultado con hallazgos moleculares no confirma por sí solo un diagnóstico de cáncer.",
+
+    comparisonTitle: "Tamizaje Universal de Cáncer frente al tamizaje estándar",
+    comparisonIntro:
+      "Comparación con fines educativos. Ambas opciones cumplen funciones distintas y complementarias dentro de la evaluación clínica.",
+    comparisonColStandard: "Tamizaje estándar",
+    comparisonColUniversal: "Tamizaje Universal de Cáncer mediante Biopsia Líquida",
+    comparisonRows: [
+      {
+        label: "Propósito",
+        standard: "Tamizaje o evaluación diagnóstica específica por órgano",
+        universal: "Evaluación molecular multitumoral adicional",
+      },
+      {
+        label: "Muestra o procedimiento",
+        standard: "Depende del estudio",
+        universal: "Muestra de sangre",
+      },
+      {
+        label: "Rol clínico",
+        standard: "Vía establecida de tamizaje o diagnóstico",
+        universal: "Información molecular complementaria",
+      },
+      {
+        label: "Resultados",
+        standard: "Hallazgos de imagen, laboratorio, citología, patología u otros",
+        universal: "Hallazgos moleculares e interpretación",
+      },
+      {
+        label: "Sustitución",
+        standard: "Forma parte de la atención estándar",
+        universal: "No sustituye la atención estándar",
+      },
+    ],
+
+    technologyTitle: "Tecnología del estudio",
+    technologyTerms: [
+      "Biopsia líquida",
+      "ADN libre circulante",
+      "ADN tumoral circulante",
+      "Secuenciación de nueva generación",
+      "Bioinformática",
+      "Interpretación molecular",
+    ],
+
+    sampleTitle: "Información de la muestra",
+    sampleLabels: {
+      sample: "Muestra",
+      preparation: "Preparación",
+      turnaround: "Tiempo de entrega",
+      report: "Informe",
+    },
+    sampleValues: {
+      sample: "Sangre",
+      preparation: "No requiere preparación especial, salvo indicación médica diferente.",
+      turnaround: "2–3 semanas",
+      report: "Disponible para el paciente y el profesional que refiere, conforme al proceso de entrega de GenoVision.",
+    },
+
+    faqTitle: "Preguntas frecuentes",
+    faqItems: [
+      {
+        q: "¿Este estudio diagnostica cáncer?",
+        a: "No. El estudio evalúa señales moleculares que pueden aportar información adicional, pero no diagnostica cáncer por sí mismo. Un diagnóstico requiere evaluación médica y, generalmente, estudios confirmatorios.",
+      },
+      {
+        q: "¿Un resultado negativo descarta completamente el cáncer?",
+        a: "No. Un resultado negativo no descarta completamente la presencia de cáncer. Siempre debe interpretarse junto con la historia clínica y, si es necesario, con otros estudios.",
+      },
+      {
+        q: "¿Un resultado positivo confirma cáncer?",
+        a: "No. Un hallazgo molecular no confirma por sí solo un diagnóstico de cáncer. Generalmente requiere evaluación médica adicional y, en muchos casos, pruebas confirmatorias.",
+      },
+      {
+        q: "¿Sustituye una biopsia de tejido?",
+        a: "No. Este estudio no sustituye una biopsia de tejido ni la evaluación histopatológica cuando estas son clínicamente necesarias.",
+      },
+      {
+        q: "¿Sustituye la mastografía, colonoscopia u otros estudios?",
+        a: "No. El tamizaje universal no sustituye la mastografía, colonoscopia, Papanicolaou, PSA ni otros métodos de tamizaje establecidos. Es un estudio complementario.",
+      },
+      {
+        q: "¿Quién puede solicitarlo?",
+        a: "La indicación debe individualizarse junto con un profesional de la salud, considerando edad, antecedentes familiares, síntomas y factores de riesgo.",
+      },
+      {
+        q: "¿Necesito estar en ayuno?",
+        a: "No requiere preparación especial, salvo indicación médica diferente.",
+      },
+      {
+        q: "¿Cuánto tardan los resultados?",
+        a: "El tiempo de entrega aproximado es de 2 a 3 semanas.",
+      },
+      {
+        q: "¿Qué ocurre si se identifica una alteración?",
+        a: "El hallazgo se interpreta clínicamente y puede requerir evaluación médica adicional o pruebas confirmatorias, según corresponda.",
+      },
+      {
+        q: "¿Quién interpreta el informe?",
+        a: "El informe debe ser interpretado por un profesional de la salud en el contexto clínico del paciente.",
+      },
+      {
+        q: "¿Puede realizarse en una persona sin síntomas?",
+        a: "Puede considerarse en algunos contextos preventivos, siempre bajo orientación médica individualizada. No garantiza la detección de todos los tipos de cáncer.",
+      },
+      {
+        q: "¿Puede utilizarse en pacientes con antecedentes de cáncer?",
+        a: "Puede considerarse como parte de un seguimiento molecular dirigido por el médico tratante, según el caso clínico.",
+      },
+    ],
+
+    whyTitle: "¿Por qué realizarlo con GenoVision?",
+    whyItems: [
+      "Orientación inicial personalizada",
+      "Coordinación de la toma de muestra",
+      "Acceso a análisis genómicos especializados",
+      "Informe clínico estructurado",
+      "Apoyo para comprender los resultados",
+      "Comunicación con el médico tratante, cuando esté autorizada",
+      "Atención en Mérida",
+      "Asesoría en español",
+    ],
+
+    finalCtaTitle: "Da un paso hacia una evaluación más personalizada",
+    finalCtaText:
+      "Solicita orientación para saber si este estudio es adecuado para tu situación, antecedentes y objetivos de salud.",
+    finalCtaPrimary: "Solicitar información",
+    finalCtaSecondary: "Contactar por WhatsApp",
+
+    whatsappMessage:
+      "Hola GenoVision, me interesa información sobre el Tamizaje Universal de Cáncer mediante Biopsia Líquida.",
+  },
   subpanelData: {
     "colorrectal-poliposis": {
       title: "Cáncer Colorrectal Hereditario y Poliposis",
@@ -3429,6 +3700,277 @@ const en: typeof es = {
       "A laboratory specialized in microbiome analysis using high-resolution genomic sequencing technology.",
     whatsappMessage:
       "Hello GenoVision, I'm interested in information about the Gut Microbiome analysis.",
+  },
+  tamizajeUniversal: {
+    heroTitle: "Universal Cancer Screening through Liquid Biopsy",
+    heroDescription:
+      "A blood-based study that evaluates molecular signals associated with different cancer types. It may provide additional information for preventive evaluation, clinical follow-up, and medical guidance.",
+    heroBadges: [
+      "Blood sample",
+      "Liquid biopsy",
+      "Multi-cancer evaluation",
+      "Molecular analysis",
+      "Results in 2–3 weeks",
+    ],
+    heroCtaPrimary: "Request information",
+    heroCtaSecondary: "Contact us on WhatsApp",
+
+    overviewTitle: "What is Universal Cancer Screening?",
+    overviewParagraphs: [
+      "Universal Cancer Screening through Liquid Biopsy is a blood-based study that evaluates circulating molecular material, such as cell-free DNA and, when present, DNA signals associated with tumor processes. It is designed to identify molecular alterations associated with different cancer types.",
+      "This analysis may provide useful information for preventive evaluation, clinical follow-up, or further medical investigation. It is not, by itself, a diagnostic test: it does not independently confirm or exclude the presence of cancer.",
+      "A healthcare professional must interpret the findings together with the patient's clinical history, symptoms, imaging studies, laboratory testing, and other relevant clinical information.",
+    ],
+
+    relevanceTitle: "Why may this test be relevant?",
+    relevanceCards: [
+      {
+        title: "Multi-cancer evaluation",
+        description:
+          "A single blood sample may be used to evaluate molecular signals associated with multiple cancer types.",
+      },
+      {
+        title: "Molecular information",
+        description:
+          "The analysis may identify genetic or molecular alterations that can support further medical evaluation.",
+      },
+      {
+        title: "Non-invasive procedure",
+        description:
+          "The study uses a blood sample and does not require a surgical tissue biopsy for the initial molecular analysis.",
+      },
+      {
+        title: "Clinical decision support",
+        description:
+          "Results may help physicians determine whether additional studies, specialist evaluation, or confirmatory testing should be considered.",
+      },
+    ],
+
+    whoTitle: "Who may consider this study?",
+    whoProfiles: [
+      "Adults interested in a more personalized preventive evaluation.",
+      "People with a family history of cancer.",
+      "People with multiple relatives affected by cancer.",
+      "Individuals with relevant environmental or occupational exposure.",
+      "Current or former smokers.",
+      "People with unexplained clinical findings who are already under medical evaluation.",
+      "Cancer survivors who require physician-directed molecular follow-up.",
+      "Patients whose physician recommends additional molecular assessment.",
+    ],
+    whoNote:
+      "The indication should be individualized. Age, family history, symptoms, risk factors, and previous studies should be considered by a healthcare professional.",
+
+    cancerTypesTitle: "Cancer types evaluated",
+    cancerTypesFallback:
+      "The study evaluates molecular signals associated with multiple cancer types. Specific coverage may vary according to the analysis version and should be confirmed with GenoVision before ordering the test.",
+    cancerTypesCta: "Ask about test coverage",
+
+    howTitle: "How does it work?",
+    howSteps: [
+      {
+        title: "Initial consultation and assessment",
+        description: "Your history and goals are reviewed to confirm whether the study is appropriate for you.",
+      },
+      {
+        title: "Blood sample collection",
+        description: "A blood sample is obtained through a standard collection procedure.",
+      },
+      {
+        title: "Circulating DNA processing",
+        description: "The sample is processed to isolate circulating genetic material present in the plasma.",
+      },
+      {
+        title: "Molecular analysis",
+        description: "Molecular signals are evaluated using specialized sequencing technology.",
+      },
+      {
+        title: "Report and clinical interpretation",
+        description: "Results are integrated into a report that must be interpreted together with your physician.",
+      },
+    ],
+
+    reportTitle: "What information may the report include?",
+    reportItems: [
+      "Identified molecular alterations",
+      "Related gene or biomarker",
+      "Variant classification",
+      "Clinical significance",
+      "Potential relevance for medical follow-up",
+      "Potential therapeutic relevance, when applicable",
+      "Test limitations",
+      "Recommendations for additional medical evaluation",
+      "References or clinical guidelines, when available",
+    ],
+    reportDisclaimer:
+      "Therapeutic information does not constitute a medical prescription. Treatment decisions must be made by the treating physician.",
+
+    applicationsTitle: "Clinical applications",
+    applicationsCards: [
+      {
+        title: "Personalized preventive evaluation",
+        description:
+          "May provide additional information within an individualized preventive evaluation approach.",
+      },
+      {
+        title: "Investigation of molecular signals",
+        description:
+          "Helps explore the presence of molecular alterations that may guide further studies.",
+      },
+      {
+        title: "Clinical follow-up support",
+        description:
+          "May be used as complementary information within a follow-up plan defined by the treating physician.",
+      },
+      {
+        title: "Guidance for additional testing",
+        description:
+          "Findings may help determine whether imaging, laboratory studies, or additional specialist evaluation are needed.",
+      },
+    ],
+
+    notReplaceTitle: "What does this test not replace?",
+    notReplaceItems: [
+      "Medical consultation",
+      "Physical examination",
+      "Tissue biopsy",
+      "Histopathology",
+      "Imaging",
+      "Organ-specific screening",
+      "Standard laboratory testing",
+      "Confirmatory molecular testing, when required",
+    ],
+    notReplaceNotice:
+      "A negative result does not completely exclude the presence of cancer. A molecular finding alone does not confirm a cancer diagnosis.",
+
+    comparisonTitle: "Universal Cancer Screening vs. Standard Screening",
+    comparisonIntro:
+      "Educational comparison. Both options serve distinct and complementary roles within clinical evaluation.",
+    comparisonColStandard: "Standard screening",
+    comparisonColUniversal: "Universal Cancer Screening through Liquid Biopsy",
+    comparisonRows: [
+      {
+        label: "Purpose",
+        standard: "Organ-specific screening or diagnostic evaluation",
+        universal: "Additional multi-cancer molecular evaluation",
+      },
+      {
+        label: "Sample or procedure",
+        standard: "Depends on the study",
+        universal: "Blood sample",
+      },
+      {
+        label: "Clinical role",
+        standard: "Established screening or diagnostic pathway",
+        universal: "Complementary molecular information",
+      },
+      {
+        label: "Results",
+        standard: "Imaging, laboratory, cytology, pathology, or other findings",
+        universal: "Molecular findings and interpretation",
+      },
+      {
+        label: "Replacement",
+        standard: "Part of standard care",
+        universal: "Does not replace standard care",
+      },
+    ],
+
+    technologyTitle: "Test technology",
+    technologyTerms: [
+      "Liquid biopsy",
+      "Cell-free DNA",
+      "Circulating tumor DNA",
+      "Next-generation sequencing",
+      "Bioinformatics",
+      "Molecular interpretation",
+    ],
+
+    sampleTitle: "Sample information",
+    sampleLabels: {
+      sample: "Sample",
+      preparation: "Preparation",
+      turnaround: "Turnaround time",
+      report: "Report",
+    },
+    sampleValues: {
+      sample: "Blood",
+      preparation: "No special preparation is generally required unless otherwise instructed by the physician.",
+      turnaround: "2–3 weeks",
+      report: "Available to the patient and referring professional according to GenoVision's delivery process.",
+    },
+
+    faqTitle: "Frequently asked questions",
+    faqItems: [
+      {
+        q: "Does this test diagnose cancer?",
+        a: "No. The test evaluates molecular signals that may provide additional information, but it does not diagnose cancer on its own. A diagnosis requires medical evaluation and, generally, confirmatory testing.",
+      },
+      {
+        q: "Does a negative result completely rule out cancer?",
+        a: "No. A negative result does not completely exclude the presence of cancer. It should always be interpreted together with clinical history and, if necessary, other studies.",
+      },
+      {
+        q: "Does a positive result confirm cancer?",
+        a: "No. A molecular finding alone does not confirm a cancer diagnosis. It generally requires additional medical evaluation and, in many cases, confirmatory testing.",
+      },
+      {
+        q: "Does it replace a tissue biopsy?",
+        a: "No. This test does not replace a tissue biopsy or histopathological evaluation when these are clinically necessary.",
+      },
+      {
+        q: "Does it replace mammography, colonoscopy, or other studies?",
+        a: "No. Universal screening does not replace mammography, colonoscopy, Pap testing, PSA testing, or other established screening methods. It is a complementary study.",
+      },
+      {
+        q: "Who can request it?",
+        a: "The indication should be individualized together with a healthcare professional, considering age, family history, symptoms, and risk factors.",
+      },
+      {
+        q: "Do I need to fast?",
+        a: "No special preparation is generally required unless otherwise instructed by the physician.",
+      },
+      {
+        q: "How long do results take?",
+        a: "The approximate turnaround time is 2 to 3 weeks.",
+      },
+      {
+        q: "What happens if an alteration is identified?",
+        a: "The finding is clinically interpreted and may require additional medical evaluation or confirmatory testing, as appropriate.",
+      },
+      {
+        q: "Who interprets the report?",
+        a: "The report must be interpreted by a healthcare professional within the patient's clinical context.",
+      },
+      {
+        q: "Can it be performed in a person without symptoms?",
+        a: "It may be considered in some preventive contexts, always under individualized medical guidance. It does not guarantee detection of all cancer types.",
+      },
+      {
+        q: "Can it be used in patients with a history of cancer?",
+        a: "It may be considered as part of a molecular follow-up plan directed by the treating physician, depending on the clinical case.",
+      },
+    ],
+
+    whyTitle: "Why choose GenoVision?",
+    whyItems: [
+      "Personalized initial guidance",
+      "Sample collection coordination",
+      "Access to specialized genomic analysis",
+      "Structured clinical report",
+      "Support in understanding results",
+      "Communication with the treating physician, when authorized",
+      "Service in Mérida",
+      "Spanish-language guidance",
+    ],
+
+    finalCtaTitle: "Take a step toward a more personalized evaluation",
+    finalCtaText:
+      "Request guidance to determine whether this study is appropriate for your situation, medical history, and health goals.",
+    finalCtaPrimary: "Request information",
+    finalCtaSecondary: "Contact us on WhatsApp",
+
+    whatsappMessage:
+      "Hello GenoVision, I'm interested in information about Universal Cancer Screening through Liquid Biopsy.",
   },
   subpanelData: {
     "colorrectal-poliposis": {

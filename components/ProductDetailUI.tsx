@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useId, useMemo, useState } from "react";
 import type { CondGroup } from "@/lib/product-content";
 
 const NAVY = "#0A2240";
@@ -35,16 +35,21 @@ export function Timeline({ steps }: { steps: string[] }) {
 /* ── Accordion — generic collapsible item group ─────────────────────────── */
 export function Accordion({ items }: { items: { title: string; content: React.ReactNode }[] }) {
   const [open, setOpen] = useState<number | null>(0);
+  const baseId = useId();
   return (
     <div className="divide-y divide-slate-100 overflow-hidden rounded-2xl ring-1 ring-slate-200/70">
       {items.map((item, i) => {
         const isOpen = open === i;
+        const buttonId = `${baseId}-accordion-button-${i}`;
+        const panelId = `${baseId}-accordion-panel-${i}`;
         return (
           <div key={item.title} className="bg-white">
             <button
               type="button"
+              id={buttonId}
               onClick={() => setOpen(isOpen ? null : i)}
               aria-expanded={isOpen}
+              aria-controls={panelId}
               className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left transition-colors hover:bg-slate-50/70"
             >
               <span className="font-semibold text-navy">{item.title}</span>
@@ -57,12 +62,22 @@ export function Accordion({ items }: { items: { title: string; content: React.Re
                 strokeWidth="2.4"
                 strokeLinecap="round"
                 strokeLinejoin="round"
+                aria-hidden
                 className={`shrink-0 text-slate-400 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
               >
                 <path d="m6 9 6 6 6-6" />
               </svg>
             </button>
-            {isOpen && <div className="px-5 pb-5 text-sm leading-relaxed text-slate-600">{item.content}</div>}
+            {isOpen && (
+              <div
+                id={panelId}
+                role="region"
+                aria-labelledby={buttonId}
+                className="px-5 pb-5 text-sm leading-relaxed text-slate-600"
+              >
+                {item.content}
+              </div>
+            )}
           </div>
         );
       })}
